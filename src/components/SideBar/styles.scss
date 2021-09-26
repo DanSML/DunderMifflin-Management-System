@@ -10,7 +10,6 @@ div.sideBarContainer {
   background: var(--blackgray-900);
   filter: drop-shadow(2px 2px rgb(0, 0, 0, 0.5));
 
-
   div.profileOptions{
 
     div.profileInfo{
@@ -78,4 +77,13 @@ div.sideBarContainer {
       }
     }
   }
+
+  transition: all .2s;
+
+}
+
+div.sideBarContainerHided {
+  transition: all .2s;
+
+  display: none;
 }

@@ -4,10 +4,12 @@ import salestImg from '../../assets/sales.svg'
 import reporttImg from '../../assets/report.svg'
 
 import './styles.scss'
+import { useButtons } from '../../hooks/useButtons'
 
 function SideBar() {
+  const { buttonState } = useButtons();
   return (
-    <div className="sideBarContainer">
+    <div className={buttonState === 'normal' ? 'sideBarContainerHided' : 'sideBarContainer'}>
 
       <div className="profileOptions">
         <div className="profileInfo">
