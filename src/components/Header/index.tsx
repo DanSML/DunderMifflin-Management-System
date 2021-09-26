@@ -1,25 +1,15 @@
-import { useState } from 'react';
 import logoImg  from '../../assets/Logo.svg'
 import settingsImg  from '../../assets/settings.svg'
+import { StyledButton } from './StyledButton';
 
 import './styles.scss'
 
 function Header() {
-  const [buttonState, setButtonState] = useState('normal');
-
-  function changeIt(){
-    setButtonState(buttonState === 'normal' ? 'changed' : 'normal');
-  }
-
   return (
     <>
       <header>
         <div className="button"> 
-          <button onClick={changeIt}>
-            <div className={buttonState}>
-
-            </div>
-          </button>
+          <StyledButton/>
           <img src={logoImg} alt="logo" />
         </div>
         <div className="settings">

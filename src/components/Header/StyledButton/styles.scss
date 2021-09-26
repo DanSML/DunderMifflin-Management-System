@@ -1,0 +1,108 @@
+button {
+  margin: auto 1rem;
+  width: 2.5rem;
+  height: 2.2rem;
+  padding: .4rem;
+
+
+  border: none;
+  border-radius: .2rem;
+
+  background: var(--blackgray-600);
+  filter: drop-shadow(2px 2px rgba(0, 0, 0, 0.5));
+  
+
+  div.normal {
+    position: absolute;
+    top: 1.02rem;
+    left: .35rem;
+    height: .2rem;
+    width: 1.85rem;
+
+    background: var(--gray-600);
+
+    border-radius: inherit;
+
+    transition: all .3s;
+
+
+    &::before{
+      content: "";
+      position: absolute;
+      top: -.5rem;
+      left: 0;
+      height: .2rem;
+      width: 100%;
+
+      background: var(--gray-600);
+
+      border-radius: inherit;
+    
+      transition: all .3s;
+
+    }
+
+    &::after{
+      content: "";
+
+      top: .5rem;
+      width: 100%;
+
+      position: absolute;
+      left: 0;
+      height: .2rem;
+      background: var(--gray-600);
+
+      border-radius: inherit;
+
+      transition: all .3s;
+
+    }
+
+  }
+
+  div.changed {
+    position: absolute;
+    top: 1rem;
+    left: .4rem;
+    height: .20rem;
+    width: 1.85rem;
+
+    background: transparent;
+
+    border-radius: inherit;
+
+    transition: all .3s;
+
+
+    &::before{
+      content: "";
+      position: absolute;
+      top: 0rem;
+      left: 0;
+      height: .2rem;
+      width: 100%;
+
+
+      background: var(--gray-600);
+      border-radius: inherit;
+      transition: all .3s;
+      transform: rotate(45deg);
+    }
+
+
+    &::after{
+      content: "";
+      top: 0rem;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      height: .2rem;
+      background: var(--gray-600);
+
+      border-radius: inherit;
+      transition: all .3s;
+      transform: rotate(-45deg);
+    }
+  }
+}
