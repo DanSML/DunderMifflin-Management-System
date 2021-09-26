@@ -1,0 +1,81 @@
+div.sideBarContainer {
+  width: 18rem;
+  height: 28rem;
+
+  margin: 1rem 0 0 1rem;
+  border-radius: .4rem;
+
+  padding: 1rem;
+
+  background: var(--blackgray-900);
+  filter: drop-shadow(2px 2px rgb(0, 0, 0, 0.5));
+
+
+  div.profileOptions{
+
+    div.profileInfo{
+      height: 6rem;
+      border-radius: .2rem;
+      padding: .5rem;
+
+      background: var(--blackgray-600);
+      display: flex;
+      align-items: flex-end; 
+
+      div {
+        margin-left: .4rem;
+      }
+    }
+
+    div.profileButtons {
+      margin-top: .2rem;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        font-size: 1rem;
+        color: var(--gray-600);
+        height: 3rem;
+        width: 7.9rem;
+
+        border: none;
+        background: var(--blackgray-600);
+      }
+      
+      button.editButton {
+        border-radius: .2rem 0 0 .2rem;
+      }
+
+      button.logOutButton {
+        border-radius: 0 .2rem .2rem 0;
+      }
+    }
+  }
+
+  div.departmentButtons {
+    margin-top: 4rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+    button {
+      background: var(--blackgray-600);
+      color: var(--gray-600);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+
+      border: none;
+      border-radius: .2rem;
+      height: 3rem;
+      width: 16rem;
+      
+      img {
+        color: var(--gray-600);
+        padding: 2rem;
+      }
+    }
+  }
+}

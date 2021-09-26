@@ -7,9 +7,12 @@ function StyledButton() {
   function changeIt(){
     setButtonState(buttonState === 'normal' ? 'changed' : 'normal');
   }
-
+  
   return (
-    <button onClick={changeIt}>
+    <button 
+      onClick={changeIt} 
+      className="headerButton"
+    >
       <div className={buttonState}>
       </div>
     </button>

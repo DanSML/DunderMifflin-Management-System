@@ -7,7 +7,7 @@ import './styles.scss'
 function Header() {
   return (
     <>
-      <header>
+      <header className="principal">
         <div className="button"> 
           <StyledButton/>
           <img src={logoImg} alt="logo" />
