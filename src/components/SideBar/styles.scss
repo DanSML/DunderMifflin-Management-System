@@ -8,6 +8,7 @@ div.sideBarContainer {
   padding: 1rem;
 
   background: var(--blackgray-900);
+
   filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
 
 
@@ -79,12 +80,15 @@ div.sideBarContainer {
     }
   }
 
-  transition: all .2s;
+  transition: display 5s;
 
 }
 
 div.sideBarContainerHided {
-  transition: all .2s;
 
   display: none;
+
+  position: absolute;
+
+
 }
