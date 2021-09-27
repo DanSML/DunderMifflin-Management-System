@@ -1,4 +1,4 @@
-div.sideBarContainer {
+div.sideBarContainer {  
   width: 18rem;
   height: 28rem;
 
@@ -79,16 +79,12 @@ div.sideBarContainer {
       }
     }
   }
-
-  transition: display 5s;
+  transition: all 20s;
 
 }
 
 div.sideBarContainerHided {
-
   display: none;
-
-  position: absolute;
 
 
 }

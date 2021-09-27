@@ -1,0 +1,62 @@
+header.baseHeaderContainer{
+    height: 5.5rem;
+
+    background: var(--blackgray-900);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div.depositLogo {
+      width: 12rem;
+      height: 3.8rem;
+      margin-left: 1rem;
+      border-radius: .2rem;
+
+      background: var(--blackgray-600);
+
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-left: 1rem;
+        width: 2rem;
+      }
+
+      span {
+        font-size: 2rem;
+        margin-left: 1rem;
+      }
+    }
+
+    button.reportButton {
+      margin-right: 1rem;
+      width: 10.6rem;
+      height: 3.81rem;
+      border: none;
+      border-radius: .2rem;
+
+      color: var(--gray-600);
+      background: var(--blackgray-600);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      div.printButton {
+        margin-left: -1rem;
+        height: 4rem;
+        width: 4rem;
+        background: var(--blackgray-900-50);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+
+      span {
+        font-size: 1.2rem;
+      }
+    }
+  }
