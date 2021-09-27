@@ -1,0 +1,40 @@
+div.mainSideBar {
+  margin: 2rem 0 0 1rem;
+  width: 21.7rem;
+  height: 17.81rem;
+  border-radius: .2rem;
+
+  background: var(--blackgray-900);
+
+  filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    margin-bottom: 1rem;
+    width: 14.6rem;
+    height: 3.56rem;
+    border: none;
+    border-radius: .2rem;
+  
+    color: var(--gray-600);
+    background: var(--blackgray-600);
+    filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 2rem;
+    }
+
+    span {
+      font-size: 1.2rem;
+      margin-left: 1rem;
+    }
+  }
+}

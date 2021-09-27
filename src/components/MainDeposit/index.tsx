@@ -2,6 +2,8 @@ import printImg from '../../assets/printer.svg'
 import packageImg from '../../assets/deposit.svg'
 
 import './styles.scss'
+import { MainSideBar } from './MainSideBar'
+import { MainSection } from './MainSection'
 
 function MainDeposit(){
   return (
@@ -22,10 +24,13 @@ function MainDeposit(){
         </button>
       </header>
 
-      <main>
-        
+      <main className="section">
+        <MainSideBar/>
+        <MainSection/>
       </main>
+
     </div>
+    
   );
 }
 
