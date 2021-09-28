@@ -1,4 +1,5 @@
 import { MainDeposit } from "../../components/MainDeposit";
+import { ModalAddBox } from "../../components/MainDeposit/ModalAddBox";
 import { SideBar } from "../../components/SideBar";
 import { useButtons } from "../../hooks/useButtons";
 
@@ -9,6 +10,8 @@ function Home(){
 
   return (
       <div className={buttonState === 'normal' ? 'mainDepositNoSide' : 'mainDeposit'}>
+
+          <ModalAddBox/>
           <SideBar/>
           <MainDeposit/>  
       </div>

@@ -1,8 +1,11 @@
 import pointsEdtImg from '../../../assets/editPoints.svg'
+import { useBoxes } from '../../../hooks/useBoxes';
 
 import './styles.scss'
 
 function MainSection() {
+  const {boxes} = useBoxes();
+
   return(
     <div className="tableDeposit">
       <table>
@@ -17,29 +20,19 @@ function MainSection() {
         </thead>
 
         <tbody className="depositTbody">
-            <tr>
-              <td>39</td>
-              <td> Pacon Drawing Paper</td>
-              <td> Paper Bulk, 500 Sheets</td>
-              <td> 12/03/2021 </td>
+          {boxes.map(box => (
+            <tr key={box.id}>
+              <td>{box.quantity}</td>
+              <td>{box.title}</td>
+              <td>{box.type}</td>
+              <td>{box.lastUpdate}</td>
               <td>
                 <button>
                   <img src={pointsEdtImg} alt="" />
                 </button>
               </td>
             </tr>
-
-            <tr>
-              <td>39</td>
-              <td> Pacon Drawing Paper</td>
-              <td> Paper Bulk, 500 Sheets</td>
-              <td> 12/03/2021 </td>
-              <td>
-                <button>
-                  <img src={pointsEdtImg} alt="" />
-                </button>
-              </td>
-            </tr>
+          ))}
         </tbody>
       </table>
     </div>
