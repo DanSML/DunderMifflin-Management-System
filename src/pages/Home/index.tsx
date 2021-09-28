@@ -1,5 +1,4 @@
 import { MainDeposit } from "../../components/MainDeposit";
-import { ModalAddBox } from "../../components/MainDeposit/ModalAddBox";
 import { SideBar } from "../../components/SideBar";
 import { useButtons } from "../../hooks/useButtons";
 

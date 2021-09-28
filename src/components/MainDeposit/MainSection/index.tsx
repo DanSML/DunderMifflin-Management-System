@@ -25,7 +25,10 @@ function MainSection() {
               <td>{box.quantity}</td>
               <td>{box.title}</td>
               <td>{box.type}</td>
-              <td>{box.lastUpdate}</td>
+              <td>{new Intl.DateTimeFormat('pt-BR').format(
+                new Date(box.lastUpdate)
+              )
+              }</td>
               <td>
                 <button>
                   <img src={pointsEdtImg} alt="" />

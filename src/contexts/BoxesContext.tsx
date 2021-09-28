@@ -10,7 +10,7 @@ interface BoxProps {
   lastUpdate: string,
 }
 
-type BoxPropsSettle = Omit<BoxProps, 'id' | 'lastUpdate' | 'quantity'>
+type BoxPropsSettle = Omit<BoxProps, 'id' | 'lastUpdate'>
 
 interface BoxContextProps {
   boxes: BoxProps[],
@@ -30,7 +30,6 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
     async function getBox() {
       const response = await api.get('/paperBox');
       setBox(response.data);
-      console.log(response.data)
     }
     getBox();
   }, []);
@@ -41,12 +40,11 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
         ...boxSettle,
         lastUpdate: new Date(),
       });
-      
+
       setBox([
         ...boxes,
         response.data
       ]);
-
 
     } catch (err) {
       console.log(err);

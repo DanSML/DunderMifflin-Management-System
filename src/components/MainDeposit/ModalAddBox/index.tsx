@@ -10,19 +10,21 @@ function ModalAddBox(){
   const { isModalAddBoxOpen, handleOpenAddModal, handleAddBox } = useBoxes();
   const [title, setTitle] = useState('');
   const [type, setType] = useState('');
+  const [quantity, setQuantity] = useState(0);
 
   async function handleSubmit(event: FormEvent){
     event.preventDefault();
     
     await handleAddBox({
       title,
-      type
+      type,
+      quantity
     })
 
     setTitle('');
     setType('');
-
     handleOpenAddModal();
+    setQuantity(0);
   }
 
   return (
