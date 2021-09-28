@@ -1,12 +1,19 @@
 import addBoxImg from '../../../assets/addBox.svg'
 import editBoxImg from '../../../assets/editBox.svg'
+import { useBoxes } from '../../../hooks/useBoxes';
 
 import './styles.scss'
 
 function MainSideBar(){
+  const { handleOpenAddModal } = useBoxes();
+
+
   return(
     <div className="mainSideBar">
-      <button>
+      <button
+        type="button"
+        onClick={handleOpenAddModal}
+      >
         <img src={addBoxImg} alt="new product" />
         <span>New Product</span>
       </button>

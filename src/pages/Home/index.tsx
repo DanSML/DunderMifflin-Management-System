@@ -10,8 +10,6 @@ function Home(){
 
   return (
       <div className={buttonState === 'normal' ? 'mainDepositNoSide' : 'mainDeposit'}>
-
-          <ModalAddBox/>
           <SideBar/>
           <MainDeposit/>  
       </div>

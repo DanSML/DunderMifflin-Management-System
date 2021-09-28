@@ -2,8 +2,11 @@ import { MainSideBar } from './MainSideBar'
 import { MainSection } from './MainSection'
 import { MainHeader } from './MainHeader';
 
-import './styles.scss'
 import { BoxesContextProvider } from '../../contexts/BoxesContext';
+import { ModalAddBox } from './ModalAddBox';
+
+import './styles.scss'
+
 
 function MainDeposit(){
   return (
@@ -11,6 +14,7 @@ function MainDeposit(){
       <div className="main">
           <MainHeader/>
         <main className="section">
+          <ModalAddBox/>
           <MainSideBar/>
           <MainSection/>
         </main>
