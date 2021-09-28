@@ -7,7 +7,6 @@ import './styles.scss'
 function MainSideBar(){
   const { handleOpenAddModal } = useBoxes();
 
-
   return(
     <div className="mainSideBar">
       <button
@@ -17,7 +16,9 @@ function MainSideBar(){
         <img src={addBoxImg} alt="new product" />
         <span>New Product</span>
       </button>
-      <button>
+      <button
+        type="button"
+      >
         <img src={editBoxImg} alt="edit product" />
         <span>Edit Products</span>
       </button>

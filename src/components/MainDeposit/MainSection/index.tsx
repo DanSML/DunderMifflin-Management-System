@@ -4,7 +4,7 @@ import { useBoxes } from '../../../hooks/useBoxes';
 import './styles.scss'
 
 function MainSection() {
-  const {boxes} = useBoxes();
+  const {boxes, handleEditingBox} = useBoxes();
 
   return(
     <div className="tableDeposit">
@@ -30,7 +30,9 @@ function MainSection() {
               )
               }</td>
               <td>
-                <button>
+                <button
+                  onClick={() => handleEditingBox(box)}
+                >
                   <img src={pointsEdtImg} alt="" />
                 </button>
               </td>

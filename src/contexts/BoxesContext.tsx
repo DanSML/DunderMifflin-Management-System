@@ -14,16 +14,24 @@ type BoxPropsSettle = Omit<BoxProps, 'id' | 'lastUpdate'>
 
 interface BoxContextProps {
   boxes: BoxProps[],
+  editingBox: BoxProps,
   handleAddBox: (props: BoxPropsSettle) => void,
   handleOpenAddModal: () => void,
+  handleOpenEditModal: () => void,
   isModalAddBoxOpen: boolean,
+  isModalEditBoxOpen: boolean,
+  handleDeleteBox: (boxId: number) => void,
+  handleUpdateBox: (props: BoxPropsSettle) => void,
+  handleEditingBox: (props: BoxProps) => void
 }
 
 export const BoxesContext = createContext({} as BoxContextProps);
 
 const BoxesContextProvider: React.FC = ({ children }) =>{
+  const [editingBox, setEditingBox] = useState({} as BoxProps);
   const [boxes, setBox] = useState<BoxProps[]>([]);
   const [isModalAddBoxOpen, setIsModalAddBoxOpen] = useState(false);
+  const [isModalEditBoxOpen, setIsModalEditBoxOpen] = useState(false);
 
 
   useEffect(() => {
@@ -51,8 +59,48 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
     }
   }
 
+  async function handleUpdateBox(boxSettle: BoxPropsSettle) {
+    try {
+      const updatedBox = await api.put(
+        `/paperBox/${editingBox.id}`,
+      {
+        ...editingBox,
+        ...boxSettle
+      }
+    );
+
+    const updatedBoxes = boxes.map(box =>
+      box.id !== updatedBox.data.id ? box : updatedBox.data,
+    );
+
+      setBox(updatedBoxes);
+    
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function handleDeleteBox(boxId: number){
+    await api.delete(`/paperBox/${boxId}`);
+
+    const filteredBoxes = boxes.filter(box => box.id !== boxId);
+
+    setIsModalEditBoxOpen(!isModalEditBoxOpen);
+    setBox(filteredBoxes);
+  }
+
+  function handleEditingBox(boxSettle: BoxProps){
+    setEditingBox(boxSettle);
+
+    setIsModalEditBoxOpen(!isModalEditBoxOpen);
+  }
+
   function handleOpenAddModal(){
     setIsModalAddBoxOpen(!isModalAddBoxOpen);
+  }
+
+  function handleOpenEditModal(){
+    setIsModalEditBoxOpen(!isModalEditBoxOpen);
   }
 
   return (
@@ -61,7 +109,13 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
         boxes,
         handleAddBox,
         handleOpenAddModal,
-        isModalAddBoxOpen
+        handleOpenEditModal,
+        isModalEditBoxOpen,
+        isModalAddBoxOpen,
+        handleDeleteBox,
+        handleUpdateBox,
+        handleEditingBox,
+        editingBox
       }}>
       {children}
     </BoxesContext.Provider >

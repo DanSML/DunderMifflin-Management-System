@@ -1,32 +1,3 @@
 {
-  "paperBox": [
-    {
-      "id": 1,
-      "quantity": 39,
-      "title": "Paco Drawing Paper",
-      "type": "Paper Bulk, 500 Sheets",
-      "lastUpdate": "12/03/2021"
-    },
-    {
-      "id": 2,
-      "quantity": 21,
-      "title": "aaaaaa",
-      "type": "Paper Bulk, 500 Sheets",
-      "lastUpdate": "12/03/2021"
-    },
-    {
-      "id": 3,
-      "quantity": 6,
-      "title": "Paco Drawing Paper",
-      "type": "Paoooooots",
-      "lastUpdate": "12/03/2021"
-    },
-    {
-      "quantity": 0,
-      "title": "Papel Chamex",
-      "type": "500 folhas pretas",
-      "lastUpdate": "2021-09-28T15:08:39.885Z",
-      "id": 4
-    }
-  ]
+  "paperBox": []
 }

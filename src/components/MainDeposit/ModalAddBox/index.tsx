@@ -5,7 +5,6 @@ import { useBoxes } from "../../../hooks/useBoxes";
 
 import './styles.scss'
 
-
 function ModalAddBox(){
   const { isModalAddBoxOpen, handleOpenAddModal, handleAddBox } = useBoxes();
   const [title, setTitle] = useState('');
