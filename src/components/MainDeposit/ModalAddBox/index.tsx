@@ -1,4 +1,4 @@
-import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import addBoxImg from '../../../assets/addBox.svg'
 import xImg from '../../../assets/x.svg'
 import { useBoxes } from "../../../hooks/useBoxes";
@@ -6,16 +6,23 @@ import { useBoxes } from "../../../hooks/useBoxes";
 import './styles.scss'
 
 
-
 function ModalAddBox(){
   const { isModalAddBoxOpen, handleOpenAddModal, handleAddBox } = useBoxes();
-  const [] = useState();
-
-  const formRef = useRef(null);
+  const [title, setTitle] = useState('');
+  const [type, setType] = useState('');
 
   async function handleSubmit(event: FormEvent){
     event.preventDefault();
-    console.log(event.target);
+    
+    await handleAddBox({
+      title,
+      type
+    })
+
+    setTitle('');
+    setType('');
+
+    handleOpenAddModal();
   }
 
   return (
@@ -29,18 +36,38 @@ function ModalAddBox(){
             <img src={xImg} alt="" className="X"/>
           </button>
         <form
-          ref={formRef}
           onSubmit={handleSubmit}
         >
+          <div className="Title">
             <span> Add New Product </span>
             <img src={addBoxImg} alt="" />
-            <input type="text" value={}/>
-            <input type="text" />
+          </div>
+
+          <div className="inputAddModal">
+            <label htmlFor="">Name</label>
+            <input 
+              type="text" 
+              value={title}
+              onChange={event => setTitle(event.target.value)}  
+            />
+          </div>
+          
+          <div className="inputAddModal">
+            <label htmlFor="">Type</label>
+            <input 
+              type="text" 
+              value={type}
+              onChange={event => setType(event.target.value)}
+            />
+          </div>
+
+          <div className="addProductButton">
             <button
               type="submit"
             >
               Add Product
             </button>
+          </div>
         </form>
       </div>
     </div>

@@ -10,9 +10,11 @@ interface BoxProps {
   lastUpdate: string,
 }
 
+type BoxPropsSettle = Omit<BoxProps, 'id' | 'lastUpdate' | 'quantity'>
+
 interface BoxContextProps {
   boxes: BoxProps[],
-  handleAddBox: (props: BoxProps) => void,
+  handleAddBox: (props: BoxPropsSettle) => void,
   handleOpenAddModal: () => void,
   isModalAddBoxOpen: boolean,
 }
@@ -33,14 +35,13 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
     getBox();
   }, []);
 
-  async function handleAddBox(box: BoxProps){
+  async function handleAddBox(boxSettle: BoxPropsSettle){
     try {
       const response = await api.post('/paperBox', {
-        ...box,
+        ...boxSettle,
+        lastUpdate: new Date(),
       });
-
-      console.log(box);
-
+      
       setBox([
         ...boxes,
         response.data
