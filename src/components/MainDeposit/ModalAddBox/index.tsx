@@ -67,7 +67,7 @@ function ModalAddBox(){
           
           <div className="inputAddModal">
               <select value={type} onChange={(e) => setType(e.target.value)} required>
-                <option value="Select" selected>Select</option>
+                <option value="" disabled selected>Select type</option>
                 <option value="500 Sheets">500 Sheets</option>
                 <option value="300 Sheets">300 Sheets</option>
                 <option value="200 Sheets">200 Sheets</option>
@@ -77,19 +77,19 @@ function ModalAddBox(){
           <div className="inputAddModalDiferent">
               <input 
                 type="number" 
-                placeholder="Quantity"
                 value={quantity}
                 onChange={event => setQuantity(Number(event.target.value))}
                 required
                 className="first"
+                placeholder="quantity"
               />
               <input 
                 type="number" 
-                placeholder="Purchase price unity"
                 value={unityPrice}
                 onChange={event => setUnityPrice(Number(event.target.value))}
                 required
                 className="second"
+                placeholder="Purchase price unity"
               />
           </div>
 

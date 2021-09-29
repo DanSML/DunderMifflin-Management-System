@@ -89,6 +89,10 @@ div.Modal{
         height: 2.75rem;
         background: var(--blackgray-600);
       }
+
+      select:invalid{
+        color: var(--gray-600);
+      }
     }
 
 
