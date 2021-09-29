@@ -20,7 +20,7 @@ function MainSideBar(){
         type="button"
       >
         <img src={editBoxImg} alt="edit product" />
-        <span>Edit Products</span>
+        <span>Box settings</span>
       </button>
     </div>
   );

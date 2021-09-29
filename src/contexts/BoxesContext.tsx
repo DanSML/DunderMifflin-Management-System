@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import api from "../services/api";
+import { dollarUS } from "../util/currency";
 
 interface BoxProps {
   id: number,
-  quantity: number,
-  unityPrice: number,
+  quantity: string,
+  unityPrice: string,
   calculatedTotal: number,
   title: string,
   type: string,
@@ -48,8 +49,10 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
     try {
       const response = await api.post('/paperBox', {
         ...boxSettle,
+        quantity: Number(boxSettle.quantity),
+        unityPrice: dollarUS.format(Number(boxSettle.unityPrice)),
         lastUpdate: new Date(),
-        calculatedTotal: (boxSettle.quantity * boxSettle.unityPrice)
+        calculatedTotal: dollarUS.format(Number((Number(boxSettle.quantity) * Number(boxSettle.unityPrice)).toFixed(2)))
       });
 
       setBox([
@@ -63,12 +66,17 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
   }
 
   async function handleUpdateBox(boxSettle: BoxPropsSettle) {
+
     try {
       const updatedBox = await api.put(
         `/paperBox/${editingBox.id}`,
       {
+        ...boxSettle,
         ...editingBox,
-        ...boxSettle
+        quantity: Number(boxSettle.quantity),
+        unityPrice: dollarUS.format(Number(boxSettle.unityPrice)),
+        lastUpdate: new Date(),
+        calculatedTotal: dollarUS.format(Number((Number(boxSettle.quantity) * Number(boxSettle.unityPrice)).toFixed(2))) 
       }
     );
 

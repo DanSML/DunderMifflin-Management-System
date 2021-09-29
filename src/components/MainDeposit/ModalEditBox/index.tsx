@@ -12,8 +12,8 @@ function ModalEditBox() {
 
     const [title, setTitle] = useState('');
     const [type, setType] = useState('');
-    const [quantity, setQuantity] = useState(0);
-    const [unityPrice, setUnityPrice] = useState(0);
+    const [quantity, setQuantity] = useState('');
+    const [unityPrice, setUnityPrice] = useState('');
 
     async function handleSubmit(event: FormEvent){
         event.preventDefault();
@@ -26,8 +26,8 @@ function ModalEditBox() {
         })
         setTitle('');
         setType('');
-        setQuantity(0);
-        setUnityPrice(0);
+        setQuantity('');
+        setUnityPrice('');
         handleOpenEditModal();
     }
 
@@ -35,8 +35,8 @@ function ModalEditBox() {
 
         setTitle('');
         setType('');
-        setQuantity(0);
-        setUnityPrice(0);
+        setQuantity('');
+        setUnityPrice('');
 
         handleOpenEditModal();
     }
@@ -46,7 +46,7 @@ function ModalEditBox() {
             <div className="content">
                 <button
                     type="button"
-                    className="xButton"
+                    className="xButtoni"
                     onClick={handleClose}
                 >
                     <img src={xImg} alt="" className="X" />
@@ -70,18 +70,34 @@ function ModalEditBox() {
                         />
                     </div>
 
-                    <div className="inputAddModal">
-                        <label htmlFor="">Type</label>
-                        <input
-                            type="text"
-                            value={type}
-                            onChange={event => setType(event.target.value)}
-                            placeholder={editingBox.type}
-                            required
 
-                        />
+                    <div className="inputAddModal">
+                        <select value={type} onChange={(e) => setType(e.target.value)} required>
+                            <option value="" disabled selected>{editingBox.type}</option>
+                            <option value="500 Sheets">500 Sheets</option>
+                            <option value="300 Sheets">300 Sheets</option>
+                            <option value="200 Sheets">200 Sheets</option>
+                        </select>
                     </div>
 
+                    <div className="inputAddModalDiferent">
+                        <input 
+                            type="number" 
+                            value={quantity}
+                            onChange={event => setQuantity(event.target.value)}
+                            className="first"
+                            placeholder={editingBox.quantity}
+                            required
+                        />
+                        <input 
+                            type="number" 
+                            value={unityPrice}
+                            onChange={event => setUnityPrice(event.target.value)}
+                            className="second"
+                            placeholder={editingBox.unityPrice}
+                            required
+                        />
+                    </div>
                     <div className="addProductButton">
                         <button
                             type="button"
@@ -94,7 +110,6 @@ function ModalEditBox() {
                         >
                             Edit Product
                         </button>
-
                     </div>
                 </form>
             </div>

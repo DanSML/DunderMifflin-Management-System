@@ -1,8 +1,7 @@
-import React, { FormEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import addBoxImg from '../../../assets/addBox.svg'
 import xImg from '../../../assets/x.svg'
 import { useBoxes } from "../../../hooks/useBoxes";
-
 
 import './styles.scss'
 
@@ -10,8 +9,8 @@ function ModalAddBox(){
   const { isModalAddBoxOpen, handleOpenAddModal, handleAddBox } = useBoxes();
   const [title, setTitle] = useState('');
   const [type, setType] = useState('');
-  const [quantity, setQuantity] = useState(0);
-  const [unityPrice, setUnityPrice] = useState(0);
+  const [quantity, setQuantity] = useState('');
+  const [unityPrice, setUnityPrice] = useState('');
 
   async function handleSubmit(event: FormEvent){
     event.preventDefault();
@@ -25,16 +24,16 @@ function ModalAddBox(){
 
     setTitle('');
     setType('');
-    setQuantity(0);
-    setUnityPrice(0);
+    setQuantity('');
+    setUnityPrice('');
     handleOpenAddModal();
   }
 
   function handleClose(){
     setTitle('');
     setType('');
-    setQuantity(0);
-    setUnityPrice(0);
+    setQuantity('');
+    setUnityPrice('');
     handleOpenAddModal();
   }
 
@@ -57,46 +56,39 @@ function ModalAddBox(){
           </div>
 
           <div className="inputAddModal">
-            <label htmlFor="">Name</label>
             <input 
               type="text" 
               value={title}
-              onChange={event => setTitle(event.target.value)} 
+              onChange={event => setTitle(event.target.value)}
+              placeholder="Box type"
               required
             />
           </div>
           
           <div className="inputAddModal">
-
               <select value={type} onChange={(e) => setType(e.target.value)} required>
-                <option value="" disabled selected>Select type</option>
+                <option value="" disabled selected>Select sheets quantity</option>
                 <option value="500 Sheets">500 Sheets</option>
                 <option value="300 Sheets">300 Sheets</option>
                 <option value="200 Sheets">200 Sheets</option>
               </select>
           </div>
 
-          <div className="numberClass">
-            <label htmlFor="quantity" className="quantity">Quantity</label>
-            <label htmlFor="unityPrice" className="unityPrice">Unity price</label>
-          </div>
-
           <div className="inputAddModalDiferent">
               <input 
                 type="number" 
                 value={quantity}
-                onChange={event => setQuantity(Number(event.target.value))}
+                onChange={event => setQuantity(event.target.value)}
                 className="first"
+                placeholder="Quantity"
                 required
               />
               <input 
                 type="number" 
                 value={unityPrice}
-                onChange={event => setUnityPrice(Number(event.target.value))}
+                onChange={event => setUnityPrice(event.target.value)}
                 className="second"
-                step="0.01" 
-                name="quantity" 
-                min="0.01"
+                placeholder="Unity price"
                 required
               />
           </div>

@@ -11,9 +11,9 @@ function MainSection() {
       <table>
         <thead className="depositThead">
           <tr>
-            <th>Quantity</th>
-            <th>Title</th>
-            <th>Type</th>
+            <th>Box Quantity</th>
+            <th>Box Type</th>
+            <th>Sheets Quantity</th>
             <th>Last Update</th>
             <th></th>
           </tr>
