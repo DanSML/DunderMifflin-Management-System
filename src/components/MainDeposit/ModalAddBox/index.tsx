@@ -56,16 +56,17 @@ function ModalAddBox(){
           </div>
 
           <div className="inputAddModal">
+            <label htmlFor="">Name</label>
             <input 
               type="text" 
               value={title}
-              onChange={event => setTitle(event.target.value)}  
-              placeholder="Name"
+              onChange={event => setTitle(event.target.value)} 
               required
             />
           </div>
           
           <div className="inputAddModal">
+
               <select value={type} onChange={(e) => setType(e.target.value)} required>
                 <option value="" disabled selected>Select type</option>
                 <option value="500 Sheets">500 Sheets</option>
@@ -74,22 +75,28 @@ function ModalAddBox(){
               </select>
           </div>
 
+          <div className="numberClass">
+            <label htmlFor="quantity" className="quantity">Quantity</label>
+            <label htmlFor="unityPrice" className="unityPrice">Unity price</label>
+          </div>
+
           <div className="inputAddModalDiferent">
               <input 
                 type="number" 
                 value={quantity}
                 onChange={event => setQuantity(Number(event.target.value))}
-                required
                 className="first"
-                placeholder="quantity"
+                required
               />
               <input 
                 type="number" 
                 value={unityPrice}
                 onChange={event => setUnityPrice(Number(event.target.value))}
-                required
                 className="second"
-                placeholder="Purchase price unity"
+                step="0.01" 
+                name="quantity" 
+                min="0.01"
+                required
               />
           </div>
 

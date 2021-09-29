@@ -63,9 +63,8 @@ div.Modal{
       align-items: center;
       justify-content: center;
 
-      
-      & input {
-        margin-top: .7rem;
+      label {
+        margin-left: -15.5rem;
       }
 
       input {
@@ -96,9 +95,19 @@ div.Modal{
     }
 
 
+    div.numberClass {
+      margin: .3rem auto;
+      width: 18.625rem;
+
+
+      label.unityPrice{
+        text-align: left;
+        margin-left: 5.2rem;
+      }
+    }
 
     div.inputAddModalDiferent {
-      margin: .7rem auto;
+      margin: 0 auto;
       width: 18.625rem;
 
       
@@ -134,7 +143,7 @@ div.Modal{
     }
 
     div.addProductButton{ 
-      margin: 5rem 2rem;
+      margin: 3rem 2rem;
       display: flex;
       align-items: center;
       justify-content: flex-end;
