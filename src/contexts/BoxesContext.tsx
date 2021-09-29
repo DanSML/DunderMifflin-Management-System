@@ -5,6 +5,7 @@ import api from "../services/api";
 interface BoxProps {
   id: number,
   quantity: number,
+  unityPrice: number,
   title: string,
   type: string,
   lastUpdate: string,

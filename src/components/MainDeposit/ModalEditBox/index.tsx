@@ -13,29 +13,32 @@ function ModalEditBox() {
     const [title, setTitle] = useState('');
     const [type, setType] = useState('');
     const [quantity, setQuantity] = useState(0);
+    const [unityPrice, setUnityPrice] = useState(0);
 
     async function handleSubmit(event: FormEvent){
         event.preventDefault();
 
-        if (title || type) {
-            await handleUpdateBox({
-                title,
-                type,
-                quantity
-            })
-            setTitle('');
-            setType('');
-            setQuantity(0);
-            handleOpenEditModal();
-        }
-
-    }
-
-    function handleClose(){
-        handleOpenEditModal();
+        await handleUpdateBox({
+            title,
+            type,
+            quantity,
+            unityPrice,
+        })
         setTitle('');
         setType('');
         setQuantity(0);
+        setUnityPrice(0);
+        handleOpenEditModal();
+    }
+
+    function handleClose(){
+
+        setTitle('');
+        setType('');
+        setQuantity(0);
+        setUnityPrice(0);
+
+        handleOpenEditModal();
     }
 
     return (
@@ -63,6 +66,7 @@ function ModalEditBox() {
                             value={title}
                             onChange={event => setTitle(event.target.value)}
                             placeholder={editingBox.title}
+                            required
                         />
                     </div>
 
@@ -73,6 +77,8 @@ function ModalEditBox() {
                             value={type}
                             onChange={event => setType(event.target.value)}
                             placeholder={editingBox.type}
+                            required
+
                         />
                     </div>
 
