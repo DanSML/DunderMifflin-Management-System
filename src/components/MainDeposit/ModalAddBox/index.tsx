@@ -1,7 +1,8 @@
-import { FormEvent, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import addBoxImg from '../../../assets/addBox.svg'
 import xImg from '../../../assets/x.svg'
 import { useBoxes } from "../../../hooks/useBoxes";
+
 
 import './styles.scss'
 

@@ -6,12 +6,13 @@ interface BoxProps {
   id: number,
   quantity: number,
   unityPrice: number,
+  calculatedTotal: number,
   title: string,
   type: string,
   lastUpdate: string,
 }
 
-type BoxPropsSettle = Omit<BoxProps, 'id' | 'lastUpdate'>
+type BoxPropsSettle = Omit<BoxProps, 'id' | 'lastUpdate' | 'calculatedTotal'>
 
 interface BoxContextProps {
   boxes: BoxProps[],
@@ -48,6 +49,7 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
       const response = await api.post('/paperBox', {
         ...boxSettle,
         lastUpdate: new Date(),
+        calculatedTotal: (boxSettle.quantity * boxSettle.unityPrice)
       });
 
       setBox([

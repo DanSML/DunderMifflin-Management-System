@@ -1,0 +1,22 @@
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none;
+}
+
+input.first {
+  border-radius: .2rem 0 0 .2rem;
+}
+
+input.second {
+  border-radius: 0 .2rem .2rem 0;
+}
+
+input {
+  
+  padding-left: .2rem;
+  color: var(--gray-600);
+  border: none;
+  background: var(--blackgray-600);
+
+  height: 2.75rem;
+  width: 9.2rem;
+}
