@@ -17,6 +17,24 @@
       "lastUpdate": "2021-09-30T14:21:32.482Z",
       "calculatedTotal": "$38,784.00",
       "id": 2
+    },
+    {
+      "title": "aAA",
+      "type": "aaa",
+      "quantity": 12,
+      "unityPrice": "$32.00",
+      "lastUpdate": "2021-09-30T16:56:00.506Z",
+      "calculatedTotal": "$384.00",
+      "id": 3
+    },
+    {
+      "title": "asd",
+      "type": "aaa",
+      "quantity": 123,
+      "unityPrice": "$12.36",
+      "lastUpdate": "2021-09-30T18:39:31.695Z",
+      "calculatedTotal": "$1,520.28",
+      "id": 4
     }
   ],
   "boxSettings": [
@@ -24,6 +42,11 @@
       "title": "aaa",
       "percent": 0,
       "id": 1
+    },
+    {
+      "title": "aaaa",
+      "percent": 0,
+      "id": 2
     }
   ]
 }

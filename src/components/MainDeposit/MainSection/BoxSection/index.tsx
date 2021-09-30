@@ -1,14 +1,26 @@
-import pointsEdtImg from '../../../assets/editPoints.svg'
-import { useBoxes } from '../../../hooks/useBoxes';
-import { date } from '../../../util/date';
+import pointsEdtImg from '../../../../assets/editPoints.svg'
+import addBoxImg from '../../../../assets/addBox.svg'
+
+import { useBoxes } from '../../../../hooks/useBoxes';
+import { date } from '../../../../util/date';
 
 import './styles.scss'
 
 function MainSection() {
-  const {boxes, handleEditingBox} = useBoxes();
+  const {boxes, handleEditingBox, isMainSectionActive, handleOpenAddModal} = useBoxes();
 
   return(
-    <div className="tableDeposit">
+    <div className={isMainSectionActive ? "tableDeposit" : "tableDepositHidden"}>
+        
+        <div className="newProductButtoni">
+          <button
+            onClick={handleOpenAddModal}
+          >
+            <img src={addBoxImg} alt="new product" />
+            <span>New product Type</span>
+          </button>
+        </div>
+
       <table>
         <thead className="depositThead">
           <tr>

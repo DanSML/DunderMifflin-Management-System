@@ -25,7 +25,11 @@ interface BoxContextProps {
   isModalEditBoxOpen: boolean,
   handleDeleteBox: (boxId: number) => void,
   handleUpdateBox: (props: BoxPropsSettle) => void,
-  handleEditingBox: (props: BoxProps) => void
+  handleEditingBox: (props: BoxProps) => void,
+  handleMainSectionState: () => void,
+  isMainSectionActive: boolean,
+  handleSettingsSectionState: () => void,
+  isSettingsSectionActive: boolean
 }
 
 export const BoxesContext = createContext({} as BoxContextProps);
@@ -35,6 +39,8 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
   const [boxes, setBox] = useState<BoxProps[]>([]);
   const [isModalAddBoxOpen, setIsModalAddBoxOpen] = useState(false);
   const [isModalEditBoxOpen, setIsModalEditBoxOpen] = useState(false);
+  const [isMainSectionActive, setIsMainSectionActive] = useState(true);
+  const [isSettingsSectionActive, setIsSettingsSectionActive] = useState(false);
 
 
   useEffect(() => {
@@ -114,6 +120,20 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
     setIsModalEditBoxOpen(!isModalEditBoxOpen);
   }
 
+  function handleMainSectionState(){
+    if (!isMainSectionActive) {
+      setIsMainSectionActive(!isMainSectionActive);
+      setIsSettingsSectionActive(!isSettingsSectionActive);
+    }
+  }
+
+  function handleSettingsSectionState(){
+    if (!isSettingsSectionActive) {
+      setIsSettingsSectionActive(!isSettingsSectionActive);
+      setIsMainSectionActive(!isMainSectionActive);
+    }
+  }
+
   return (
     <BoxesContext.Provider 
       value={{
@@ -126,7 +146,11 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
         handleDeleteBox,
         handleUpdateBox,
         handleEditingBox,
-        editingBox
+        editingBox,
+        handleMainSectionState,
+        isMainSectionActive,
+        handleSettingsSectionState,
+        isSettingsSectionActive
       }}>
       {children}
     </BoxesContext.Provider >

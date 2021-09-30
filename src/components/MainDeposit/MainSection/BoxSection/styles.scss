@@ -1,4 +1,9 @@
 @media (min-width: 1080px){
+  
+  div.tableDepositHidden {
+    display: none;
+  }
+
   div.tableDeposit {
     border-radius: .4rem;
     margin: 2rem 1rem 0 2rem;

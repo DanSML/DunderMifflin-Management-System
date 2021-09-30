@@ -6,26 +6,26 @@ import { useSettings } from '../../../hooks/useSettings';
 import './styles.scss'
 
 function MainSideBar(){
-  const { handleOpenAddModal } = useBoxes();
+  const { handleOpenAddModal, handleMainSectionState, handleSettingsSectionState, isMainSectionActive, isSettingsSectionActive } = useBoxes();
   const { handleSettingsModalState } = useSettings();
 
   return(
     <div className="mainSideBar">
       <button
         type="button"
-        onClick={handleOpenAddModal}
-        className="openAdd"
+        onClick={handleMainSectionState}
+        className={isMainSectionActive ? "openAddSelected" : "openAdd"}
       >
         <img src={addBoxImg} alt="new product" />
-        <span>New Product</span>
+        <span>Boxes</span>
       </button>
       <button
         type="button"
         className="openEdit"
-        onClick={() => handleSettingsModalState()}
+        onClick={handleSettingsSectionState}
       >
         <img src={editBoxImg} alt="edit product" />
-        <span>Box settings</span>
+        <span>Types</span>
       </button>
     </div>
   );

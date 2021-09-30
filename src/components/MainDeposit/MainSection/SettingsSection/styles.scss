@@ -1,0 +1,194 @@
+@media (min-width: 1080px){
+    div.tableDepositHidden {
+      display: none;
+    }
+    div.tableDeposit {
+      border-radius: .4rem;
+      margin: 2rem 1rem 0 2rem;
+    
+      background: var(--blackgray-900);
+      filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+    
+      display: flex;
+      flex-direction: column;
+
+
+      div.newProductButtoni {
+        display: flex;
+        justify-content: flex-end;
+        margin: 2rem 2rem 0 0;
+
+        button {
+          width: 14.6rem;
+          height: 3.56rem;
+          border: none;
+          border-radius: .2rem;
+        
+          color: var(--gray-600);
+          background: var(--blackgray-600);
+      
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      
+          img {
+            width: 2rem;
+          }
+      
+          span {
+            font-size: 1.2rem;
+            margin-left: 1rem;
+          }
+          
+          transition: filter .5s;
+          
+          &:hover {
+            opacity: .9;
+            filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+            transition: filter .2s;
+          }
+       }
+      }
+  
+    
+      table {
+        border-spacing: 0 0.5rem;
+        margin: 2rem;
+    
+        border-radius: .4rem;
+    
+        thead.depositThead{
+    
+          line-height: 1.5rem;
+          text-align: start;
+    
+          th {
+            background: var(--blackgray-800);
+    
+            margin: 3rem;
+            padding: 1rem;
+          }
+        }
+      
+        tbody.depositTbody{
+          font-size: 1.2rem;
+          text-align: center;
+          margin-top: 2rem;
+    
+          td {
+            background: var(--blackgray-600);
+            line-height: 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem
+          }
+    
+          button {
+            padding: .5rem;
+            border: none;
+            background-color: transparent;
+    
+            img {
+              height: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 1079px) {
+      div.tableDepositHidden {
+        display: none;
+      }
+      
+      div.tableDeposit {
+      border-radius: .4rem;
+      margin: 1rem 1rem 0 1rem;
+    
+      background: var(--blackgray-900);
+      filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+    
+      display: flex;
+      flex-direction: column;
+
+      div.newProductButtoni {
+        display: flex;
+        justify-content: flex-end;
+        margin: 2rem 2rem 0 0;
+
+        button {
+          width: 14.6rem;
+          height: 3.56rem;
+          border: none;
+          border-radius: .2rem;
+        
+          color: var(--gray-600);
+          background: var(--blackgray-600);
+      
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      
+          img {
+            width: 2rem;
+          }
+      
+          span {
+            font-size: 1.2rem;
+            margin-left: 1rem;
+          }
+          
+          transition: filter .5s;
+          
+          &:hover {
+            opacity: .9;
+            filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+            transition: filter .2s;
+          }
+        }
+      }
+    
+      table {
+        border-spacing: 0 0.5rem;
+    
+        margin: 1rem 1rem 1rem 1rem;
+        border-radius: .4rem;
+    
+        thead.depositThead{
+    
+          line-height: 1.5rem;
+          text-align: start;
+    
+          th {
+            background: var(--blackgray-800);
+    
+            margin: 3rem;
+            padding: 1rem;
+          }
+        }
+      
+        tbody.depositTbody{
+          font-size: 1.2rem;
+          text-align: center;
+          margin-top: 2rem;
+    
+          td {
+            background: var(--blackgray-600);
+            line-height: 1.5rem;
+            margin-top: 2rem;
+            padding: 1rem
+          }
+    
+          button {
+            padding: .5rem;
+            border: none;
+            background-color: transparent;
+    
+            img {
+              height: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }

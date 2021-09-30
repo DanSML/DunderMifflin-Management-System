@@ -2,10 +2,12 @@ import { FormEvent, useState } from 'react';
 import addBoxImg from '../../../assets/addBox.svg'
 import xImg from '../../../assets/x.svg'
 import { useBoxes } from "../../../hooks/useBoxes";
+import { useSettings } from '../../../hooks/useSettings';
 
 import './styles.scss'
 
 function ModalAddBox(){
+  const { boxSettings } = useSettings();
   const { isModalAddBoxOpen, handleOpenAddModal, handleAddBox } = useBoxes();
   const [title, setTitle] = useState('');
   const [type, setType] = useState('');
@@ -68,9 +70,11 @@ function ModalAddBox(){
           <div className="inputAddModal">
               <select value={type} onChange={(e) => setType(e.target.value)} required>
                 <option value="" disabled selected>Select sheets quantity</option>
-                <option value="500 Sheets">500 Sheets</option>
-                <option value="300 Sheets">300 Sheets</option>
-                <option value="200 Sheets">200 Sheets</option>
+                {
+                  boxSettings.map((type) => {
+                    return (<option value={type.title}>{type.title}</option>)
+                  })
+                }
               </select>
           </div>
 
