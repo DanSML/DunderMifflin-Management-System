@@ -8,20 +8,25 @@ import { ModalAddBox } from './ModalAddBox';
 
 import './styles.scss'
 import { ModalEditBox } from './ModalEditBox';
+import { ModalBoxSettings } from './ModalBoxSettings';
+import { BoxesSettingsContextProvider } from '../../contexts/BoxesSettingsContext';
 
 
 function MainDeposit(){
   return (
     <BoxesContextProvider>
-      <div className="main">
-          <MainHeader/>
-        <main className="section">
-          <ModalAddBox/>
-          <ModalEditBox/>
-          <MainSideBar/>
-          <MainSection/>
-        </main>
-      </div>
+      <BoxesSettingsContextProvider>
+        <div className="main">
+            <MainHeader/>
+          <main className="section">
+            <ModalBoxSettings/>
+            <ModalAddBox/>
+            <ModalEditBox/>
+            <MainSideBar/>
+            <MainSection/>
+          </main>
+        </div>
+      </BoxesSettingsContextProvider>
     </BoxesContextProvider>
   );
 }

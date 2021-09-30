@@ -79,8 +79,7 @@ div.Modal{
 
         &:focus,
         &:active{
-          outline: rgb(0,0,0);
-          border: .1rem solid var(--purple-900);
+          outline: none;
           opacity: 1;
         }
       }
@@ -97,8 +96,7 @@ div.Modal{
 
         &:focus,
         &:active{
-          outline: rgb(0,0,0);
-          border: .1rem solid var(--purple-900);
+          outline: none;
           opacity: 1;
         }
       }
@@ -147,11 +145,9 @@ div.Modal{
 
         &:focus,
         &:active{
-          outline: rgb(0,0,0);
-          border: .1rem solid var(--purple-900);
+          outline: none;
           opacity: 1;
         }
-
       }
     }
 
