@@ -9,8 +9,10 @@ function Home(){
 
   return (
       <div className={buttonState === 'normal' ? 'mainDepositNoSide' : 'mainDeposit'}>
-          <SideBar/>
-          <MainDeposit/>  
+        <SideBar/>
+        <div className="on">
+          <MainDeposit/>
+        </div>
       </div>
   );
 }

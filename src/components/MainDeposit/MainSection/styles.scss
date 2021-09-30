@@ -1,54 +1,112 @@
-div.tableDeposit {
-  border-radius: .4rem;
-  margin: 2rem 1rem 0 2rem;
-
-  background: var(--blackgray-900);
-  filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
-
-  display: flex;
-  flex-direction: column;
-
-  table {
-    border-spacing: 0 0.5rem;
-    margin: 2rem;
-
+@media (min-width: 1080px){
+  div.tableDeposit {
     border-radius: .4rem;
-
-    thead.depositThead{
-
-      line-height: 1.5rem;
-      text-align: start;
-
-      th {
-        background: var(--blackgray-800);
-
-        margin: 3rem;
-        padding: 1rem;
-      }
-    }
+    margin: 2rem 1rem 0 2rem;
   
-    tbody.depositTbody{
-      font-size: 1.2rem;
-      text-align: center;
-      margin-top: 2rem;
+    background: var(--blackgray-900);
+    filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+  
+    display: flex;
+    flex-direction: column;
 
-      td {
-        background: var(--blackgray-600);
+  
+    table {
+      border-spacing: 0 0.5rem;
+      margin: 2rem;
+  
+      border-radius: .4rem;
+  
+      thead.depositThead{
+  
         line-height: 1.5rem;
-        margin-top: 2rem;
-        padding: 1rem
+        text-align: start;
+  
+        th {
+          background: var(--blackgray-800);
+  
+          margin: 3rem;
+          padding: 1rem;
+        }
       }
-
-      button {
-        padding: .5rem;
-        border: none;
-        background-color: transparent;
-
-        img {
-          height: 1.5rem;
+    
+      tbody.depositTbody{
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 2rem;
+  
+        td {
+          background: var(--blackgray-600);
+          line-height: 1.5rem;
+          margin-top: 2rem;
+          padding: 1rem
+        }
+  
+        button {
+          padding: .5rem;
+          border: none;
+          background-color: transparent;
+  
+          img {
+            height: 1.5rem;
+          }
         }
       }
     }
   }
+}
 
+@media (max-width: 1079px) {
+    div.tableDeposit {
+    border-radius: .4rem;
+    margin: 1rem 1rem 0 1rem;
+  
+    background: var(--blackgray-900);
+    filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+  
+    display: flex;
+    flex-direction: column;
+  
+    table {
+      border-spacing: 0 0.5rem;
+  
+      margin: 1rem 1rem 1rem 1rem;
+      border-radius: .4rem;
+  
+      thead.depositThead{
+  
+        line-height: 1.5rem;
+        text-align: start;
+  
+        th {
+          background: var(--blackgray-800);
+  
+          margin: 3rem;
+          padding: 1rem;
+        }
+      }
+    
+      tbody.depositTbody{
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 2rem;
+  
+        td {
+          background: var(--blackgray-600);
+          line-height: 1.5rem;
+          margin-top: 2rem;
+          padding: 1rem
+        }
+  
+        button {
+          padding: .5rem;
+          border: none;
+          background-color: transparent;
+  
+          img {
+            height: 1.5rem;
+          }
+        }
+      }
+    }
+  }
 }

@@ -7,6 +7,9 @@
 :root {
   --gray-600: #A1A1A1;
 
+  --purple-900: #613eb3;
+
+  --blackgray-600-50: #26242486;
   --blackgray-600: #262424;
   --blackgray-800: #1C1B1B;
   --blackgray-900: #171717;
@@ -22,6 +25,23 @@ body {
 
   font-family: 'Poppins', sans-serif;
 
+  select {
+    opacity: .7;
+
+    &:hover {
+      opacity: 1;
+    }
+
+  }
+
+  input {
+    opacity: .7;
+
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 @media (max-width: 1080px) {

@@ -12,12 +12,14 @@ function MainSideBar(){
       <button
         type="button"
         onClick={handleOpenAddModal}
+        className="openAdd"
       >
         <img src={addBoxImg} alt="new product" />
         <span>New Product</span>
       </button>
       <button
         type="button"
+        className="openEdit"
       >
         <img src={editBoxImg} alt="edit product" />
         <span>Box settings</span>

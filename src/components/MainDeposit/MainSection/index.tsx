@@ -1,5 +1,6 @@
 import pointsEdtImg from '../../../assets/editPoints.svg'
 import { useBoxes } from '../../../hooks/useBoxes';
+import { date } from '../../../util/date';
 
 import './styles.scss'
 
@@ -25,7 +26,7 @@ function MainSection() {
               <td>{box.quantity}</td>
               <td>{box.title}</td>
               <td>{box.type}</td>
-              <td>{new Intl.DateTimeFormat('pt-BR').format(
+              <td>{date.format(
                 new Date(box.lastUpdate)
               )
               }</td>

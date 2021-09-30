@@ -1,13 +1,31 @@
-div.mainDeposit {
-  display: grid;
-  grid-template-columns: 20rem 1fr;
+div{
+
+
+  div.mainDeposit {
+
+    display: grid;
+    grid-template-columns: .001rem 1fr;
+
+    transition: margin-left 1s;
+
+    div.on {
+      transition: margin-left 1s;
+      margin-left: 20rem;
+    }
+  }
+
+  transition: margin-left 1s;
+
+  
+  div.mainDepositNoSide {
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+  }
+
 }
 
 
-div.mainDepositNoSide {
-  display: grid;
-  grid-template-columns: 1fr;
-
-}
 
 

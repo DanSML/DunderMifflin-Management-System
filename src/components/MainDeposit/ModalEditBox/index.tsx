@@ -60,7 +60,6 @@ function ModalEditBox() {
                     </div>
 
                     <div className="inputAddModal">
-                        <label htmlFor="">Name</label>
                         <input
                             type="text"
                             value={title}

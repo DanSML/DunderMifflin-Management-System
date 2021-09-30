@@ -17,7 +17,7 @@ function MainHeader(){
                 <div className="printButton">
                     <img src={printImg} alt="" />
                 </div>
-                <span>
+                <span className="none">
                     Report
                 </span>
             </button>
