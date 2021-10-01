@@ -6,16 +6,17 @@ import { FormEvent, useState } from "react";
 import { useBoxes } from "../../../hooks/useBoxes";
 
 import './styles.scss'
+import { XButton } from '../../GeneralComponents/XButton';
 
 function ModalEditBox() {
-    const { isModalEditBoxOpen, handleOpenEditModal, handleUpdateBox, handleDeleteBox, editingBox} = useBoxes();
+    const { isModalEditBoxOpen, handleOpenEditModal, handleUpdateBox, handleDeleteBox, editingBox } = useBoxes();
 
     const [title, setTitle] = useState('');
     const [type, setType] = useState('');
     const [quantity, setQuantity] = useState('');
     const [unityPrice, setUnityPrice] = useState('');
 
-    async function handleSubmit(event: FormEvent){
+    async function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
         await handleUpdateBox({
@@ -31,7 +32,7 @@ function ModalEditBox() {
         handleOpenEditModal();
     }
 
-    function handleClose(){
+    function handleClose() {
 
         setTitle('');
         setType('');
@@ -42,15 +43,14 @@ function ModalEditBox() {
     }
 
     return (
-        <div className={isModalEditBoxOpen ? 'Modalo' : 'Modalu'}>
+        <div className={isModalEditBoxOpen ? 'ModalOpen' : 'ModalClosed'}>
             <div className="content">
-                <button
-                    type="button"
-                    className="xButtoni"
-                    onClick={handleClose}
-                >
-                    <img src={xImg} alt="" className="X" />
-                </button>
+
+                <XButton
+                    logo={xImg}
+                    action={handleClose}
+                />
+
                 <form
                     onSubmit={handleSubmit}
                 >
@@ -80,16 +80,16 @@ function ModalEditBox() {
                     </div>
 
                     <div className="inputAddModalDiferent">
-                        <input 
-                            type="number" 
+                        <input
+                            type="number"
                             value={quantity}
                             onChange={event => setQuantity(event.target.value)}
                             className="first"
                             placeholder={editingBox.quantity}
                             required
                         />
-                        <input 
-                            type="number" 
+                        <input
+                            type="number"
                             value={unityPrice}
                             onChange={event => setUnityPrice(event.target.value)}
                             className="second"

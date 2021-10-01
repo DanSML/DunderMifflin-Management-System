@@ -1,9 +1,8 @@
-div.Modalu{
+div.ModalClosed{
   display: none;
 }
 
-div.Modalo{
-  // display: none;
+div.ModalOpen{
   position: fixed;
   z-index: 1;
   left: 0;
@@ -23,26 +22,6 @@ div.Modalo{
     
     filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
 
-    button.xButtoni {
-      border: none;
-      background: transparent;
-
-      margin: .5rem .5rem 0 0;
-      position: absolute;
-      right: 0;
-
-      & img {
-        transition: all .3s;
-        opacity: .7;
-      }
-
-
-      & img:hover {
-        transition: all .3s;
-        opacity: 1;
-      }
-    }
-  
     div.Title{
       padding: 4rem 4rem 2rem 4rem;
       font-size: 1.5rem;
