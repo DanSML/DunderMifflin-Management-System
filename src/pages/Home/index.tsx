@@ -1,4 +1,5 @@
 import { Deposit } from "../../components/Deposit";
+import { Sales } from "../../components/Sales";
 import { SideBar } from "../../components/SideBar";
 import { useButtons } from "../../hooks/useButtons";
 
@@ -11,6 +12,7 @@ function Home(){
         <SideBar/>
         <div className="on">
           <Deposit isActive={true}/>
+          <Sales isActive={true}/>
         </div>
       </div>
   );

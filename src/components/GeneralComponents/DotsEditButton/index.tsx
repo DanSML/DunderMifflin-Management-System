@@ -15,6 +15,7 @@ function DotsEditButton({logo, buttonFunction, props} : DotsEditButtonProps){
     >
       <img 
         src={logo}
+        alt={`${logo}`}
       />
     </button>
   );
