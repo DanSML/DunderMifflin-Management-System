@@ -3,16 +3,18 @@ import addBoxImg from '../../../assets/addBox.svg'
 import xImg from '../../../assets/x.svg'
 import { useBoxes } from "../../../hooks/useBoxes";
 import { useSettings } from '../../../hooks/useSettings';
+import { XButton } from '../../GeneralComponents/XButton';
 
 import './styles.scss'
 
 function ModalAddBox(){
-  const { boxSettings } = useSettings();
-  const { isModalAddBoxOpen, handleOpenAddModal, handleAddBox } = useBoxes();
   const [title, setTitle] = useState('');
   const [type, setType] = useState('');
   const [quantity, setQuantity] = useState('');
   const [unityPrice, setUnityPrice] = useState('');
+
+  const { boxSettings } = useSettings();
+  const { isModalAddBoxOpen, handleOpenAddModal, handleAddBox } = useBoxes();
 
   async function handleSubmit(event: FormEvent){
     event.preventDefault();
@@ -22,7 +24,7 @@ function ModalAddBox(){
       type,
       quantity,
       unityPrice
-    })
+    });
 
     setTitle('');
     setType('');
@@ -42,13 +44,12 @@ function ModalAddBox(){
   return (
     <div className={isModalAddBoxOpen ? 'Modal' : 'Modali'}>
       <div className="content">
-          <button
-            type="button"
-            className="xButtoni"
-            onClick={handleClose}
-          >
-            <img src={xImg} alt="" className="X"/>
-          </button>
+
+          <XButton
+            logo={xImg}
+            action={handleClose}
+          />
+
         <form
           onSubmit={handleSubmit}
         >

@@ -1,5 +1,5 @@
-import { ReportButton } from '../../GeneralComponents/ReportButton'
-import { SectorLogo } from '../../GeneralComponents/SectorLogo';
+import { ReportButton } from '../GeneralComponents/ReportButton'
+import { SectorLogo } from '../GeneralComponents/SectorLogo';
 
 import './styles.scss'
 
@@ -13,7 +13,8 @@ function MainApplicationHeader({ logo, sectorName }: MainApplicationHeaderProps)
         <header className="baseHeaderContainer">
             <SectorLogo 
                 logo={logo}
-                sectorName={sectorName} />
+                sectorName={sectorName} 
+            />
             <ReportButton />
         </header>
     );  

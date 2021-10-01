@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react';
 import editBoxImg from '../../../assets/editBox.svg'
 import xImg from '../../../assets/x.svg'
 import { useSettings } from '../../../hooks/useSettings';
+import { XButton } from '../../GeneralComponents/XButton';
 
 import "./styles.scss"
 
@@ -33,13 +34,10 @@ function ModalBoxSettings(){
     return (
         <div className={isModalSettingsOpen ? "Modalo" : "Modalu"}>
             <div className="content">
-                <button
-                    type="button"
-                    className="xButtoni"
-                    onClick={handleClose}
-                >
-                    <img src={xImg} alt="" className="X" />
-                </button>
+                <XButton
+                    logo={xImg}
+                    action={handleClose}
+                />
                 <form
                     onSubmit={handleSubmit}
                 >

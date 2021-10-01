@@ -1,7 +1,7 @@
 import { MainSideBar } from './MainSideBar'
 import { MainSection } from './MainSection/BoxSection'
 import { MainSectionSettings } from './MainSection/SettingsSection';
-import { MainApplicationHeader } from './MainHeader';
+import { MainApplicationHeader } from '../MainHeader';
 
 import { BoxesContextProvider } from '../../contexts/DepositContexts/BoxesContext';
 import { ModalAddBox } from './ModalAddBox';
@@ -17,11 +17,8 @@ interface DepositProps {
 }
 
 function Deposit({isActive} : DepositProps){
-
   return (
-
     <BoxesContextProvider>
-
       <BoxesSettingsContextProvider>
  
         <div className="main">
@@ -43,11 +40,9 @@ function Deposit({isActive} : DepositProps){
             <MainSection/>
 
           </main>
-
         </div>
 
       </BoxesSettingsContextProvider>
-
     </BoxesContextProvider>
   );
 }
