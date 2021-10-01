@@ -1,0 +1,23 @@
+@media (min-width: 1080px){
+  header.baseHeaderContainer{
+    height: 5.5rem;
+
+    background: var(--blackgray-900);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1079px){
+  header.baseHeaderContainer{
+    height: 6rem;
+    padding: 1rem;
+
+    background: var(--blackgray-900);
+
+    display: flex;
+    justify-content: space-between;
+  }
+}

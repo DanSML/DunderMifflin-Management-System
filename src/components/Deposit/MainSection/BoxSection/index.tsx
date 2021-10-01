@@ -5,21 +5,19 @@ import { useBoxes } from '../../../../hooks/useBoxes';
 import { date } from '../../../../util/date';
 
 import './styles.scss'
+import { OpenModalButton } from '../../OpenModalButton';
 
 function MainSection() {
   const {boxes, handleEditingBox, isMainSectionActive, handleOpenAddModal} = useBoxes();
 
   return(
     <div className={isMainSectionActive ? "tableDeposit" : "tableDepositHidden"}>
-        
-        <div className="newProductButtoni">
-          <button
-            onClick={handleOpenAddModal}
-          >
-            <img src={addBoxImg} alt="new product" />
-            <span>New product Type</span>
-          </button>
-        </div>
+         
+      <OpenModalButton
+        logo={addBoxImg}
+        title={"New product Type"} 
+        handleModalState={handleOpenAddModal}
+      />
 
       <table>
         <thead className="depositThead">

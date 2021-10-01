@@ -3,6 +3,8 @@ import editBoxImg from '../../../../assets/editBox.svg'
 import { useBoxes } from '../../../../hooks/useBoxes';
 import { useSettings } from '../../../../hooks/useSettings';
 
+import { OpenModalButton } from '../../OpenModalButton';
+
 import './styles.scss'
 
 function MainSectionSettings() {
@@ -12,14 +14,11 @@ function MainSectionSettings() {
   return(
     <div className={isSettingsSectionActive ? "tableDeposit" : "tableDepositHidden"}>
         
-      <div className="newProductButtoni">
-        <button
-          onClick={handleSettingsModalState}
-        >
-          <img src={editBoxImg} alt="new product" />
-          <span>New product Type</span>
-        </button>
-      </div>
+      <OpenModalButton
+        logo={editBoxImg}
+        title={"New product Type"}
+        handleModalState={handleSettingsModalState}
+      />
 
       <table>
         <thead className="depositThead">

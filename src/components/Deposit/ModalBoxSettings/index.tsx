@@ -3,6 +3,8 @@ import editBoxImg from '../../../assets/editBox.svg'
 import xImg from '../../../assets/x.svg'
 import { useSettings } from '../../../hooks/useSettings';
 
+import "./styles.scss"
+
 
 function ModalBoxSettings(){
     const { handleSettingsModalState,  isModalSettingsOpen, handleAddBoxType} = useSettings();
@@ -51,22 +53,12 @@ function ModalBoxSettings(){
                             type="text"
                             value={title}
                             onChange={(event) => setTitle(event.target.value)}
+                            placeholder="type"
                             required
                         />
                     </div>
-
-
-{/*                     <div className="inputAddModal">
-                        <select value="a" required>
-                            <option value="" disabled selected>Select</option>
-                            <option value="500 Sheets">500 Sheets</option>
-                            <option value="300 Sheets">300 Sheets</option>
-                            <option value="200 Sheets">200 Sheets</option>
-                        </select>
-                    </div> */}
-
-
-                    <div className="addProductButton">
+                    
+                    <div className="addProductButtone">
                         <button
                             type="submit"
                         >

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
-import api from "../services/api";
-import { dollarUS } from "../util/currency";
+import api from "../../services/api";
+import { dollarUS } from "../../util/currency";
 
 interface BoxProps {
   id: number,

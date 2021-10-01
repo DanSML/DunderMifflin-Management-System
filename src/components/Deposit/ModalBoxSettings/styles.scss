@@ -132,15 +132,11 @@ div.Modalu{
         }
       }
   
-      div.addProductButton{ 
+      div.addProductButtone{ 
         margin: 5rem 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
   
   
         button {
-          font-size: 1.1rem;
           color: var(--gray-600);
           border: none;
           background: transparent;

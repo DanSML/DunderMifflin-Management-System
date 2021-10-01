@@ -5,6 +5,8 @@ import { StyledButton } from './StyledButton';
 import './styles.scss'
 
 function Header() {
+
+
   return (
     <>
       <header className="principal">
@@ -13,7 +15,8 @@ function Header() {
           <img src={logoImg} alt="logo" />
         </div>
         <div className="settings">
-          <button>
+          <button
+          >
             <img src={settingsImg} alt="settings button" />
           </button>
         </div>
