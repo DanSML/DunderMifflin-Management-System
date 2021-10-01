@@ -1,22 +1,16 @@
-import salesImg from '../../../assets/sales.svg'
-import packageImg from '../../../assets/deposit.svg'
-import reportImg from '../../../assets/report.svg'
 
 import './styles.scss'
 
 interface LogoProps {
+  logo: string,
   sectorName: string,
 }
 
-function SectorLogo({ sectorName }: LogoProps){
+function SectorLogo({ logo, sectorName }: LogoProps){
   return (
     <div className="depositLogo">
       <img 
-        src={
-          sectorName === 'Deposit' ? packageImg
-          : sectorName === 'Sales' ? salesImg
-          : reportImg
-        } 
+        src={logo} 
         alt="Sector Logo" 
       />
       <span> 

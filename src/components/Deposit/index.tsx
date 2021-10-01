@@ -9,6 +9,7 @@ import { ModalEditBox } from './ModalEditBox';
 import { ModalBoxSettings } from './ModalBoxSettings';
 import { BoxesSettingsContextProvider } from '../../contexts/DepositContexts/BoxesSettingsContext';
 
+import packageImg from '../../assets/deposit.svg'
 import './styles.scss'
 
 interface DepositProps {
@@ -22,9 +23,12 @@ function Deposit({isActive} : DepositProps){
     <BoxesContextProvider>
 
       <BoxesSettingsContextProvider>
-
+ 
         <div className="main">
-            <MainApplicationHeader sectorName={"Deposit"}/>
+            <MainApplicationHeader 
+              logo={ packageImg }
+              sectorName={"Deposit"}
+            />
             
           <main className="section">
 

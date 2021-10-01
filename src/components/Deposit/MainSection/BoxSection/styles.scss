@@ -1,7 +1,15 @@
 @media (min-width: 1080px){
-  
   div.tableDepositHidden {
     display: none;
+  }
+
+  div.BoxSectionHeader {
+    margin-left: 1rem;
+
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
   }
 
   div.tableDeposit {
@@ -70,6 +78,15 @@
   
     display: flex;
     flex-direction: column;
+
+    div.BoxSectionHeader {
+      margin-left: 1rem;
+  
+      
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
   
     table {
       border-spacing: 0 0.5rem;
