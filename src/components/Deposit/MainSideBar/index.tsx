@@ -1,19 +1,20 @@
 import addBoxImg from '../../../assets/addBox.svg'
 import editBoxImg from '../../../assets/editBox.svg'
-import { useBoxes } from '../../../hooks/useBoxes';
 
 import './styles.scss'
 
-function MainSideBar(){
-  const { handleMainSectionState, handleSettingsSectionState, isMainSectionActive } = useBoxes();
+interface MainSideBarProps {
+  boxSectionState: () => void,
+  boxTypeSectionState: () => void,
+}
 
+function MainSideBar( {boxSectionState, boxTypeSectionState} : MainSideBarProps){
   return(
     <div className="mainSideBar">
 
       <button
         type="button"
-        onClick={handleMainSectionState}
-        className={isMainSectionActive ? "openAddSelected" : "openAdd"}
+        onClick={boxSectionState}
       >
         <img 
           src={addBoxImg} 
@@ -24,7 +25,7 @@ function MainSideBar(){
       <button
         type="button"
         className="openEdit"
-        onClick={handleSettingsSectionState}
+        onClick={boxTypeSectionState}
       >
         <img src={editBoxImg} alt="edit product" />
         <span>Types</span>

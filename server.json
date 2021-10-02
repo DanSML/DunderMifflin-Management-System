@@ -1,42 +1,5 @@
 {
-  "paperBox": [
-    {
-      "title": "Produto Teste",
-      "type": "300 Sheets",
-      "quantity": 21,
-      "unityPrice": "$232.00",
-      "lastUpdate": "2021-10-01T04:53:25.381Z",
-      "calculatedTotal": "$4,872.00",
-      "id": 1
-    },
-    {
-      "title": "aaa",
-      "type": "500 Sheets",
-      "quantity": 12,
-      "unityPrice": "$3,232.00",
-      "lastUpdate": "2021-09-30T14:21:32.482Z",
-      "calculatedTotal": "$38,784.00",
-      "id": 2
-    },
-    {
-      "title": "aAA",
-      "type": "aaa",
-      "quantity": 12,
-      "unityPrice": "$32.00",
-      "lastUpdate": "2021-09-30T16:56:00.506Z",
-      "calculatedTotal": "$384.00",
-      "id": 3
-    },
-    {
-      "title": "asd",
-      "type": "aaa",
-      "quantity": 123,
-      "unityPrice": "$12.36",
-      "lastUpdate": "2021-09-30T18:39:31.695Z",
-      "calculatedTotal": "$1,520.28",
-      "id": 4
-    }
-  ],
+  "paperBox": [],
   "boxSettings": [
     {
       "title": "aaa",

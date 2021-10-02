@@ -10,12 +10,16 @@ import './styles.scss'
 import { SectorLogo } from '../../../GeneralComponents/SectorLogo';
 import { DotsEditButton } from '../../../GeneralComponents/DotsEditButton';
 
-function MainSectionSettings() {
+interface MainSectionSettingsProps {
+  active: boolean
+}
+
+
+function MainSectionSettings({active} : MainSectionSettingsProps) {
     const { boxSettings,  handleSettingsModalState} = useSettings();
-    const {isSettingsSectionActive} = useBoxes();
 
   return(
-    <div className={isSettingsSectionActive ? "tableDeposit" : "tableDepositHidden"}>
+    <div className={active ? "tableDeposit" : "tableDepositHidden"}>
 
       <div className="BoxSectionHeader">
         <SectorLogo
@@ -25,7 +29,7 @@ function MainSectionSettings() {
         
         <OpenModalButton
           logo={editBoxImg}
-          title={"New product Type"}
+          title={"Add Type"}
           handleModalState={handleSettingsModalState}
         />
       </div>

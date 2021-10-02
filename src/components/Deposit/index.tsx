@@ -1,5 +1,5 @@
 import { MainSideBar } from './MainSideBar'
-import { MainSection } from './MainSection/BoxSection'
+import { BoxSection } from './MainSection/BoxSection'
 import { MainSectionSettings } from './MainSection/SettingsSection';
 import { MainApplicationHeader } from '../MainHeader';
 
@@ -11,12 +11,30 @@ import { BoxesSettingsContextProvider } from '../../contexts/DepositContexts/Box
 
 import packageImg from '../../assets/deposit.svg'
 import './styles.scss'
+import { useState } from 'react';
 
 interface DepositProps {
   isActive: boolean,
 }
 
 function Deposit({isActive} : DepositProps){
+  const [isBoxSectionActive, setIsBoxSectionActive] = useState(true);
+  const [isSettingsSectionActive, setIsSettingsSectionActive] = useState(false);
+
+  function handleBoxSectionState(){
+    if (!isBoxSectionActive) {
+      setIsBoxSectionActive(!isBoxSectionActive);
+      setIsSettingsSectionActive(!isSettingsSectionActive);
+    }
+  }
+
+  function handleBoxTypeSectionState(){
+    if (!isSettingsSectionActive) {
+      setIsSettingsSectionActive(!isSettingsSectionActive);
+      setIsBoxSectionActive(!isBoxSectionActive);
+    }
+  }
+
   return (
     <BoxesContextProvider>
       <BoxesSettingsContextProvider>
@@ -33,11 +51,16 @@ function Deposit({isActive} : DepositProps){
             <ModalAddBox/>
             <ModalEditBox/>
 
-            <MainSideBar/>
-
-            <MainSectionSettings/>
-
-            <MainSection/>
+            <MainSideBar
+              boxSectionState={handleBoxSectionState}
+              boxTypeSectionState={handleBoxTypeSectionState}
+            />
+            <MainSectionSettings
+              active={isSettingsSectionActive}
+            />
+            <BoxSection
+              active={isBoxSectionActive}
+            />
 
           </main>
         </div>

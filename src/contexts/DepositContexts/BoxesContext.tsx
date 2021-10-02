@@ -3,45 +3,16 @@ import { createContext } from "react";
 import api from "../../services/api";
 import { dollarUS } from "../../util/currency";
 
-interface BoxProps {
-  id: number,
-  quantity: string,
-  unityPrice: string,
-  calculatedTotal: number,
-  title: string,
-  type: string,
-  lastUpdate: string,
-}
+import { PaperBoxProps } from '../../util/interfaces/handleBoxInterfaces'
+import { InitialPaperBoxProps } from '../../util/interfaces/handleBoxInterfaces'
+import { PaperBoxProductProps } from '../../util/interfaces/handleBoxInterfaces'
 
-type BoxPropsSettle = Omit<BoxProps, 'id' | 'lastUpdate' | 'calculatedTotal'>
 
-interface BoxContextProps {
-  boxes: BoxProps[],
-  editingBox: BoxProps,
-  handleAddBox: (props: BoxPropsSettle) => void,
-  handleOpenAddModal: () => void,
-  handleOpenEditModal: () => void,
-  isModalAddBoxOpen: boolean,
-  isModalEditBoxOpen: boolean,
-  handleDeleteBox: (boxId: number) => void,
-  handleUpdateBox: (props: BoxPropsSettle) => void,
-  handleEditingBox: (props: BoxProps) => void,
-  handleMainSectionState: () => void,
-  isMainSectionActive: boolean,
-  handleSettingsSectionState: () => void,
-  isSettingsSectionActive: boolean
-}
-
-export const BoxesContext = createContext({} as BoxContextProps);
+export const BoxesContext = createContext({} as PaperBoxProductProps);
 
 const BoxesContextProvider: React.FC = ({ children }) =>{
-  const [editingBox, setEditingBox] = useState({} as BoxProps);
-  const [boxes, setBox] = useState<BoxProps[]>([]);
-  const [isModalAddBoxOpen, setIsModalAddBoxOpen] = useState(false);
-  const [isModalEditBoxOpen, setIsModalEditBoxOpen] = useState(false);
-  const [isMainSectionActive, setIsMainSectionActive] = useState(true);
-  const [isSettingsSectionActive, setIsSettingsSectionActive] = useState(false);
-
+  const [editingBox, setEditingBox] = useState({} as PaperBoxProps);
+  const [boxes, setBox] = useState<PaperBoxProps[]>([]);
 
   useEffect(() => {
     async function getBox() {
@@ -51,14 +22,14 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
     getBox();
   }, []);
 
-  async function handleAddBox(boxSettle: BoxPropsSettle){
+  async function handleAddPaperBox(boxSettle: InitialPaperBoxProps){
     try {
       const response = await api.post('/paperBox', {
         ...boxSettle,
-        quantity: Number(boxSettle.quantity),
-        unityPrice: dollarUS.format(Number(boxSettle.unityPrice)),
+        amount: Number(boxSettle.amount),
+        buyPrice: dollarUS.format(Number(boxSettle.buyPrice)),
         lastUpdate: new Date(),
-        calculatedTotal: dollarUS.format(Number((Number(boxSettle.quantity) * Number(boxSettle.unityPrice)).toFixed(2)))
+        calculatedTotal: dollarUS.format(Number((Number(boxSettle.amount) * Number(boxSettle.buyPrice)).toFixed(2)))
       });
 
       setBox([
@@ -71,7 +42,7 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
     }
   }
 
-  async function handleUpdateBox(boxSettle: BoxPropsSettle) {
+  async function handleUpdatePaperBox(boxSettle: InitialPaperBoxProps) {
 
     try {
       const updatedBox = await api.put(
@@ -79,10 +50,10 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
       {
         ...boxSettle,
         ...editingBox,
-        quantity: Number(boxSettle.quantity),
-        unityPrice: dollarUS.format(Number(boxSettle.unityPrice)),
+        amount: Number(boxSettle.amount),
+        buyPrice: dollarUS.format(Number(boxSettle.buyPrice)),
         lastUpdate: new Date(),
-        calculatedTotal: dollarUS.format(Number((Number(boxSettle.quantity) * Number(boxSettle.unityPrice)).toFixed(2))) 
+        calculatedTotal: dollarUS.format(Number((Number(boxSettle.amount) * Number(boxSettle.buyPrice)).toFixed(2))) 
       }
     );
 
@@ -97,60 +68,28 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
     }
   }
 
-  async function handleDeleteBox(boxId: number){
+  async function handleDeletePaperBox(boxId: number){
     await api.delete(`/paperBox/${boxId}`);
 
     const filteredBoxes = boxes.filter(box => box.id !== boxId);
 
-    setIsModalEditBoxOpen(!isModalEditBoxOpen);
     setBox(filteredBoxes);
   }
 
-  function handleEditingBox(boxSettle: BoxProps){
+  function handleEditingBox(boxSettle: PaperBoxProps){
     setEditingBox(boxSettle);
-
-    setIsModalEditBoxOpen(!isModalEditBoxOpen);
-  }
-
-  function handleOpenAddModal(){
-    setIsModalAddBoxOpen(!isModalAddBoxOpen);
-  }
-
-  function handleOpenEditModal(){
-    setIsModalEditBoxOpen(!isModalEditBoxOpen);
-  }
-
-  function handleMainSectionState(){
-    if (!isMainSectionActive) {
-      setIsMainSectionActive(!isMainSectionActive);
-      setIsSettingsSectionActive(!isSettingsSectionActive);
-    }
-  }
-
-  function handleSettingsSectionState(){
-    if (!isSettingsSectionActive) {
-      setIsSettingsSectionActive(!isSettingsSectionActive);
-      setIsMainSectionActive(!isMainSectionActive);
-    }
   }
 
   return (
     <BoxesContext.Provider 
       value={{
         boxes,
-        handleAddBox,
-        handleOpenAddModal,
-        handleOpenEditModal,
-        isModalEditBoxOpen,
-        isModalAddBoxOpen,
-        handleDeleteBox,
-        handleUpdateBox,
-        handleEditingBox,
         editingBox,
-        handleMainSectionState,
-        isMainSectionActive,
-        handleSettingsSectionState,
-        isSettingsSectionActive
+
+        handleEditingBox,
+        handleAddPaperBox,
+        handleDeletePaperBox,
+        handleUpdatePaperBox,
       }}>
       {children}
     </BoxesContext.Provider >

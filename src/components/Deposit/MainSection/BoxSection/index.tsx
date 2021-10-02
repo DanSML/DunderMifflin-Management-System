@@ -10,12 +10,21 @@ import { SectorLogo } from '../../../GeneralComponents/SectorLogo';
 
 import './styles.scss'
 import { DotsEditButton } from '../../../GeneralComponents/DotsEditButton';
+import { useDepositModal } from '../../../../hooks/useDepositModal';
 
-function MainSection() {
-  const {boxes, handleEditingBox, isMainSectionActive, handleOpenAddModal} = useBoxes();
+
+interface BoxSectionProps {
+  active: boolean
+}
+
+function BoxSection( {active}: BoxSectionProps) {
+  const {boxes, handleEditingBox} = useBoxes();
+  const { handleOpenAddModal } = useDepositModal();
+
+  
 
   return(
-    <div className={isMainSectionActive ? "tableDeposit" : "tableDepositHidden"}>
+    <div className={active ? "tableDeposit" : "tableDepositHidden"}>
 
       <div className="BoxSectionHeader">
         <SectorLogo
@@ -25,7 +34,7 @@ function MainSection() {
           
         <OpenModalButton
           logo={addBoxImg}
-          title={"New product Type"} 
+          title={"Add Box"} 
           handleModalState={handleOpenAddModal}
         />
       </div>
@@ -44,8 +53,8 @@ function MainSection() {
         <tbody className="depositTbody">
           {boxes.map(box => (
             <tr key={box.id}>
-              <td>{box.quantity}</td>
-              <td>{box.title}</td>
+              <td>{box.amount}</td>
+              <td>{box.name}</td>
               <td>{box.type}</td>
               <td>{date.format(
                 new Date(box.lastUpdate)
@@ -66,4 +75,4 @@ function MainSection() {
   );
 }
 
-export { MainSection }
+export { BoxSection }
