@@ -1,7 +1,6 @@
 import pointsEdtImg from '../../../../assets/editPoints.svg'
 import editBoxImg from '../../../../assets/editBox.svg'
 import packageImg from '../../../../assets/deposit.svg'
-import { useBoxes } from '../../../../hooks/useBoxes';
 import { useSettings } from '../../../../hooks/useSettings';
 
 import { OpenModalButton } from '../../OpenModalButton';

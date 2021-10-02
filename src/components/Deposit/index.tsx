@@ -12,6 +12,7 @@ import { BoxesSettingsContextProvider } from '../../contexts/DepositContexts/Box
 import packageImg from '../../assets/deposit.svg'
 import './styles.scss'
 import { useState } from 'react';
+import { DepositModalContextProvider } from '../../contexts/DepositContexts/DepositModalContext';
 
 interface DepositProps {
   isActive: boolean,
@@ -38,33 +39,33 @@ function Deposit({isActive} : DepositProps){
   return (
     <BoxesContextProvider>
       <BoxesSettingsContextProvider>
- 
-        <div className="main">
-            <MainApplicationHeader 
-              logo={ packageImg }
-              sectorName={"Deposit"}
-            />
-            
-          <main className="section">
+        <DepositModalContextProvider>
+          <div className="main">
+              <MainApplicationHeader 
+                logo={ packageImg }
+                sectorName={"Deposit"}
+              />
+              
+            <main className="section">
 
-            <ModalBoxSettings/>
-            <ModalAddBox/>
-            <ModalEditBox/>
+              <ModalBoxSettings/>
+              <ModalAddBox/>
+              <ModalEditBox/>
 
-            <MainSideBar
-              boxSectionState={handleBoxSectionState}
-              boxTypeSectionState={handleBoxTypeSectionState}
-            />
-            <MainSectionSettings
-              active={isSettingsSectionActive}
-            />
-            <BoxSection
-              active={isBoxSectionActive}
-            />
+              <MainSideBar
+                boxSectionState={handleBoxSectionState}
+                boxTypeSectionState={handleBoxTypeSectionState}
+              />
+              <MainSectionSettings
+                active={isSettingsSectionActive}
+              />
+              <BoxSection
+                active={isBoxSectionActive}
+              />
 
-          </main>
-        </div>
-
+            </main>
+          </div>
+        </DepositModalContextProvider>
       </BoxesSettingsContextProvider>
     </BoxesContextProvider>
   );

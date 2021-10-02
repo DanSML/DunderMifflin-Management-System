@@ -14,7 +14,7 @@ function ModalAddBox(){
   const [amount, setAmount] = useState('');
   const [buyPrice, setBuyPrice] = useState('');
 
-  const { handleOpenAddModal } = useDepositModal();
+  const { handleOpenAddModal, isModalAddBoxOpen } = useDepositModal();
   const { boxSettings } = useSettings();
   const { handleAddPaperBox } = useBoxes();
 
@@ -63,8 +63,8 @@ function ModalAddBox(){
           <div className="inputAddModal">
             <input 
               type="text" 
-              value={title}
-              onChange={event => setTitle(event.target.value)}
+              value={name}
+              onChange={event => setName(event.target.value)}
               placeholder="Box type"
               required
             />
@@ -84,16 +84,16 @@ function ModalAddBox(){
           <div className="inputAddModalDiferent">
               <input 
                 type="number" 
-                value={quantity}
-                onChange={event => setQuantity(event.target.value)}
+                value={amount}
+                onChange={event => setAmount(event.target.value)}
                 className="first"
                 placeholder="Quantity"
                 required
               />
               <input 
                 type="number" 
-                value={unityPrice}
-                onChange={event => setUnityPrice(event.target.value)}
+                value={buyPrice}
+                onChange={event => setBuyPrice(event.target.value)}
                 className="second"
                 placeholder="Unity price"
                 required

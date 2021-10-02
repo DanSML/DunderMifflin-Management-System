@@ -7,37 +7,39 @@ import { useBoxes } from "../../../hooks/useBoxes";
 
 import './styles.scss'
 import { XButton } from '../../GeneralComponents/XButton';
+import { useDepositModal } from '../../../hooks/useDepositModal';
 
 function ModalEditBox() {
-    const { isModalEditBoxOpen, handleOpenEditModal, handleUpdateBox, handleDeleteBox, editingBox } = useBoxes();
-
-    const [title, setTitle] = useState('');
+    const { handleUpdatePaperBox, handleDeletePaperBox, editingBox } = useBoxes();
+    const { isModalEditBoxOpen, handleOpenEditModal } = useDepositModal();
+    
+    const [name, setName] = useState('');
     const [type, setType] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [unityPrice, setUnityPrice] = useState('');
+    const [amount, setAmount] = useState('');
+    const [buyPrice, setBuyPrice] = useState('');
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
-        await handleUpdateBox({
-            title,
+        await handleUpdatePaperBox({
+            name,
             type,
-            quantity,
-            unityPrice,
+            amount,
+            buyPrice,
         })
-        setTitle('');
+        setName('');
         setType('');
-        setQuantity('');
-        setUnityPrice('');
+        setAmount('');
+        setBuyPrice('');
         handleOpenEditModal();
     }
 
     function handleClose() {
 
-        setTitle('');
+        setName('');
         setType('');
-        setQuantity('');
-        setUnityPrice('');
+        setAmount('');
+        setBuyPrice('');
 
         handleOpenEditModal();
     }
@@ -62,9 +64,9 @@ function ModalEditBox() {
                     <div className="inputAddModal">
                         <input
                             type="text"
-                            value={title}
-                            onChange={event => setTitle(event.target.value)}
-                            placeholder={editingBox.title}
+                            value={name}
+                            onChange={event => setName(event.target.value)}
+                            placeholder={editingBox.name}
                             required
                         />
                     </div>
@@ -82,25 +84,25 @@ function ModalEditBox() {
                     <div className="inputAddModalDiferent">
                         <input
                             type="number"
-                            value={quantity}
-                            onChange={event => setQuantity(event.target.value)}
+                            value={amount}
+                            onChange={event => setAmount(event.target.value)}
                             className="first"
-                            placeholder={editingBox.quantity}
+                            placeholder={editingBox.amount}
                             required
                         />
                         <input
                             type="number"
-                            value={unityPrice}
-                            onChange={event => setUnityPrice(event.target.value)}
+                            value={buyPrice}
+                            onChange={event => setBuyPrice(event.target.value)}
                             className="second"
-                            placeholder={editingBox.unityPrice}
+                            placeholder={editingBox.buyPrice}
                             required
                         />
                     </div>
                     <div className="addProductButton">
                         <button
                             type="button"
-                            onClick={() => handleDeleteBox(editingBox.id)}
+                            onClick={() => handleDeletePaperBox(editingBox.id)}
                         >
                             Exclude Product
                         </button>

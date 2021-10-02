@@ -11,6 +11,7 @@ import { SectorLogo } from '../../../GeneralComponents/SectorLogo';
 import './styles.scss'
 import { DotsEditButton } from '../../../GeneralComponents/DotsEditButton';
 import { useDepositModal } from '../../../../hooks/useDepositModal';
+import { PaperBoxProps } from '../../../../util/interfaces/handleBoxInterfaces';
 
 
 interface BoxSectionProps {
@@ -19,8 +20,12 @@ interface BoxSectionProps {
 
 function BoxSection( {active}: BoxSectionProps) {
   const {boxes, handleEditingBox} = useBoxes();
-  const { handleOpenAddModal } = useDepositModal();
+  const { handleOpenAddModal, handleOpenEditModal } = useDepositModal();
 
+  function handleDotButtonClick(props: PaperBoxProps){
+    handleOpenEditModal();
+    handleEditingBox(props);
+  }
   
 
   return(
@@ -63,7 +68,7 @@ function BoxSection( {active}: BoxSectionProps) {
               <td>
                 <DotsEditButton
                   logo={pointsEdtImg}
-                  buttonFunction={handleEditingBox}
+                  buttonFunction={() => handleDotButtonClick(box)}
                   props={box}
                 />
               </td>
