@@ -1,14 +1,17 @@
 import { FormEvent, useState } from 'react';
-import editBoxImg from '../../../assets/editBox.svg'
-import xImg from '../../../assets/x.svg'
-import { useSettings } from '../../../hooks/useSettings';
 import { XButton } from '../../GeneralComponents/XButton';
 
+import { useTypes } from '../../../hooks/useSettings';
+
 import "./styles.scss"
+import editBoxImg from '../../../assets/editBox.svg'
+import xImg from '../../../assets/x.svg'
+import { useDepositModal } from '../../../hooks/useDepositModal';
 
 
-function ModalBoxSettings(){
-    const { handleSettingsModalState,  isModalSettingsOpen, handleAddBoxType} = useSettings();
+function ModalBoxTypes(){
+    const {handleAddBoxType} = useTypes();
+    const {handleBoxesTypesModalState,  isModalBoxesTypesOpen } = useDepositModal();
     const [title, setTitle] = useState('');
     const [percent, setPercent] = useState(0);
 
@@ -20,19 +23,17 @@ function ModalBoxSettings(){
             percent
         })
 
-        setTitle('');
-        setPercent(0);
-        handleSettingsModalState();
+        handleClose();
     }
 
     function handleClose(){
         setTitle('');
         setPercent(0);
-        handleSettingsModalState();
+        handleBoxesTypesModalState();
     }
 
     return (
-        <div className={isModalSettingsOpen ? "Modalo" : "Modalu"}>
+        <div className={isModalBoxesTypesOpen ? "Modalo" : "Modalu"}>
             <div className="content">
                 <XButton
                     logo={xImg}
@@ -69,4 +70,4 @@ function ModalBoxSettings(){
     );
 }
 
-export {ModalBoxSettings}
+export { ModalBoxTypes }

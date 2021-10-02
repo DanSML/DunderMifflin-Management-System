@@ -1,13 +1,13 @@
-
-import editBoxImg from '../../../assets/editBox.svg'
-import xImg from '../../../assets/x.svg'
-
 import { FormEvent, useState } from "react";
+import { XButton } from '../../GeneralComponents/XButton';
+
+import { useDepositModal } from '../../../hooks/useDepositModal';
 import { useBoxes } from "../../../hooks/useBoxes";
 
 import './styles.scss'
-import { XButton } from '../../GeneralComponents/XButton';
-import { useDepositModal } from '../../../hooks/useDepositModal';
+import editBoxImg from '../../../assets/editBox.svg'
+import xImg from '../../../assets/x.svg'
+
 
 function ModalEditBox() {
     const { handleUpdatePaperBox, handleDeletePaperBox, editingBox } = useBoxes();
@@ -27,21 +27,22 @@ function ModalEditBox() {
             amount,
             buyPrice,
         })
-        setName('');
-        setType('');
-        setAmount('');
-        setBuyPrice('');
-        handleOpenEditModal();
+
+        handleClose();
     }
 
     function handleClose() {
-
         setName('');
         setType('');
         setAmount('');
         setBuyPrice('');
 
         handleOpenEditModal();
+    }
+
+    function handleDelete(){
+        handleClose();
+        handleDeletePaperBox(editingBox.id);
     }
 
     return (
@@ -102,7 +103,7 @@ function ModalEditBox() {
                     <div className="addProductButton">
                         <button
                             type="button"
-                            onClick={() => handleDeletePaperBox(editingBox.id)}
+                            onClick={() => handleDelete()}
                         >
                             Exclude Product
                         </button>

@@ -1,6 +1,6 @@
 import { useButtons } from '../../../hooks/useButtons';
-import './styles.scss'
 
+import './styles.scss'
 
 function StyledButton() {
   const {buttonState, setButtonState} = useButtons();

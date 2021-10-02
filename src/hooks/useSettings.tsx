@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { BoxesSettingsContext } from "../contexts/DepositContexts/BoxesSettingsContext";
+import { BoxesTypesContext } from "../contexts/DepositContexts/BoxesTypesContext";
 
-export const useSettings = () => {
-  const settingsContext = useContext(BoxesSettingsContext);
-  return settingsContext;
+export const useTypes = () => {
+  const boxesTypesContext = useContext(BoxesTypesContext);
+  return boxesTypesContext;
 };

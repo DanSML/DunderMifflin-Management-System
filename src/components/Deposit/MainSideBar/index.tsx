@@ -1,7 +1,6 @@
+import './styles.scss'
 import addBoxImg from '../../../assets/addBox.svg'
 import editBoxImg from '../../../assets/editBox.svg'
-
-import './styles.scss'
 
 interface MainSideBarProps {
   boxSectionState: () => void,

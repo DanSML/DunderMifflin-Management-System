@@ -48,8 +48,8 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
       const updatedBox = await api.put(
         `/paperBox/${editingBox.id}`,
       {
-        ...boxSettle,
         ...editingBox,
+        ...boxSettle,
         amount: Number(boxSettle.amount),
         buyPrice: dollarUS.format(Number(boxSettle.buyPrice)),
         lastUpdate: new Date(),
