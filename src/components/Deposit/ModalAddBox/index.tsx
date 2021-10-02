@@ -1,12 +1,13 @@
 import { FormEvent, useState } from 'react';
-import addBoxImg from '../../../assets/addBox.svg'
-import xImg from '../../../assets/x.svg'
-import { useBoxes } from "../../../hooks/useBoxes";
-import { useDepositModal } from '../../../hooks/useDepositModal';
-import { useSettings } from '../../../hooks/useSettings';
 import { XButton } from '../../GeneralComponents/XButton';
 
+import { useBoxes } from "../../../hooks/useBoxes";
+import { useDepositModal } from '../../../hooks/useDepositModal';
+import { useTypes } from '../../../hooks/useSettings';
+
 import './styles.scss'
+import addBoxImg from '../../../assets/addBox.svg'
+import xImg from '../../../assets/x.svg'
 
 function ModalAddBox(){
   const [name, setName] = useState('');
@@ -15,7 +16,7 @@ function ModalAddBox(){
   const [buyPrice, setBuyPrice] = useState('');
 
   const { handleOpenAddModal, isModalAddBoxOpen } = useDepositModal();
-  const { boxSettings } = useSettings();
+  const { boxSettings } = useTypes();
   const { handleAddPaperBox } = useBoxes();
 
   async function handleSubmit(event: FormEvent){
@@ -27,14 +28,12 @@ function ModalAddBox(){
       amount,
       buyPrice
     });
-
     setName('');
     setType('');
     setAmount('');
     setBuyPrice('');
     handleOpenAddModal();
   }
-
   function handleClose(){
     setName('');
     setType('');

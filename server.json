@@ -1,45 +1,10 @@
 {
-  "paperBox": [
-    {
-      "name": "boxZ",
-      "type": "aaa",
-      "amount": 123,
-      "buyPrice": "$25.45",
-      "lastUpdate": "2021-10-02T10:45:22.853Z",
-      "calculatedTotal": "$3,130.35",
-      "id": 1
-    }
-  ],
+  "paperBox": [],
   "boxSettings": [
     {
       "title": "aaa",
       "percent": 0,
       "id": 1
-    },
-    {
-      "title": "aaaa",
-      "percent": 0,
-      "id": 2
-    },
-    {
-      "title": "teste",
-      "percent": 0,
-      "id": 3
-    },
-    {
-      "title": "a",
-      "percent": 0,
-      "id": 4
-    },
-    {
-      "title": "aaa",
-      "percent": 0,
-      "id": 5
-    },
-    {
-      "title": "aaa",
-      "percent": 0,
-      "id": 6
     }
   ]
 }

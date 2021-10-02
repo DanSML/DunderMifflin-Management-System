@@ -1,18 +1,21 @@
+import { useState } from 'react';
+
 import { MainSideBar } from './MainSideBar'
 import { BoxSection } from './MainSection/BoxSection'
 import { MainSectionSettings } from './MainSection/SettingsSection';
 import { MainApplicationHeader } from '../MainHeader';
 
-import { BoxesContextProvider } from '../../contexts/DepositContexts/BoxesContext';
 import { ModalAddBox } from './ModalAddBox';
 import { ModalEditBox } from './ModalEditBox';
-import { ModalBoxSettings } from './ModalBoxSettings';
-import { BoxesSettingsContextProvider } from '../../contexts/DepositContexts/BoxesSettingsContext';
+import {  ModalBoxTypes } from './ModalBoxTypes';
 
-import packageImg from '../../assets/deposit.svg'
-import './styles.scss'
-import { useState } from 'react';
+import { BoxesContextProvider } from '../../contexts/DepositContexts/BoxesContext';
+import { BoxesTypesContextProvider } from '../../contexts/DepositContexts/BoxesTypesContext';
 import { DepositModalContextProvider } from '../../contexts/DepositContexts/DepositModalContext';
+
+import './styles.scss'
+import packageImg from '../../assets/deposit.svg'
+
 
 interface DepositProps {
   isActive: boolean,
@@ -38,7 +41,7 @@ function Deposit({isActive} : DepositProps){
 
   return (
     <BoxesContextProvider>
-      <BoxesSettingsContextProvider>
+      <BoxesTypesContextProvider>
         <DepositModalContextProvider>
           <div className="main">
               <MainApplicationHeader 
@@ -48,7 +51,7 @@ function Deposit({isActive} : DepositProps){
               
             <main className="section">
 
-              <ModalBoxSettings/>
+              <ModalBoxTypes/>
               <ModalAddBox/>
               <ModalEditBox/>
 
@@ -66,7 +69,7 @@ function Deposit({isActive} : DepositProps){
             </main>
           </div>
         </DepositModalContextProvider>
-      </BoxesSettingsContextProvider>
+      </BoxesTypesContextProvider>
     </BoxesContextProvider>
   );
 }

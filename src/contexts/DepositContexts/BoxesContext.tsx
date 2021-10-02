@@ -14,6 +14,7 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
   const [editingBox, setEditingBox] = useState({} as PaperBoxProps);
   const [boxes, setBox] = useState<PaperBoxProps[]>([]);
 
+  
   useEffect(() => {
     async function getBox() {
       const response = await api.get('/paperBox');
@@ -49,7 +50,6 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
         `/paperBox/${editingBox.id}`,
       {
         ...boxSettle,
-        ...editingBox,
         amount: Number(boxSettle.amount),
         buyPrice: dollarUS.format(Number(boxSettle.buyPrice)),
         lastUpdate: new Date(),

@@ -1,13 +1,14 @@
+import { DotsEditButton } from '../../../GeneralComponents/DotsEditButton';
+import { OpenModalButton } from '../../OpenModalButton';
+import { SectorLogo } from '../../../GeneralComponents/SectorLogo';
+
+import { useTypes } from '../../../../hooks/useSettings';
+
+import './styles.scss'
 import pointsEdtImg from '../../../../assets/editPoints.svg'
 import editBoxImg from '../../../../assets/editBox.svg'
 import packageImg from '../../../../assets/deposit.svg'
-import { useSettings } from '../../../../hooks/useSettings';
-
-import { OpenModalButton } from '../../OpenModalButton';
-
-import './styles.scss'
-import { SectorLogo } from '../../../GeneralComponents/SectorLogo';
-import { DotsEditButton } from '../../../GeneralComponents/DotsEditButton';
+import { useDepositModal } from '../../../../hooks/useDepositModal';
 
 interface MainSectionSettingsProps {
   active: boolean
@@ -15,7 +16,8 @@ interface MainSectionSettingsProps {
 
 
 function MainSectionSettings({active} : MainSectionSettingsProps) {
-    const { boxSettings,  handleSettingsModalState} = useSettings();
+    const { boxSettings } = useTypes();
+    const { handleBoxesTypesModalState } = useDepositModal();
 
   return(
     <div className={active ? "tableDeposit" : "tableDepositHidden"}>
@@ -29,7 +31,7 @@ function MainSectionSettings({active} : MainSectionSettingsProps) {
         <OpenModalButton
           logo={editBoxImg}
           title={"Add Type"}
-          handleModalState={handleSettingsModalState}
+          handleModalState={handleBoxesTypesModalState}
         />
       </div>
 
@@ -50,7 +52,7 @@ function MainSectionSettings({active} : MainSectionSettingsProps) {
               <td>
                 <DotsEditButton
                   props={type}
-                  buttonFunction={handleSettingsModalState}
+                  buttonFunction={handleBoxesTypesModalState}
                   logo={pointsEdtImg}
                 />
               </td>

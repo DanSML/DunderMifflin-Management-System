@@ -1,8 +1,8 @@
-import logoImg  from '../../assets/Logo.svg'
-import settingsImg  from '../../assets/settings.svg'
 import { StyledButton } from './StyledButton';
 
 import './styles.scss'
+import logoImg  from '../../assets/Logo.svg'
+import settingsImg  from '../../assets/settings.svg'
 
 function Header() {
 

@@ -1,16 +1,17 @@
+import { DotsEditButton } from '../../../GeneralComponents/DotsEditButton';
+import { OpenModalButton } from '../../OpenModalButton';
+import { SectorLogo } from '../../../GeneralComponents/SectorLogo';
+
+import { useDepositModal } from '../../../../hooks/useDepositModal';
+import { useBoxes } from '../../../../hooks/useBoxes';
+import { date } from '../../../../util/date';
+
+import './styles.scss'
 import pointsEdtImg from '../../../../assets/editPoints.svg'
 import addBoxImg from '../../../../assets/addBox.svg'
 import packageImg from '../../../../assets/deposit.svg'
 
-import { useBoxes } from '../../../../hooks/useBoxes';
-import { date } from '../../../../util/date';
 
-import { OpenModalButton } from '../../OpenModalButton';
-import { SectorLogo } from '../../../GeneralComponents/SectorLogo';
-
-import './styles.scss'
-import { DotsEditButton } from '../../../GeneralComponents/DotsEditButton';
-import { useDepositModal } from '../../../../hooks/useDepositModal';
 import { PaperBoxProps } from '../../../../util/interfaces/handleBoxInterfaces';
 
 
