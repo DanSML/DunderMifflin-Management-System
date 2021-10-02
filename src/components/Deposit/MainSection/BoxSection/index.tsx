@@ -20,7 +20,7 @@ interface BoxSectionProps {
 }
 
 function BoxSection( {active}: BoxSectionProps) {
-  const {boxes, handleEditingBox} = useBoxes();
+  const { boxes, handleEditingBox } = useBoxes();
   const { handleOpenAddModal, handleOpenEditModal } = useDepositModal();
 
   function handleDotButtonClick(props: PaperBoxProps){

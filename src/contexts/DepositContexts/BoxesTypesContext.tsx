@@ -13,12 +13,15 @@ type BoxType = Omit<BoxTypesProps, 'id'>;
 interface BoxTypesContextProps {
     boxSettings: BoxTypesProps[],
     handleAddBoxType: (props: BoxType) => void,
+    handleUpdateBoxType: (props: BoxType) => void,
+    handleDeleteBoxType: (propx: number) => void
 }
 
 export const BoxesTypesContext = createContext({} as BoxTypesContextProps);
 
 const BoxesTypesContextProvider: React.FC = ( {children} ) => {
     const [boxSettings, setBoxSettings] = useState<BoxTypesProps[]>([]);
+    const [editingBoxType, setEditingBoxType] = useState({} as BoxTypesProps);
 
     useEffect(() => {
         async function getBoxSettings() {
@@ -43,11 +46,46 @@ const BoxesTypesContextProvider: React.FC = ( {children} ) => {
         }
     }
 
+    async function handleUpdateBoxType(boxType: BoxType){
+        try {
+            const updatedBoxType = await api.put(
+                `/boxSettings/${editingBoxType.id}`, 
+                {
+                    ...editingBoxType,
+                    ...boxType,
+                }
+            );
+
+            const updatedTypes = boxSettings.map(boxType => 
+                boxType.id !== updatedBoxType.data.id ? boxType : updatedBoxType.data    
+            );
+
+                setBoxSettings(updatedTypes);
+
+        } catch (err) { 
+            console.log(err);
+        }       
+    }
+
+    async function handleDeleteBoxType (boxTypeId: number){
+        await api.delete(`/boxSettings/${boxTypeId}`);
+
+        const filteredBoxTypes = boxSettings.filter(boxType => boxType.id !== boxTypeId);
+
+        setBoxSettings(filteredBoxTypes);
+    }
+
+    function handleEditingBoxType(boxType: BoxTypesProps) {
+        setEditingBoxType(boxType);
+    }
+
     return(
         <BoxesTypesContext.Provider
             value={{
                 boxSettings,
-                handleAddBoxType
+                handleAddBoxType,
+                handleUpdateBoxType,
+                handleDeleteBoxType
             }}
         >
             {children}

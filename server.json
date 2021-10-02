@@ -1,5 +1,24 @@
 {
-  "paperBox": [],
+  "paperBox": [
+    {
+      "name": "Algo",
+      "type": "aaa",
+      "amount": 12,
+      "buyPrice": "$362.00",
+      "lastUpdate": "2021-10-02T14:26:20.570Z",
+      "calculatedTotal": "$4,344.00",
+      "id": 1
+    },
+    {
+      "name": "remove",
+      "type": "aaa",
+      "amount": 12,
+      "buyPrice": "$45.69",
+      "lastUpdate": "2021-10-02T14:26:37.430Z",
+      "calculatedTotal": "$548.28",
+      "id": 2
+    }
+  ],
   "boxSettings": [
     {
       "title": "aaa",
