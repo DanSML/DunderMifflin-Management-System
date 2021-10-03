@@ -1,15 +1,28 @@
 import { Header } from "./components/Header";
 import { ButtonContextProvider } from "./contexts/ButtonContext";
-import { Home } from "./pages/Home/";
+import { BrowserRouter } from 'react-router-dom';
 
+
+import './styles/styles.scss'
 import './styles/global.scss'
+import { SideBar } from "./components/SideBar";
+import { Routes } from "./routes";
+import { useButtons } from "./hooks/useButtons";
 
 function App() {
+  const {buttonState} = useButtons();
   return (
-    <ButtonContextProvider>
-      <Header/>
-      <Home/>
-    </ButtonContextProvider>
+    <BrowserRouter>
+      <ButtonContextProvider>
+            <Header/>
+          <div className={buttonState === 'normal' ? 'mainSectionNoSide' : 'mainSection'}>
+          <SideBar/>
+              <div className="on">
+                <Routes/>
+              </div>
+          </div>
+      </ButtonContextProvider>
+    </BrowserRouter>
   )
 }
 

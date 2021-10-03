@@ -7,16 +7,18 @@ import { useBoxes } from "../../../hooks/useBoxes";
 import './styles.scss'
 import editBoxImg from '../../../assets/editBox.svg'
 import xImg from '../../../assets/x.svg'
+import { useTypes } from "../../../hooks/useSettings";
 
 
 function ModalEditBox() {
     const { handleUpdatePaperBox, handleDeletePaperBox, editingBox } = useBoxes();
     const { isModalEditBoxOpen, handleOpenEditModal } = useDepositModal();
+    const { boxSettings } = useTypes();
     
-    const [name, setName] = useState('');
-    const [type, setType] = useState('');
-    const [amount, setAmount] = useState('');
-    const [buyPrice, setBuyPrice] = useState('');
+    const [name, setName] = useState(editingBox.name);
+    const [type, setType] = useState(editingBox.type);
+    const [amount, setAmount] = useState(editingBox.amount);
+    const [buyPrice, setBuyPrice] = useState(editingBox.buyPrice);
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
@@ -25,9 +27,10 @@ function ModalEditBox() {
             name,
             type,
             amount,
-            buyPrice,
-        })
+            buyPrice
+        });
 
+        
         handleClose();
     }
 
@@ -72,14 +75,15 @@ function ModalEditBox() {
                         />
                     </div>
 
-
                     <div className="inputAddModal">
-                        <select value={type} onChange={(e) => setType(e.target.value)} required>
-                            <option value="" disabled selected>{editingBox.type}</option>
-                            <option value="500 Sheets">500 Sheets</option>
-                            <option value="300 Sheets">300 Sheets</option>
-                            <option value="200 Sheets">200 Sheets</option>
-                        </select>
+                    <select value={type} onChange={(e) => setType(e.target.value)} required>
+                        <option value="" disabled>Select</option>
+                        {
+                            boxSettings.map((type) => {
+                                return (<option value={type.title}>{type.title}</option>)
+                            })
+                        }
+                    </select>
                     </div>
 
                     <div className="inputAddModalDiferent">
@@ -94,9 +98,9 @@ function ModalEditBox() {
                         <input
                             type="number"
                             value={buyPrice}
-                            onChange={event => setBuyPrice(event.target.value)}
-                            className="second"
                             placeholder={editingBox.buyPrice}
+                            className="second"
+                            onChange={event => setBuyPrice(event.target.value)}
                             required
                         />
                     </div>

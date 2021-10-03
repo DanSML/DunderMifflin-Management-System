@@ -16,12 +16,7 @@ import { DepositModalContextProvider } from '../../contexts/DepositContexts/Depo
 import './styles.scss'
 import packageImg from '../../assets/deposit.svg'
 
-
-interface DepositProps {
-  isActive: boolean,
-}
-
-function Deposit({isActive} : DepositProps){
+function Deposit(){
   const [isBoxSectionActive, setIsBoxSectionActive] = useState(true);
   const [isSettingsSectionActive, setIsSettingsSectionActive] = useState(false);
 

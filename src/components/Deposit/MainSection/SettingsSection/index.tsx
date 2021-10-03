@@ -50,11 +50,10 @@ function MainSectionSettings({active} : MainSectionSettingsProps) {
               <td>{type.title}</td>
               <td>{type.percent}</td>
               <td>
-                <DotsEditButton
-                  props={type}
-                  buttonFunction={handleBoxesTypesModalState}
+                {/* <DotsEditButton
                   logo={pointsEdtImg}
-                />
+                  props={type}
+                /> */}
               </td>
             </tr>
           ))}

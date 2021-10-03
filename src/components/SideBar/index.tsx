@@ -3,6 +3,8 @@ import depositImg from '../../assets/deposit.svg'
 import salestImg from '../../assets/sales.svg'
 import reporttImg from '../../assets/report.svg'
 
+import { Link } from 'react-router-dom'
+
 import './styles.scss'
 import { useButtons } from '../../hooks/useButtons'
 
@@ -29,18 +31,18 @@ function SideBar() {
       </div>
 
       <div className="departmentButtons">
-        <button>
+        <Link to="/deposit">
           <img src={depositImg} alt="deposit" />
           <span> Deposit </span>
-        </button>     
-        <button>
+        </Link>     
+        <Link to="/sales">
           <img src={salestImg} alt="sales" />
           <span> Sales </span>
-        </button>
-        <button>
+        </Link>
+        <Link to="/management">
           <img src={reporttImg} alt="report" />
           <span> Management </span>
-        </button>
+        </Link>
       </div>
     </div>
   );

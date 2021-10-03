@@ -1,0 +1,42 @@
+@media (min-width: 1080px) {
+  div{
+    div.mainSection {
+      display: flex;
+      transition: margin-left .5s;
+  
+      div.on {
+        width: 100vw;
+        margin-left: 2rem;
+        transition: margin-left .5s;
+      }
+    }
+
+      transition: margin-left .5s;  
+  
+    div.mainSectionNoSide {
+      transition: margin-left .5s;
+    }
+  }
+}
+
+
+@media (max-width: 1079px) {
+  div{
+    div.mainSection {
+      display: flex;
+      transition: margin-left .5s;
+  
+      div.on {
+        width: 100vw;
+        transition: margin-left .5s;
+      }
+    }
+  
+    transition: margin-left .5s;
+  
+    
+    div.mainSectionNoSide  {
+      transition: margin-left .5s;
+    }
+  }
+}

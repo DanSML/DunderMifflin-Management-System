@@ -1,8 +1,10 @@
+import { useBoxes } from '../../../hooks/useBoxes';
+import { PaperBoxProps } from '../../../util/interfaces/handleBoxInterfaces';
 import './styles.scss'
 
 interface DotsEditButtonProps {
-  props: any,
-  buttonFunction: (props: any) => void,
+  props: PaperBoxProps,
+  buttonFunction: (props: PaperBoxProps) => void,
   logo: string,
 }
 

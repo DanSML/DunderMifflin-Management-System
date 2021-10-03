@@ -3,7 +3,7 @@
     width: 18rem;
     height: 28rem;
   
-    margin: 1rem 0 0 1rem;
+    margin: 1rem -1rem 0 1rem;
     border-radius: .4rem;
   
   
@@ -71,7 +71,7 @@
       align-items: center;
       justify-content: space-between;
       
-      button {
+      a {
         background: var(--blackgray-600);
         color: var(--gray-600);
         font-size: 1rem;
@@ -102,7 +102,6 @@
   
   
   div.sideBarContainerHided {
-    position: absolute;
   
     width: 18rem;
     height: 28rem;
@@ -174,7 +173,7 @@
       align-items: center;
       justify-content: space-between;
       
-      button {
+      a {
         background: var(--blackgray-600);
         color: var(--gray-600);
         font-size: 1rem;
@@ -206,11 +205,10 @@
 
 @media (max-width: 1079px) {
   div.sideBarContainer {
-    z-index: 1;
     width: 18rem;
     height: 28rem;
   
-    margin: 1rem 0 0 1rem;
+    margin: 1rem 0 0 0;
     border-radius: .4rem;
   
   
@@ -278,7 +276,7 @@
       align-items: center;
       justify-content: space-between;
       
-      button {
+      a {
         background: var(--blackgray-600);
         color: var(--gray-600);
         font-size: 1rem;
@@ -304,16 +302,18 @@
         }
       }
     }
-  
+    
+    position: absolute;
+    z-index: 1;
   }
   
   
-  div.sideBarContainerHided {
-    position: absolute;
-    z-index: 1;
-  
+  div.sideBarContainerHided {  
     width: 18rem;
     height: 28rem;
+    z-index: 1;
+
+    position: absolute;
   
     margin: 1rem 0 0 1rem;
     border-radius: .4rem;
@@ -363,11 +363,9 @@
             filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
           }
         }
-        
         button.editButton {
           border-radius: .2rem 0 0 .2rem;
         }
-  
         button.logOutButton {
           border-radius: 0 .2rem .2rem 0;
         }
@@ -382,7 +380,7 @@
       align-items: center;
       justify-content: space-between;
       
-      button {
+      a {
         background: var(--blackgray-600);
         color: var(--gray-600);
         font-size: 1rem;
@@ -408,6 +406,7 @@
         }
       }
     }
+
     margin-left: -20rem;
   }
 }

@@ -71,10 +71,10 @@ function ModalAddBox(){
           
           <div className="inputAddModal">
               <select value={type} onChange={(e) => setType(e.target.value)} required>
-                <option value="" disabled selected>Select sheets quantity</option>
+                <option value="" disabled>Select sheets quantity</option>
                 {
                   boxSettings.map((type) => {
-                    return (<option value={type.title}>{type.title}</option>)
+                    return (<option key={type.id} value={type.title}>{type.title}</option>)
                   })
                 }
               </select>

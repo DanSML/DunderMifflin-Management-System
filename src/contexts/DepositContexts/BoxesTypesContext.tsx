@@ -14,7 +14,8 @@ interface BoxTypesContextProps {
     boxSettings: BoxTypesProps[],
     handleAddBoxType: (props: BoxType) => void,
     handleUpdateBoxType: (props: BoxType) => void,
-    handleDeleteBoxType: (propx: number) => void
+    handleDeleteBoxType: (props: number) => void,
+    handleEditingBoxType: (props: BoxTypesProps) => void
 }
 
 export const BoxesTypesContext = createContext({} as BoxTypesContextProps);
@@ -36,11 +37,11 @@ const BoxesTypesContextProvider: React.FC = ( {children} ) => {
             const response = await api.post('/boxSettings', {
                 ...boxType
             });
-    
+
             setBoxSettings([
                 ...boxSettings,
                 response.data
-            ])
+            ]);
         } catch (err) {
             console.log(err);
         }
@@ -83,9 +84,11 @@ const BoxesTypesContextProvider: React.FC = ( {children} ) => {
         <BoxesTypesContext.Provider
             value={{
                 boxSettings,
+
                 handleAddBoxType,
                 handleUpdateBoxType,
-                handleDeleteBoxType
+                handleDeleteBoxType,
+                handleEditingBoxType
             }}
         >
             {children}

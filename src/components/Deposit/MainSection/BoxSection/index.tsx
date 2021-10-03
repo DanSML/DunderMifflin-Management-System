@@ -14,7 +14,6 @@ import packageImg from '../../../../assets/deposit.svg'
 
 import { PaperBoxProps } from '../../../../util/interfaces/handleBoxInterfaces';
 
-
 interface BoxSectionProps {
   active: boolean
 }
@@ -24,8 +23,8 @@ function BoxSection( {active}: BoxSectionProps) {
   const { handleOpenAddModal, handleOpenEditModal } = useDepositModal();
 
   function handleDotButtonClick(props: PaperBoxProps){
-    handleOpenEditModal();
     handleEditingBox(props);
+    handleOpenEditModal();
   }
   
 

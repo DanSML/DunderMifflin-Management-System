@@ -1,4 +1,15 @@
 {
   "paperBox": [],
-  "boxSettings": []
+  "boxSettings": [
+    {
+      "title": "500 folhas",
+      "percent": 0,
+      "id": 1
+    },
+    {
+      "title": "1asd",
+      "percent": 0,
+      "id": 2
+    }
+  ]
 }
