@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { SalesEditClientSection } from "../SalesEditClientSection";
+import { SalesNewClientSection } from "../SalesNewClientSection";
+
+import { SalesNewSaleSection } from "../SalesNewSaleSection";
 import { SalesSideBarContent } from "../SalesSideBarContent";
 
 function SalesMainContent() {
@@ -7,25 +11,25 @@ function SalesMainContent() {
   const [isEditClientSectionActive, setIsEditClientSectionActive] = useState(false);
 
   function handleNewSaleSectionState() {
-    if (!isNewSaleSectionActive) {
+    if (isNewSaleSectionActive === false) {
       setIsNewSaleSectionActive(!isNewSaleSectionActive);
-      setIsNewClientSectionActive(!isNewClientSectionActive);
-      setIsEditClientSectionActive(!isEditClientSectionActive);
+      setIsNewClientSectionActive(false);
+      setIsEditClientSectionActive(false);
     }
   }
 
   function handleNewClientSectionState() {
-    if (!isNewClientSectionActive) {
-      setIsNewSaleSectionActive(!isNewSaleSectionActive);
+    if (isNewClientSectionActive === false) {
+      setIsNewSaleSectionActive(false);
       setIsNewClientSectionActive(!isNewClientSectionActive);
-      setIsEditClientSectionActive(!isEditClientSectionActive);
+      setIsEditClientSectionActive(false);
     }
   }  
   
   function handleEditClientSectionState() {
-    if (!isEditClientSectionActive) {
-      setIsNewSaleSectionActive(!isNewSaleSectionActive);
-      setIsNewClientSectionActive(!isNewClientSectionActive);
+    if (isEditClientSectionActive === false) {
+      setIsNewSaleSectionActive(false);
+      setIsNewClientSectionActive(false);
       setIsEditClientSectionActive(!isEditClientSectionActive);
     }
   }
@@ -38,6 +42,17 @@ function SalesMainContent() {
         editClientState={handleEditClientSectionState}
       />
 
+      <SalesNewSaleSection
+        isActive={isNewSaleSectionActive}
+      />
+
+      <SalesNewClientSection
+        isActive={isNewClientSectionActive}
+      />
+
+      <SalesEditClientSection
+        isActive={isEditClientSectionActive}
+      />
       
     </>
   );

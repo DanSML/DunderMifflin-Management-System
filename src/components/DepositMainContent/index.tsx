@@ -25,7 +25,7 @@ function DepositMainContent() {
   }
 
   return (
-    <>
+    <> 
       <DepositSideBarContent
         boxSectionState={handleBoxSectionState}
         boxTypeSectionState={handleBoxTypeSectionState}

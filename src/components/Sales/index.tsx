@@ -2,7 +2,6 @@ import { MainApplicationHeader } from '../SectorHeader';
 
 import salesImg from '../../assets/sales.svg'
 import { SalesMainContent } from '../SalesMainContent';
-import { SalesSideBarContent } from '../SalesSideBarContent';
 
 function Sales(){
   return (
@@ -13,7 +12,7 @@ function Sales(){
           sectorName={"Sales"}
         />
 
-        <main className="">
+        <main className="section">
           <SalesMainContent/>
         </main>
       </div>

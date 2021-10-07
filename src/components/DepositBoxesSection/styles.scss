@@ -6,7 +6,6 @@
   div.BoxSectionHeader {
     margin-left: 1rem;
 
-
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -76,7 +75,7 @@
     background: var(--blackgray-900);
     filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
   
-    display: flex;
+    display: flex;    
     flex-direction: column;
 
     div.BoxSectionHeader {
