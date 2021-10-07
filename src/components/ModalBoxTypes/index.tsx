@@ -1,12 +1,12 @@
 import { FormEvent, useState } from 'react';
-import { XButton } from '../../GeneralComponents/XButton';
+import { XButton } from '../XButton';
 
-import { useTypes } from '../../../hooks/useSettings';
+import { useTypes } from '../../hooks/useSettings';
 
 import "./styles.scss"
-import editBoxImg from '../../../assets/editBox.svg'
-import xImg from '../../../assets/x.svg'
-import { useDepositModal } from '../../../hooks/useDepositModal';
+import editBoxImg from '../../assets/editBox.svg'
+import xImg from '../../assets/x.svg'
+import { useDepositModal } from '../../hooks/useDepositModal';
 
 
 function ModalBoxTypes(){

@@ -1,24 +1,24 @@
-import { DotsEditButton } from '../../../GeneralComponents/DotsEditButton';
-import { OpenModalButton } from '../../OpenModalButton';
-import { SectorLogo } from '../../../GeneralComponents/SectorLogo';
+import { DotsEditButton } from '../DotsEditButton';
+import { OpenModalButton } from '../OpenModalButton';
+import { SectorLogo } from '../SectorLogo';
 
-import { useDepositModal } from '../../../../hooks/useDepositModal';
-import { useBoxes } from '../../../../hooks/useBoxes';
-import { date } from '../../../../util/date';
+import { useDepositModal } from '../../hooks/useDepositModal';
+import { useBoxes } from '../../hooks/useBoxes';
+import { date } from '../../util/date';
 
 import './styles.scss'
-import pointsEdtImg from '../../../../assets/editPoints.svg'
-import addBoxImg from '../../../../assets/addBox.svg'
-import packageImg from '../../../../assets/deposit.svg'
+import pointsEdtImg from '../../assets/editPoints.svg'
+import addBoxImg from '../../assets/addBox.svg'
+import packageImg from '../../assets/deposit.svg'
 
 
-import { PaperBoxProps } from '../../../../util/interfaces/handleBoxInterfaces';
+import { PaperBoxProps } from '../../util/interfaces/BoxInterfaces';
 
-interface BoxSectionProps {
+interface DepositBoxesSectionProps {
   active: boolean
 }
 
-function BoxSection( {active}: BoxSectionProps) {
+function DepositBoxesSection( {active}: DepositBoxesSectionProps) {
   const { boxes, handleEditingBox } = useBoxes();
   const { handleOpenAddModal, handleOpenEditModal } = useDepositModal();
 
@@ -80,4 +80,4 @@ function BoxSection( {active}: BoxSectionProps) {
   );
 }
 
-export { BoxSection }
+export { DepositBoxesSection }

@@ -1,21 +1,21 @@
-import { DotsEditButton } from '../../../GeneralComponents/DotsEditButton';
-import { OpenModalButton } from '../../OpenModalButton';
-import { SectorLogo } from '../../../GeneralComponents/SectorLogo';
+// import { DotsEditButton } from '../DotsEditButton';
+import { OpenModalButton } from '../OpenModalButton';
+import { SectorLogo } from '../SectorLogo';
 
-import { useTypes } from '../../../../hooks/useSettings';
+import { useTypes } from '../../hooks/useSettings';
 
 import './styles.scss'
-import pointsEdtImg from '../../../../assets/editPoints.svg'
-import editBoxImg from '../../../../assets/editBox.svg'
-import packageImg from '../../../../assets/deposit.svg'
-import { useDepositModal } from '../../../../hooks/useDepositModal';
+// import pointsEdtImg from '../../assets/editPoints.svg'
+import editBoxImg from '../../assets/editBox.svg'
+import packageImg from '../../assets/deposit.svg'
+import { useDepositModal } from '../../hooks/useDepositModal';
 
-interface MainSectionSettingsProps {
+interface DepositTypesSectionProps {
   active: boolean
 }
 
 
-function MainSectionSettings({active} : MainSectionSettingsProps) {
+function DepositTypesSection({active} : DepositTypesSectionProps) {
     const { boxSettings } = useTypes();
     const { handleBoxesTypesModalState } = useDepositModal();
 
@@ -63,4 +63,4 @@ function MainSectionSettings({active} : MainSectionSettingsProps) {
   );
 }
 
-export { MainSectionSettings }
+export { DepositTypesSection }

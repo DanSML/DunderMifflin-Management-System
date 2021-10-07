@@ -1,4 +1,4 @@
-import { StyledButton } from './StyledButton';
+import { StyledButton } from '../StyledButton';
 
 import './styles.scss'
 import logoImg  from '../../assets/Logo.svg'

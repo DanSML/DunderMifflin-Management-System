@@ -1,5 +1,5 @@
-import { ReportButton } from '../GeneralComponents/ReportButton'
-import { SectorLogo } from '../GeneralComponents/SectorLogo';
+import { ReportButton } from '../ReportButton'
+import { SectorLogo } from '../SectorLogo';
 
 import './styles.scss'
 

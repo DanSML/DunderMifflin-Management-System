@@ -1,13 +1,23 @@
+import { MainApplicationHeader } from '../SectorHeader';
 
-import './styles.scss'
+import salesImg from '../../assets/sales.svg'
+import { SalesMainContent } from '../SalesMainContent';
+import { SalesSideBarContent } from '../SalesSideBarContent';
 
-interface SalesProps{
-  isActive: boolean
-}
-
-function Sales( {isActive}: SalesProps){
+function Sales(){
   return (
-    <h1>aaaa</h1>
+    <>
+      <div className="main">
+        <MainApplicationHeader
+          logo={ salesImg }
+          sectorName={"Sales"}
+        />
+
+        <main className="">
+          <SalesMainContent/>
+        </main>
+      </div>
+    </>
   );
 }
 

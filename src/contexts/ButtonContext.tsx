@@ -9,7 +9,7 @@ interface BaseButtonsProps {
 export const ButtonContext = createContext({} as BaseButtonsProps);
 
 const ButtonContextProvider: React.FC = ({ children }) => {  
-  const [buttonState, setButtonState] = useState('normal');
+  const [buttonState, setButtonState] = useState('changed');
 
   return (
     <ButtonContext.Provider 

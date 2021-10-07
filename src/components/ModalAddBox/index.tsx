@@ -1,13 +1,13 @@
 import { FormEvent, useState } from 'react';
-import { XButton } from '../../GeneralComponents/XButton';
+import { XButton } from '../XButton';
 
-import { useBoxes } from "../../../hooks/useBoxes";
-import { useDepositModal } from '../../../hooks/useDepositModal';
-import { useTypes } from '../../../hooks/useSettings';
+import { useBoxes } from "../../hooks/useBoxes";
+import { useDepositModal } from '../../hooks/useDepositModal';
+import { useTypes } from '../../hooks/useSettings';
 
 import './styles.scss'
-import addBoxImg from '../../../assets/addBox.svg'
-import xImg from '../../../assets/x.svg'
+import addBoxImg from '../../assets/addBox.svg'
+import xImg from '../../assets/x.svg'
 
 function ModalAddBox(){
   const [name, setName] = useState('');

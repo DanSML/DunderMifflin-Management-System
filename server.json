@@ -1,5 +1,15 @@
 {
-  "paperBox": [],
+  "paperBox": [
+    {
+      "name": "aaaa",
+      "type": "500 folhas",
+      "amount": 4,
+      "buyPrice": "$21.00",
+      "lastUpdate": "2021-10-07T12:31:29.416Z",
+      "calculatedTotal": "$84.00",
+      "id": 1
+    }
+  ],
   "boxSettings": [
     {
       "title": "500 folhas",
@@ -10,6 +20,11 @@
       "title": "1asd",
       "percent": 0,
       "id": 2
+    },
+    {
+      "title": "a",
+      "percent": 0,
+      "id": 3
     }
   ]
 }

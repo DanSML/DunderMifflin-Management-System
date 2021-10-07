@@ -1,0 +1,36 @@
+@media (min-width: 1080px){
+  div.mainSideBar {
+    margin: 2rem 0 0 1rem;
+    width: 21.7rem;
+    height: 17.81rem;
+    border-radius: .2rem;
+  
+    background: var(--blackgray-900);
+  
+    filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    transition: all .2s;
+  }
+}
+
+@media (max-width: 1079px){
+  div.mainSideBar {
+    height: 6rem;
+    border-radius: .4rem;
+
+    margin: 1rem 1rem 0 1rem;
+  
+    background: transparent;
+  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    transition: all .2s;
+  }
+}

@@ -1,13 +1,13 @@
 import { FormEvent, useState } from "react";
-import { XButton } from '../../GeneralComponents/XButton';
+import { XButton } from '../XButton';
 
-import { useDepositModal } from '../../../hooks/useDepositModal';
-import { useBoxes } from "../../../hooks/useBoxes";
+import { useDepositModal } from '../../hooks/useDepositModal';
+import { useBoxes } from "../../hooks/useBoxes";
 
 import './styles.scss'
-import editBoxImg from '../../../assets/editBox.svg'
-import xImg from '../../../assets/x.svg'
-import { useTypes } from "../../../hooks/useSettings";
+import editBoxImg from '../../assets/editBox.svg'
+import xImg from '../../assets/x.svg'
+import { useTypes } from "../../hooks/useSettings";
 
 
 function ModalEditBox() {
@@ -15,10 +15,10 @@ function ModalEditBox() {
     const { isModalEditBoxOpen, handleOpenEditModal } = useDepositModal();
     const { boxSettings } = useTypes();
     
-    const [name, setName] = useState(editingBox.name);
-    const [type, setType] = useState(editingBox.type);
-    const [amount, setAmount] = useState(editingBox.amount);
-    const [buyPrice, setBuyPrice] = useState(editingBox.buyPrice);
+    const [name, setName] = useState('');
+    const [type, setType] = useState('');
+    const [amount, setAmount] = useState('');
+    const [buyPrice, setBuyPrice] = useState('');
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();

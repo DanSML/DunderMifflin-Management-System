@@ -1,22 +1,9 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react"
-import api from "../../services/api";
+import api from "../services/api";
+import { BoxType, BoxTypesContextProps, BoxTypesProps } from "../util/interfaces/BoxTypesInterfaces";
 
-interface BoxTypesProps {
-    id: number,
-    title: string,
-    percent: number,
-}
 
-type BoxType = Omit<BoxTypesProps, 'id'>;
-
-interface BoxTypesContextProps {
-    boxSettings: BoxTypesProps[],
-    handleAddBoxType: (props: BoxType) => void,
-    handleUpdateBoxType: (props: BoxType) => void,
-    handleDeleteBoxType: (props: number) => void,
-    handleEditingBoxType: (props: BoxTypesProps) => void
-}
 
 export const BoxesTypesContext = createContext({} as BoxTypesContextProps);
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
-import api from "../../services/api";
-import { dollarUS } from "../../util/currency";
+import api from "../services/api";
+import { dollarUS } from "../util/currency";
 
-import { PaperBoxProps } from '../../util/interfaces/handleBoxInterfaces'
-import { InitialPaperBoxProps } from '../../util/interfaces/handleBoxInterfaces'
-import { PaperBoxProductProps } from '../../util/interfaces/handleBoxInterfaces'
+import { PaperBoxProps } from '../util/interfaces/BoxInterfaces'
+import { InitialPaperBoxProps } from '../util/interfaces/BoxInterfaces'
+import { PaperBoxProductProps } from '../util/interfaces/BoxInterfaces'
 
 
 export const BoxesContext = createContext({} as PaperBoxProductProps);

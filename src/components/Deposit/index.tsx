@@ -1,38 +1,18 @@
-import { useState } from 'react';
+import { MainApplicationHeader } from '../SectorHeader';
 
-import { MainSideBar } from './MainSideBar'
-import { BoxSection } from './MainSection/BoxSection'
-import { MainSectionSettings } from './MainSection/SettingsSection';
-import { MainApplicationHeader } from '../MainHeader';
+import { ModalAddBox } from '../ModalAddBox';
+import { ModalEditBox } from '../ModalEditBox';
+import {  ModalBoxTypes } from '../ModalBoxTypes';
 
-import { ModalAddBox } from './ModalAddBox';
-import { ModalEditBox } from './ModalEditBox';
-import {  ModalBoxTypes } from './ModalBoxTypes';
-
-import { BoxesContextProvider } from '../../contexts/DepositContexts/BoxesContext';
-import { BoxesTypesContextProvider } from '../../contexts/DepositContexts/BoxesTypesContext';
-import { DepositModalContextProvider } from '../../contexts/DepositContexts/DepositModalContext';
+import { BoxesContextProvider } from '../../contexts/BoxesContext';
+import { BoxesTypesContextProvider } from '../../contexts/BoxesTypesContext';
+import { DepositModalContextProvider } from '../../contexts/DepositModalContext';
 
 import './styles.scss'
 import packageImg from '../../assets/deposit.svg'
+import { DepositMainContent } from '../DepositMainContent';
 
 function Deposit(){
-  const [isBoxSectionActive, setIsBoxSectionActive] = useState(true);
-  const [isSettingsSectionActive, setIsSettingsSectionActive] = useState(false);
-
-  function handleBoxSectionState(){
-    if (!isBoxSectionActive) {
-      setIsBoxSectionActive(!isBoxSectionActive);
-      setIsSettingsSectionActive(!isSettingsSectionActive);
-    }
-  }
-
-  function handleBoxTypeSectionState(){
-    if (!isSettingsSectionActive) {
-      setIsSettingsSectionActive(!isSettingsSectionActive);
-      setIsBoxSectionActive(!isBoxSectionActive);
-    }
-  }
 
   return (
     <BoxesContextProvider>
@@ -43,24 +23,11 @@ function Deposit(){
                 logo={ packageImg }
                 sectorName={"Deposit"}
               />
-              
             <main className="section">
-
               <ModalBoxTypes/>
               <ModalAddBox/>
               <ModalEditBox/>
-
-              <MainSideBar
-                boxSectionState={handleBoxSectionState}
-                boxTypeSectionState={handleBoxTypeSectionState}
-              />
-              <MainSectionSettings
-                active={isSettingsSectionActive}
-              />
-              <BoxSection
-                active={isBoxSectionActive}
-              />
-
+              <DepositMainContent/>
             </main>
           </div>
         </DepositModalContextProvider>

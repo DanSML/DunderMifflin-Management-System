@@ -1,4 +1,4 @@
-import { useButtons } from '../../../hooks/useButtons';
+import { useButtons } from '../../hooks/useButtons';
 
 import './styles.scss'
 

@@ -1,5 +1,4 @@
-import { useBoxes } from '../../../hooks/useBoxes';
-import { PaperBoxProps } from '../../../util/interfaces/handleBoxInterfaces';
+import { PaperBoxProps } from '../../util/interfaces/BoxInterfaces';
 import './styles.scss'
 
 interface DotsEditButtonProps {
