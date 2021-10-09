@@ -8,6 +8,9 @@ import './styles.scss'
 import editBoxImg from '../../assets/editBox.svg'
 import xImg from '../../assets/x.svg'
 import { useTypes } from "../../hooks/useSettings";
+// import { dollarUS } from "../../util/currency";
+import { currency, realCurrency} from "../InputMasked/masks";
+import { InputCurrencyMasked } from "../InputMasked";
 
 
 function ModalEditBox() {
@@ -29,7 +32,6 @@ function ModalEditBox() {
             amount,
             buyPrice
         });
-
         
         handleClose();
     }
@@ -95,12 +97,11 @@ function ModalEditBox() {
                             placeholder={editingBox.amount}
                             required
                         />
-                        <input
-                            type="number"
-                            value={buyPrice}
+                        <InputCurrencyMasked
                             placeholder={editingBox.buyPrice}
+                            value={currency(buyPrice)}
                             className="second"
-                            onChange={event => setBuyPrice(event.target.value)}
+                            onChange={event => setBuyPrice(realCurrency(event.currentTarget.value))}
                             required
                         />
                     </div>

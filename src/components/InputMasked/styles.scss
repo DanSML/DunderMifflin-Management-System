@@ -1,0 +1,13 @@
+div.inputMasked {
+  display: flex;
+
+  input.masked {
+    color: blue;
+  }
+
+  img {
+    margin-top: 1.5rem;
+    color: var(--gray-600);
+    height: 1rem;
+  }
+}

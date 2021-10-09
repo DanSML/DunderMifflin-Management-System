@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { XButton } from '../XButton';
 
 import { useBoxes } from "../../hooks/useBoxes";
@@ -8,6 +8,9 @@ import { useTypes } from '../../hooks/useSettings';
 import './styles.scss'
 import addBoxImg from '../../assets/addBox.svg'
 import xImg from '../../assets/x.svg'
+import {currency, realCurrency} from '../InputMasked/masks'
+
+
 
 function ModalAddBox(){
   const [name, setName] = useState('');
@@ -18,6 +21,8 @@ function ModalAddBox(){
   const { handleOpenAddModal, isModalAddBoxOpen } = useDepositModal();
   const { boxSettings } = useTypes();
   const { handleAddPaperBox } = useBoxes();
+
+
 
   async function handleSubmit(event: FormEvent){
     event.preventDefault();
@@ -89,14 +94,15 @@ function ModalAddBox(){
                 placeholder="Quantity"
                 required
               />
-              <input 
-                type="number" 
-                value={buyPrice}
-                onChange={event => setBuyPrice(event.target.value)}
+
+              <input
+                value={currency(buyPrice)}
+                onChange={(e) => setBuyPrice(realCurrency(e.currentTarget.value))}
                 className="second"
                 placeholder="Unity price"
                 required
               />
+
           </div>
 
           <div className="addProductButton">

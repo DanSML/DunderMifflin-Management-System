@@ -1,31 +1,22 @@
 {
   "paperBox": [
     {
-      "name": "aaaa",
-      "type": "500 folhas",
-      "amount": 4,
-      "buyPrice": "$21.00",
-      "lastUpdate": "2021-10-07T12:31:29.416Z",
-      "calculatedTotal": "$84.00",
+      "name": "White Smoke Sheet",
+      "type": "a",
+      "amount": 12,
+      "buyPrice": "3.23",
+      "lastUpdate": "2021-10-09T20:10:38.088Z",
+      "calculatedTotal": "$38.76",
       "id": 1
     },
     {
-      "name": "new box",
-      "type": "a",
+      "name": "New Box",
+      "type": "1asd",
       "amount": 12,
-      "buyPrice": "$98.00",
-      "lastUpdate": "2021-10-07T20:44:38.717Z",
-      "calculatedTotal": "$1,176.00",
+      "buyPrice": "32",
+      "lastUpdate": "2021-10-09T20:14:59.389Z",
+      "calculatedTotal": "$384.00",
       "id": 2
-    },
-    {
-      "name": "a",
-      "type": "500 folhas",
-      "amount": 23,
-      "buyPrice": "$32.00",
-      "lastUpdate": "2021-10-07T20:49:22.599Z",
-      "calculatedTotal": "$736.00",
-      "id": 3
     }
   ],
   "boxSettings": [
@@ -43,6 +34,13 @@
       "title": "a",
       "percent": 0,
       "id": 3
+    },
+    {
+      "title": "aaaadasd",
+      "percent": 0,
+      "id": 4
     }
-  ]
+  ],
+  "Sales": [],
+  "Clients": []
 }

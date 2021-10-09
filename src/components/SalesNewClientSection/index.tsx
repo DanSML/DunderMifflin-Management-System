@@ -1,4 +1,6 @@
 import addClientsImg from '../../assets/addClients.svg'
+import clientsImg from '../../assets/clients.svg'
+
 import { OpenModalButton } from '../OpenModalButton';
 import { SectorLogo } from '../SectorLogo';
 
@@ -13,8 +15,8 @@ function SalesNewClientSection({isActive} : SalesNewSaleSelectionProps) {
 
       <div className="BoxSectionHeader">
         <SectorLogo
-          logo={addClientsImg}
-          sectorName={"New Client"}
+          logo={clientsImg}
+          sectorName={"Clients"}
         />
 
         <OpenModalButton
@@ -27,21 +29,21 @@ function SalesNewClientSection({isActive} : SalesNewSaleSelectionProps) {
       <table>
         <thead className="depositThead">
           <tr>
-            <th>Box Quantity</th>
-            <th>Box Type</th>
-            <th>Sheets Quantity</th>
-            <th>Last Update</th>
+            <th>Client Name</th>
+            <th>Importance</th>
+            <th>Client Since</th>
+            <th>Last Purchase</th>
             <th></th>
           </tr>
         </thead>
 
         <tbody className="depositTbody">
           <tr>
-            <td>aaaa</td>
-            <td>aaaa</td>
-            <td>aaaa</td>
-            <td>aaaa</td>
-            <td>aaaa</td>
+            <td>Smart's Club</td>
+            <td>A</td>
+            <td>12/10/2021</td>
+            <td>12/10/2021</td>
+            <td>Button</td>
           </tr>
         </tbody>
       </table>

@@ -1,7 +1,7 @@
 import { OpenModalButton } from "../OpenModalButton";
 import { SectorLogo } from "../SectorLogo";
 
-import removeBoxImg from '../../assets/removeBox.svg'
+import salesImg from '../../assets/sales.svg'
 
 interface SalesNewSaleSelectionProps {
   isActive: boolean,
@@ -13,12 +13,12 @@ function SalesNewSaleSection({isActive} : SalesNewSaleSelectionProps) {
       
       <div className="BoxSectionHeader">
         <SectorLogo 
-          logo={removeBoxImg}
-          sectorName={"New Sale"}
+          logo={salesImg}
+          sectorName={"Sales"}
         />
-          
+
         <OpenModalButton
-          logo={removeBoxImg}
+          logo={salesImg}
           title={"New Sale"} 
           handleModalState={() => console.log('a')}
         />
@@ -27,20 +27,20 @@ function SalesNewSaleSection({isActive} : SalesNewSaleSelectionProps) {
         <table>
           <thead className="depositThead">
             <tr>
-              <th>Box Quantity</th>
-              <th>Box Type</th>
-              <th>Sheets Quantity</th>
-              <th>Last Update</th>
+              <th>Quantity Box</th>
+              <th>Client</th>
+              <th>Box Selled</th>
+              <th>Date</th>
               <th></th>
             </tr>
           </thead>
 
           <tbody className="depositTbody">
             <tr>
-              <td>aaaa</td>
-              <td>aaaa</td>
-              <td>aaaa</td>
-              <td>aaaa</td>
+              <td>32</td>
+              <td>Smart's Club</td>
+              <td>WhiteSmoke paper sheet</td>
+              <td>12/10/2021</td>
               <td>aaaa</td>
             </tr>
           </tbody>

@@ -1,34 +1,26 @@
 import { ButtonSideBarContent } from "../ButtonSideBarContent";
 
-import removeBoxImg from '../../assets/removeBox.svg'
-import addClientsImg from '../../assets/addClients.svg'
-import editClientsImg from '../../assets/editClients.svg'
+import salesImg from '../../assets/sales.svg'
+import clientsImg from '../../assets/clients.svg'
 
 interface SalesSideBarContentProps {
   newSaleState: () => void,
   newClientState: () => void,
-  editClientState: () => void
 }
 
-function SalesSideBarContent({newSaleState, newClientState, editClientState} : SalesSideBarContentProps) {
+function SalesSideBarContent({newSaleState, newClientState} : SalesSideBarContentProps) {
   return(
     <div className="mainSideBar">
       <ButtonSideBarContent
-        name={'New Sale'}
-        logoImg={removeBoxImg}
+        name={'Sales'}
+        logoImg={salesImg}
         action={newSaleState}
       />
 
       <ButtonSideBarContent
-        name={"New Client"}
-        logoImg={addClientsImg}
+        name={"Clients"}
+        logoImg={clientsImg}
         action={newClientState}
-      />
-
-      <ButtonSideBarContent
-        name={"Edit Clients"}
-        logoImg={editClientsImg}
-        action={editClientState}
       />
     </div>
   );

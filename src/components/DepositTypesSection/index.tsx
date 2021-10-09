@@ -14,7 +14,6 @@ interface DepositTypesSectionProps {
   active: boolean
 }
 
-
 function DepositTypesSection({active} : DepositTypesSectionProps) {
     const { boxSettings } = useTypes();
     const { handleBoxesTypesModalState } = useDepositModal();

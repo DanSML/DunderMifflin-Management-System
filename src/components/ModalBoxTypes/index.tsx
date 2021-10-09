@@ -48,6 +48,7 @@ function ModalBoxTypes(){
                     </div>
 
                     <div className="inputAddModal">
+
                         <input
                             type="text"
                             value={title}
@@ -55,6 +56,7 @@ function ModalBoxTypes(){
                             placeholder="type"
                             required
                         />
+                        
                     </div>
                     
                     <div className="addProductButtone">

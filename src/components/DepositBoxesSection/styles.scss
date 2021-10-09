@@ -25,7 +25,6 @@
     table {
       border-spacing: 0 0.5rem;
       margin: 2rem;
-  
       border-radius: .4rem;
   
       thead.depositThead{
@@ -80,7 +79,7 @@
 
     div.BoxSectionHeader {
       margin-left: 1rem;
-  
+    
       
       display: flex;
       align-items: flex-end;
@@ -92,17 +91,22 @@
   
       margin: 1rem 1rem 1rem 1rem;
       border-radius: .4rem;
+
+
   
       thead.depositThead{
-  
+        
         line-height: 1.5rem;
         text-align: start;
+
   
         th {
           background: var(--blackgray-800);
   
           margin: 3rem;
           padding: 1rem;
+
+
         }
       }
     
@@ -115,7 +119,8 @@
           background: var(--blackgray-600);
           line-height: 1.5rem;
           margin-top: 2rem;
-          padding: 1rem
+          padding: 1rem;
+
         }
   
         button {

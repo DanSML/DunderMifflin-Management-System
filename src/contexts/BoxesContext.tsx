@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
+import { currency } from "../components/InputMasked/masks";
 import api from "../services/api";
 import { dollarUS } from "../util/currency";
+// import { realBR } from "../util/currency"
 
 import { PaperBoxProps } from '../util/interfaces/BoxInterfaces'
 import { InitialPaperBoxProps } from '../util/interfaces/BoxInterfaces'
@@ -27,9 +29,9 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
       const response = await api.post('/paperBox', {
         ...boxSettle,
         amount: Number(boxSettle.amount),
-        buyPrice: dollarUS.format(Number(boxSettle.buyPrice)),
+        buyPrice: currency(boxSettle.buyPrice),
         lastUpdate: new Date(),
-        calculatedTotal: dollarUS.format(Number((Number(boxSettle.amount) * Number(boxSettle.buyPrice)).toFixed(2)))
+        calculatedTotal: dollarUS.format(Number(boxSettle.amount) * Number(boxSettle.buyPrice))
       });
 
       setBox([
@@ -51,9 +53,9 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
         ...editingBox,
         ...boxSettle,
         amount: Number(boxSettle.amount),
-        buyPrice: dollarUS.format(Number(boxSettle.buyPrice)),
+        buyPrice: currency(boxSettle.buyPrice),
         lastUpdate: new Date(),
-        calculatedTotal: dollarUS.format(Number((Number(boxSettle.amount) * Number(boxSettle.buyPrice)).toFixed(2))) 
+        calculatedTotal: dollarUS.format(Number(boxSettle.amount) * Number(boxSettle.buyPrice))
       }
     );
 
