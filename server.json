@@ -17,6 +17,24 @@
       "lastUpdate": "2021-10-09T20:14:59.389Z",
       "calculatedTotal": "$384.00",
       "id": 2
+    },
+    {
+      "name": "asd",
+      "type": "500 folhas",
+      "amount": 23,
+      "buyPrice": "12,331.23",
+      "lastUpdate": "2021-10-10T01:52:22.517Z",
+      "calculatedTotal": "$283,618.29",
+      "id": 3
+    },
+    {
+      "name": "ad",
+      "type": "1asd",
+      "amount": 23,
+      "buyPrice": "23.12",
+      "lastUpdate": "2021-10-10T01:59:10.883Z",
+      "calculatedTotal": "$531.76",
+      "id": 4
     }
   ],
   "boxSettings": [
@@ -39,8 +57,13 @@
       "title": "aaaadasd",
       "percent": 0,
       "id": 4
+    },
+    {
+      "title": "aaaa",
+      "percent": 0,
+      "id": 5
     }
   ],
-  "Sales": [],
-  "Clients": []
+  "sales": [],
+  "clients": []
 }

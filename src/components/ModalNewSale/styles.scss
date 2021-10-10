@@ -1,0 +1,136 @@
+div.Modalz{
+  display: none;
+}
+
+div.Modalp{
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+
+  div.content{
+    background: var(--blackgray-900);
+
+    margin: 13% auto;
+    width: 27.25rem;
+    height: 27.44rem;
+    border-radius: .2rem;
+    
+    filter: drop-shadow(4px 4px 4px rgb(0, 0, 0, 0.5));
+
+    button.xButtoni {
+      border: none;
+      background: transparent;
+
+      margin: .5rem .5rem 0 0;
+      position: absolute;
+      right: 0;
+
+      & img {
+        transition: all .3s;
+        opacity: .7;
+      }
+
+
+      & img:hover {
+        transition: all .3s;
+        opacity: 1;
+      }
+    }
+  
+    div.Title{
+      padding: 4rem 4rem 2rem 4rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & img {
+        width: 3rem;
+        margin-left: 1rem;
+      }
+    }
+
+
+    div.inputAddModal { 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      label {
+        margin-left: -15.5rem;
+      }
+
+      input {
+        font-size: 1.2rem;
+        padding-left: .2rem;
+        color: var(--gray-600);
+        border-radius: .2rem;
+        width: 18.625rem;
+        height: 2.75rem;
+        border: 1px solid transparent;
+        background: var(--blackgray-600);
+
+        &:focus,
+        &:active{
+          outline: none;
+          opacity: 1;
+        }
+      }
+
+      select {
+        font-size: 1.2rem;
+        color: var(--gray-600);
+        margin-top: .7rem;
+        border: none;
+        border-radius: .2rem;
+        width: 18.625rem;
+        height: 2.75rem;
+        background: var(--blackgray-600);
+
+        &:focus,
+        &:active{
+          outline: none;
+          opacity: 1;
+        }
+      }
+    }
+
+
+    div.numberClass {
+      margin: .3rem auto;
+      width: 18.625rem;
+
+    }
+
+    div.addProductButton{ 
+      margin: 5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+
+      button {
+        font-size: 1.1rem;
+        color: var(--gray-600);
+        border: none;
+        background: transparent;
+
+        opacity: .7;
+
+        transition: all .2s;
+
+        &:hover {
+          transition: all .2s;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+}

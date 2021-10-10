@@ -2,6 +2,7 @@ import { MainApplicationHeader } from '../SectorHeader';
 
 import salesImg from '../../assets/sales.svg'
 import { SalesMainContent } from '../SalesMainContent';
+import { ModalNewSale } from '../ModalNewSale';
 
 function Sales(){
   return (
@@ -13,6 +14,7 @@ function Sales(){
         />
 
         <main className="section">
+          <ModalNewSale/>
           <SalesMainContent/>
         </main>
       </div>

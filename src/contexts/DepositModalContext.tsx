@@ -4,10 +4,12 @@ interface DepositModalContextProps {
   handleOpenAddModal: () => void,
   handleOpenEditModal: () => void,
   handleBoxesTypesModalState: () => void,
+  handleAddSalesModalState: () => void,
 
   isModalEditBoxOpen: boolean,
   isModalAddBoxOpen: boolean,
   isModalBoxesTypesOpen: boolean
+  isModalAddSalesOpen: boolean
 }
 
 export const DepositModalContext = createContext({} as DepositModalContextProps);
@@ -16,6 +18,7 @@ const DepositModalContextProvider: React.FC = ({ children }) => {
   const [isModalAddBoxOpen, setIsModalAddBoxOpen] = useState(false);
   const [isModalEditBoxOpen, setIsModalEditBoxOpen] = useState(false);
   const [isModalBoxesTypesOpen, setIsModalBoxesTypesOpen] = useState(false);
+  const [isModalAddSalesOpen, setIsModalAddSalesOpen] = useState(false);
 
 
   function handleOpenAddModal(){
@@ -28,7 +31,11 @@ const DepositModalContextProvider: React.FC = ({ children }) => {
 
   function handleBoxesTypesModalState(){
     setIsModalBoxesTypesOpen(!isModalBoxesTypesOpen);
-}
+  }
+
+  function handleAddSalesModalState() {
+    setIsModalAddSalesOpen(!isModalAddSalesOpen);
+  }
 
   return (
     <DepositModalContext.Provider
@@ -36,9 +43,11 @@ const DepositModalContextProvider: React.FC = ({ children }) => {
         handleOpenAddModal,
         handleOpenEditModal,
         handleBoxesTypesModalState,
+        handleAddSalesModalState,
         isModalEditBoxOpen,
         isModalAddBoxOpen,
-        isModalBoxesTypesOpen
+        isModalBoxesTypesOpen,
+        isModalAddSalesOpen
       }}
     >
       { children }

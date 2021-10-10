@@ -8,19 +8,31 @@ import './styles/global.scss'
 import { SideBar } from "./components/SideBar";
 import { Routes } from "./routes";
 import { useButtons } from "./hooks/useButtons";
+import { BoxesContextProvider } from "./contexts/BoxesContext";
+import { BoxesTypesContextProvider } from "./contexts/BoxesTypesContext";
+import { NewSaleContextProvider } from "./contexts/NewSaleContext";
+import { DepositModalContextProvider } from "./contexts/DepositModalContext";
 
 function App() {
   const {buttonState} = useButtons();
   return (
     <BrowserRouter>
       <ButtonContextProvider>
-            <Header/>
-          <div className={buttonState === 'normal' ? 'mainSectionNoSide' : 'mainSection'}>
-          <SideBar/>
-              <div className="on">
-                <Routes/>
-              </div>
-          </div>
+        <BoxesContextProvider>
+          <BoxesTypesContextProvider>
+            <NewSaleContextProvider>
+               <DepositModalContextProvider>
+                  <Header/>
+                  <div className={buttonState === 'normal' ? 'mainSectionNoSide' : 'mainSection'}>
+                  <SideBar/>
+                      <div className="on">
+                        <Routes/>
+                      </div>
+                  </div>
+                </DepositModalContextProvider>
+              </NewSaleContextProvider>
+            </BoxesTypesContextProvider>
+          </BoxesContextProvider>
       </ButtonContextProvider>
     </BrowserRouter>
   )

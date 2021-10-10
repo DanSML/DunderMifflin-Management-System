@@ -2,12 +2,15 @@ import { OpenModalButton } from "../OpenModalButton";
 import { SectorLogo } from "../SectorLogo";
 
 import salesImg from '../../assets/sales.svg'
+import { useSales } from "../../hooks/useSales";
 
 interface SalesNewSaleSelectionProps {
   isActive: boolean,
 }
 
 function SalesNewSaleSection({isActive} : SalesNewSaleSelectionProps) {
+  const { sales } = useSales();
+
   return (
     <div className={isActive ? "tableDeposit" : "tableDepositHidden"}>
       
@@ -36,13 +39,18 @@ function SalesNewSaleSection({isActive} : SalesNewSaleSelectionProps) {
           </thead>
 
           <tbody className="depositTbody">
-            <tr>
-              <td>32</td>
-              <td>Smart's Club</td>
-              <td>WhiteSmoke paper sheet</td>
-              <td>12/10/2021</td>
-              <td>aaaa</td>
-            </tr>
+            {sales.map((sale) => { 
+              return (
+                <tr key={sale.id}>
+                  <td>{sale.boxQuantity}</td>
+                  <td>{sale.client}</td>
+                  <td>{sale.boxSelled}</td>
+                  <td>{sale.date}</td>
+                  <td>aaaa</td>
+                </tr>
+              )
+            })
+            }
           </tbody>
         </table>
     </div>
