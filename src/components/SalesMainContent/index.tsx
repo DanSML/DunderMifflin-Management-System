@@ -21,7 +21,6 @@ function SalesMainContent() {
       setIsNewClientSectionActive(!isNewClientSectionActive);
     }
   }  
-  
 
   return (
     <>

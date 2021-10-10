@@ -1,69 +1,44 @@
 {
   "paperBox": [
     {
-      "name": "White Smoke Sheet",
-      "type": "a",
-      "amount": 12,
-      "buyPrice": "3.23",
-      "lastUpdate": "2021-10-09T20:10:38.088Z",
-      "calculatedTotal": "$38.76",
+      "name": "Brown sheet",
+      "type": "teste",
+      "amount": 10,
+      "buyPrice": "10.00",
+      "lastUpdate": "10/10/2021",
+      "calculatedTotal": "$100.00",
       "id": 1
-    },
-    {
-      "name": "New Box",
-      "type": "1asd",
-      "amount": 12,
-      "buyPrice": "32",
-      "lastUpdate": "2021-10-09T20:14:59.389Z",
-      "calculatedTotal": "$384.00",
-      "id": 2
-    },
-    {
-      "name": "asd",
-      "type": "500 folhas",
-      "amount": 23,
-      "buyPrice": "12,331.23",
-      "lastUpdate": "2021-10-10T01:52:22.517Z",
-      "calculatedTotal": "$283,618.29",
-      "id": 3
-    },
-    {
-      "name": "ad",
-      "type": "1asd",
-      "amount": 23,
-      "buyPrice": "23.12",
-      "lastUpdate": "2021-10-10T01:59:10.883Z",
-      "calculatedTotal": "$531.76",
-      "id": 4
     }
   ],
   "boxSettings": [
     {
-      "title": "500 folhas",
+      "title": "teste",
       "percent": 0,
+      "id": 1
+    }
+  ],
+  "sales": [
+    {
+      "boxQuantity": 5,
+      "client": "Richard downs",
+      "boxSelled": "Brown sheet",
+      "date": "10/10/2021",
+      "id": 1
+    }
+  ],
+  "clients": [
+    {
+      "name": "Albert",
+      "clientSince": "10/10/2021",
+      "importance": "D",
       "id": 1
     },
     {
-      "title": "1asd",
-      "percent": 0,
+      "name": "Con",
+      "clientSince": "10/10/2021",
+      "importance": "D",
       "id": 2
-    },
-    {
-      "title": "a",
-      "percent": 0,
-      "id": 3
-    },
-    {
-      "title": "aaaadasd",
-      "percent": 0,
-      "id": 4
-    },
-    {
-      "title": "aaaa",
-      "percent": 0,
-      "id": 5
     }
   ],
-  "sales": [],
-  "clients": []
+  "dunderFounds": []
 }

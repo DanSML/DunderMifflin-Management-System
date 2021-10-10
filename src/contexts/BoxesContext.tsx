@@ -3,16 +3,19 @@ import { createContext } from "react";
 import { currency } from "../components/InputMasked/masks";
 import api from "../services/api";
 import { dollarUS } from "../util/currency";
+import { date } from "../util/date";
 // import { realBR } from "../util/currency"
 
 import { PaperBoxProps } from '../util/interfaces/BoxInterfaces'
 import { InitialPaperBoxProps } from '../util/interfaces/BoxInterfaces'
 import { PaperBoxProductProps } from '../util/interfaces/BoxInterfaces'
+import { initialSaleProps } from "../util/interfaces/SaleInterfaces";
 
 
 export const BoxesContext = createContext({} as PaperBoxProductProps);
 
 const BoxesContextProvider: React.FC = ({ children }) =>{
+  const [boxAfterSell, setBoxAfterSell] = useState({} as PaperBoxProps);
   const [editingBox, setEditingBox] = useState({} as PaperBoxProps);
   const [boxes, setBox] = useState<PaperBoxProps[]>([]);
 
@@ -30,7 +33,7 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
         ...boxSettle,
         amount: Number(boxSettle.amount),
         buyPrice: currency(boxSettle.buyPrice),
-        lastUpdate: new Date(),
+        lastUpdate: date.format(new Date()),
         calculatedTotal: dollarUS.format(Number(boxSettle.amount) * Number(boxSettle.buyPrice))
       });
 
@@ -54,7 +57,7 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
         ...boxSettle,
         amount: Number(boxSettle.amount),
         buyPrice: currency(boxSettle.buyPrice),
-        lastUpdate: new Date(),
+        lastUpdate: date.format(new Date()),
         calculatedTotal: dollarUS.format(Number(boxSettle.amount) * Number(boxSettle.buyPrice))
       }
     );
@@ -65,6 +68,29 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
 
       setBox(updatedBoxes);
     
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function handleUpdateBoxAfterSell(saleSettle: initialSaleProps) {
+    try {
+      const newUpdateForBoxes = await api.put(
+        `/paperBox/${boxAfterSell.id}`,
+        {
+          ...boxAfterSell,
+          amount: Number(boxAfterSell.amount) - saleSettle.boxQuantity,
+          calculatedTotal: dollarUS.format(Number(boxAfterSell.buyPrice) * (Number(boxAfterSell.amount) - saleSettle.boxQuantity)),
+          lastUpdate: date.format(new Date()),
+        }
+      );
+
+      const updateBoxesAfterSell = boxes.map((box) => 
+        box.id !== newUpdateForBoxes.data.id ? box : newUpdateForBoxes.data,
+      );
+
+      setBox(updateBoxesAfterSell);
+
     } catch (err) {
       console.log(err);
     }
@@ -82,6 +108,19 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
     setEditingBox(boxSettle);
   }
 
+  function handleBoxAfterSell(saleSettle: initialSaleProps) {
+    try {
+      boxes.map((box) => {
+        if (box.name === saleSettle.boxSelled) {
+          setBoxAfterSell(box);
+        }
+      });
+  
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <BoxesContext.Provider 
       value={{
@@ -92,6 +131,8 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
         handleAddPaperBox,
         handleDeletePaperBox,
         handleUpdatePaperBox,
+        handleUpdateBoxAfterSell,
+        handleBoxAfterSell,
       }}>
       {children}
     </BoxesContext.Provider >

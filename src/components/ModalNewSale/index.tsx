@@ -8,30 +8,46 @@ import { XButton } from "../XButton";
 import { useState } from "react";
 import { useSales } from "../../hooks/useSales";
 import { useBoxes } from "../../hooks/useBoxes";
+// import { BoxTypesProps } from "../../util/interfaces/BoxTypesInterfaces";
 
 function ModalNewSale() {
-  const { isModalAddSalesOpen } = useDepositModal();
+  const { isModalAddSalesOpen, handleAddSalesModalState } = useDepositModal();
   const { handleAddSale } = useSales();
-  const { boxes } = useBoxes();
+  const { boxes, handleUpdateBoxAfterSell, handleBoxAfterSell } = useBoxes();
 
   const [boxQuantity, setBoxQuantity] = useState(0);
   const [client, setClient] = useState('');
   const [boxSelled, setBoxSelled] = useState('');
 
+  handleBoxAfterSell({
+    boxQuantity,
+    client,
+    boxSelled
+  });
+
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
+ 
+    await handleUpdateBoxAfterSell({
+      boxQuantity,
+      client,
+      boxSelled
+    });
 
     await handleAddSale({
       boxQuantity,
       client,
       boxSelled,
-    })
+    });
+
+    handleClose();
   }
 
   function handleClose(){
     setBoxQuantity(0);
     setClient('');
     setBoxSelled('');
+    handleAddSalesModalState();
   }
 
   return (
@@ -56,7 +72,7 @@ function ModalNewSale() {
               type="text"
               value={client}
               onChange={event => setClient(event.target.value)}
-              placeholder="Box type"
+              placeholder="Client"
               required
             />
           </div>
@@ -71,15 +87,16 @@ function ModalNewSale() {
               }
             </select>
           </div>
-
-          <input
-            type="number"
-            value={boxQuantity}
-            onChange={event => setBoxQuantity(Number(event.target.value))}
-            className="first"
-            placeholder="Quantity"
-            required
-          />
+            
+          <div className="inputAddModalNumber">
+            <input
+              type="number"
+              value={boxQuantity}
+              onChange={event => setBoxQuantity(Number(event.target.value))}
+              placeholder="Quantity"
+              required
+            />
+          </div>
 
           <div className="addProductButton">
             <button

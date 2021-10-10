@@ -1,5 +1,7 @@
 import addClientsImg from '../../assets/addClients.svg'
 import clientsImg from '../../assets/clients.svg'
+import { useClients } from '../../hooks/useClients';
+import { useDepositModal } from '../../hooks/useDepositModal';
 
 import { OpenModalButton } from '../OpenModalButton';
 import { SectorLogo } from '../SectorLogo';
@@ -10,6 +12,10 @@ interface SalesNewSaleSelectionProps {
 }
 
 function SalesNewClientSection({isActive} : SalesNewSaleSelectionProps) {
+  const { clients } = useClients();
+
+  const { handleAddClientModalState } = useDepositModal();
+
   return (
     <div className={isActive ? "tableDeposit" : "tableDepositHidden"}>
 
@@ -22,7 +28,7 @@ function SalesNewClientSection({isActive} : SalesNewSaleSelectionProps) {
         <OpenModalButton
           logo={addClientsImg}
           title={"New Client"}
-          handleModalState={() => console.log('a')}
+          handleModalState={handleAddClientModalState}
         />
       </div>
 
@@ -38,13 +44,19 @@ function SalesNewClientSection({isActive} : SalesNewSaleSelectionProps) {
         </thead>
 
         <tbody className="depositTbody">
-          <tr>
-            <td>Smart's Club</td>
-            <td>A</td>
-            <td>12/10/2021</td>
-            <td>12/10/2021</td>
-            <td>Button</td>
-          </tr>
+          {
+            clients.map((client) => {
+              return(
+                <tr key={client.id}>
+                  <td>{client.name}</td>
+                  <td>{client.importance}</td>
+                  <td>{client.clientSince}</td>
+                  <td>{client.lastPurchase}</td>
+                  <td>Button</td>
+                </tr>
+              )
+            })
+          }
         </tbody>
       </table>
     </div>

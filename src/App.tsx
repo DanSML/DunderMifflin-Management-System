@@ -12,6 +12,7 @@ import { BoxesContextProvider } from "./contexts/BoxesContext";
 import { BoxesTypesContextProvider } from "./contexts/BoxesTypesContext";
 import { NewSaleContextProvider } from "./contexts/NewSaleContext";
 import { DepositModalContextProvider } from "./contexts/DepositModalContext";
+import { ClientsContextProvider } from "./contexts/ClientsContext";
 
 function App() {
   const {buttonState} = useButtons();
@@ -22,13 +23,15 @@ function App() {
           <BoxesTypesContextProvider>
             <NewSaleContextProvider>
                <DepositModalContextProvider>
-                  <Header/>
-                  <div className={buttonState === 'normal' ? 'mainSectionNoSide' : 'mainSection'}>
-                  <SideBar/>
+                 <ClientsContextProvider>
+                    <Header/>
+                    <div className={buttonState === 'normal' ? 'mainSectionNoSide' : 'mainSection'}>
+                      <SideBar/>
                       <div className="on">
                         <Routes/>
                       </div>
-                  </div>
+                    </div>
+                  </ClientsContextProvider>
                 </DepositModalContextProvider>
               </NewSaleContextProvider>
             </BoxesTypesContextProvider>

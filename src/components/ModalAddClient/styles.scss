@@ -1,8 +1,8 @@
-div.Modalz{
+div.MN{
   display: none;
 }
 
-div.Modalp{
+div.MM{
   position: fixed;
   z-index: 1;
   left: 0;
@@ -52,35 +52,6 @@ div.Modalp{
       & img {
         width: 3rem;
         margin-left: 1rem;
-      }
-    }
-
-    div.inputAddModalNumber {
-      margin-top: .7rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      input {
-        font-size: 1.2rem;
-        padding-left: .2rem;
-        color: var(--gray-600);
-        border-radius: .2rem;
-        width: 18.625rem;
-        height: 2.75rem;
-        border: 1px solid transparent;
-        background: var(--blackgray-600);
-
-        &:focus,
-        &:active{
-          outline: none;
-          opacity: 1;
-        }
-      }
-
-      input::-webkit-inner-spin-button { 
-        -webkit-appearance: none;
       }
     }
 
@@ -135,6 +106,48 @@ div.Modalp{
       margin: .3rem auto;
       width: 18.625rem;
 
+    }
+
+    div.inputAddModalDiferent {
+      margin: 0 auto;
+      width: 18.625rem;
+
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      input[type=number]::-webkit-inner-spin-button { 
+        -webkit-appearance: none;
+      }
+
+      input.first {
+        border-radius: .2rem 0 0 .2rem;
+      }
+
+      input.second {
+        border-radius: 0 .2rem .2rem 0;
+      }
+
+      input {
+        font-size: 1.2rem;
+        margin-top: .7rem;
+        padding-left: .2rem;
+        color: var(--gray-600);
+        border: none;
+        background: var(--blackgray-600);
+
+        height: 2.75rem;
+        width: 9.2rem;
+
+
+
+        &:focus,
+        &:active{
+          outline: none;
+          opacity: 1;
+        }
+      }
     }
 
     div.addProductButton{ 

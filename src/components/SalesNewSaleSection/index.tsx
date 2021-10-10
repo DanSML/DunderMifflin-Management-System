@@ -3,6 +3,7 @@ import { SectorLogo } from "../SectorLogo";
 
 import salesImg from '../../assets/sales.svg'
 import { useSales } from "../../hooks/useSales";
+import { useDepositModal } from "../../hooks/useDepositModal";
 
 interface SalesNewSaleSelectionProps {
   isActive: boolean,
@@ -10,6 +11,7 @@ interface SalesNewSaleSelectionProps {
 
 function SalesNewSaleSection({isActive} : SalesNewSaleSelectionProps) {
   const { sales } = useSales();
+  const { handleAddSalesModalState } = useDepositModal();
 
   return (
     <div className={isActive ? "tableDeposit" : "tableDepositHidden"}>
@@ -23,7 +25,7 @@ function SalesNewSaleSection({isActive} : SalesNewSaleSelectionProps) {
         <OpenModalButton
           logo={salesImg}
           title={"New Sale"} 
-          handleModalState={() => console.log('a')}
+          handleModalState={handleAddSalesModalState}
         />
       </div>
 

@@ -1,3 +1,5 @@
+import { initialSaleProps} from "./SaleInterfaces";
+
 export interface PaperBoxProps {
   id: number,
   name: string,
@@ -19,6 +21,8 @@ export interface PaperBoxProductProps {
   handleAddPaperBox: (initPaperBox: InitialPaperBoxProps) => void,
   handleUpdatePaperBox: (initPaperBox: InitialPaperBoxProps) => void,
   handleDeletePaperBox: (boxId: number) => void,
+  handleUpdateBoxAfterSell: (sale: initialSaleProps) => void,
+  handleBoxAfterSell: (paperBox: initialSaleProps) => void
 }
 
 
