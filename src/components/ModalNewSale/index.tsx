@@ -9,15 +9,18 @@ import { useState } from "react";
 import { useSales } from "../../hooks/useSales";
 import { useBoxes } from "../../hooks/useBoxes";
 // import { BoxTypesProps } from "../../util/interfaces/BoxTypesInterfaces";
+import { toast } from 'react-toastify';
+
 
 function ModalNewSale() {
   const { isModalAddSalesOpen, handleAddSalesModalState } = useDepositModal();
   const { handleAddSale } = useSales();
-  const { boxes, handleUpdateBoxAfterSell, handleBoxAfterSell } = useBoxes();
+  const { boxes, handleUpdateBoxAfterSell, handleBoxAfterSell, boxAfterSell } = useBoxes();
 
   const [boxQuantity, setBoxQuantity] = useState(0);
   const [client, setClient] = useState('');
   const [boxSelled, setBoxSelled] = useState('');
+
 
   handleBoxAfterSell({
     boxQuantity,
@@ -27,20 +30,36 @@ function ModalNewSale() {
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
- 
-    await handleUpdateBoxAfterSell({
-      boxQuantity,
-      client,
-      boxSelled
-    });
+    try {
 
-    await handleAddSale({
-      boxQuantity,
-      client,
-      boxSelled,
-    });
+      if (Number(boxAfterSell.amount) < boxQuantity) {
+        toast.error(`Out of Stock. Remaining itens: ${boxAfterSell.amount}`);
+        return;
+      }
 
-    handleClose();
+      if (boxQuantity < 1){
+        toast.error('Invalid quantity!');
+        return;
+      }
+      
+      toast.success("Box Seelled!");
+
+      await handleUpdateBoxAfterSell({
+        boxQuantity,
+        client,
+        boxSelled
+      });
+  
+      await handleAddSale({
+        boxQuantity,
+        client,
+        boxSelled,
+      });
+  
+      handleClose();
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   function handleClose(){

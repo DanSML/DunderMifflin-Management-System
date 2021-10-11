@@ -13,6 +13,9 @@ import { BoxesTypesContextProvider } from "./contexts/BoxesTypesContext";
 import { NewSaleContextProvider } from "./contexts/NewSaleContext";
 import { DepositModalContextProvider } from "./contexts/DepositModalContext";
 import { ClientsContextProvider } from "./contexts/ClientsContext";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   const {buttonState} = useButtons();
@@ -24,6 +27,7 @@ function App() {
             <NewSaleContextProvider>
                <DepositModalContextProvider>
                  <ClientsContextProvider>
+                  <ToastContainer autoClose={3000} />
                     <Header/>
                     <div className={buttonState === 'normal' ? 'mainSectionNoSide' : 'mainSection'}>
                       <SideBar/>

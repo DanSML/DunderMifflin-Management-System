@@ -16,6 +16,7 @@ export type InitialPaperBoxProps = Omit<PaperBoxProps, 'id' | 'lastUpdate' | 'to
 export interface PaperBoxProductProps {
   boxes: PaperBoxProps[],
   editingBox: PaperBoxProps,
+  boxAfterSell: PaperBoxProps,
 
   handleEditingBox: (paperBox: PaperBoxProps) => void,
   handleAddPaperBox: (initPaperBox: InitialPaperBoxProps) => void,

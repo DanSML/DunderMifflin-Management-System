@@ -11,6 +11,9 @@ import { InitialPaperBoxProps } from '../util/interfaces/BoxInterfaces'
 import { PaperBoxProductProps } from '../util/interfaces/BoxInterfaces'
 import { initialSaleProps } from "../util/interfaces/SaleInterfaces";
 
+import { toast } from 'react-toastify';
+
+
 
 export const BoxesContext = createContext({} as PaperBoxProductProps);
 
@@ -75,6 +78,10 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
 
   async function handleUpdateBoxAfterSell(saleSettle: initialSaleProps) {
     try {
+      if (Number(boxAfterSell.amount) < saleSettle.boxQuantity) {
+        return;
+      }
+      
       const newUpdateForBoxes = await api.put(
         `/paperBox/${boxAfterSell.id}`,
         {
@@ -126,6 +133,7 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
       value={{
         boxes,
         editingBox,
+        boxAfterSell,
 
         handleEditingBox,
         handleAddPaperBox,

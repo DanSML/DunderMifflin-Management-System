@@ -1,29 +1,66 @@
 {
   "paperBox": [
     {
-      "name": "Brown sheet",
-      "type": "teste",
-      "amount": 10,
+      "name": "Brown no Lines",
+      "type": "500 sheets",
+      "amount": 0,
       "buyPrice": "10.00",
       "lastUpdate": "10/10/2021",
-      "calculatedTotal": "$100.00",
+      "calculatedTotal": "$0.00",
       "id": 1
+    },
+    {
+      "name": "White paper no lines",
+      "type": "500 sheets",
+      "amount": 0,
+      "buyPrice": "12.00",
+      "lastUpdate": "10/10/2021",
+      "calculatedTotal": "$0.00",
+      "id": 2
     }
   ],
   "boxSettings": [
     {
-      "title": "teste",
+      "title": "500 sheets",
       "percent": 0,
-      "id": 1
+      "id": 2
     }
   ],
   "sales": [
     {
-      "boxQuantity": 5,
-      "client": "Richard downs",
-      "boxSelled": "Brown sheet",
+      "boxQuantity": 49,
+      "client": "Howard's Primary school",
+      "boxSelled": "Brown no Lines",
       "date": "10/10/2021",
       "id": 1
+    },
+    {
+      "boxQuantity": 1,
+      "client": "New staled shop",
+      "boxSelled": "Brown no Lines",
+      "date": "10/10/2021",
+      "id": 2
+    },
+    {
+      "boxQuantity": 0,
+      "client": "ads",
+      "boxSelled": "Brown no Lines",
+      "date": "10/10/2021",
+      "id": 3
+    },
+    {
+      "boxQuantity": 49,
+      "client": "Test",
+      "boxSelled": "White paper no lines",
+      "date": "10/10/2021",
+      "id": 4
+    },
+    {
+      "boxQuantity": 1,
+      "client": "Test 1",
+      "boxSelled": "White paper no lines",
+      "date": "10/10/2021",
+      "id": 5
     }
   ],
   "clients": [
@@ -38,6 +75,12 @@
       "clientSince": "10/10/2021",
       "importance": "D",
       "id": 2
+    },
+    {
+      "name": "New Client",
+      "clientSince": "10/10/2021",
+      "importance": "D",
+      "id": 3
     }
   ],
   "dunderFounds": []

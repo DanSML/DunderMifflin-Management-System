@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { createContext } from "react";
-// import { useBoxes } from "../hooks/useBoxes";
+import { useBoxes } from "../hooks/useBoxes";
 import api from "../services/api";
 import { date } from "../util/date";
 import { initialSaleProps, SaleProps, SalesProviderProps } from "../util/interfaces/SaleInterfaces";
+
+import { toast } from 'react-toastify';
+
 
 export const NewSaleContext = createContext({} as SalesProviderProps);
 
 const NewSaleContextProvider: React.FC = ({children}) => {
   const [sales, setSales] = useState<SaleProps[]>([]);
 
-  // const { handleUpdatePaperBox, boxes } = useBoxes();
+  const { boxAfterSell } = useBoxes();
 
   useEffect(() => {
     async function getSales() {
@@ -23,6 +26,11 @@ const NewSaleContextProvider: React.FC = ({children}) => {
 
   async function handleAddSale(saleSettle: initialSaleProps){
     try {
+
+      if (saleSettle.boxQuantity > Number(boxAfterSell.amount)){
+        return;
+      }
+
       const response = await api.post('/sales', {
         ...saleSettle,
         date: date.format(new Date())
@@ -33,8 +41,8 @@ const NewSaleContextProvider: React.FC = ({children}) => {
         response.data
       ]);
 
-    } catch (err) {
-      console.log(err)
+    } catch {
+      toast.error('Erro na adição do produto');
     }
   }
   
