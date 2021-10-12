@@ -1,6 +1,7 @@
 import React, { createContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 import api from "../services/api";
 import { date } from "../util/date";
 import { ClientsContextProps, ClientsProps, InitialClientProps } from "../util/interfaces/ClientsInterfaces";
@@ -33,9 +34,8 @@ const ClientsContextProvider: React.FC = ( {children }) => {
         ...clients,
         response.data
       ])
-
     } catch (err) {
-      console.log(err);
+      toast.error('')
     }
   }
 
@@ -46,7 +46,6 @@ const ClientsContextProvider: React.FC = ( {children }) => {
         handleAddClient
       }}
     >
-
       { children }
     </ClientsContext.Provider>
   )

@@ -1,0 +1,30 @@
+div.stylledInput {
+  display: flex;
+  flex-direction: column;
+  label {
+    position: relative;
+  }    
+  
+  img {
+    top: .6rem;
+    left: .3rem;
+    position: absolute;
+  }
+  
+  input {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    color: var(--gray-600);
+    border-radius: .2rem;
+    width: 15rem;
+    height: 2.75rem;
+    border: 1px solid transparent;
+    background: var(--blackgray-600);
+
+    &:focus,
+    &:active{
+      outline: none;
+      opacity: 1;
+    }
+  }
+}

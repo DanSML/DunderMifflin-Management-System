@@ -1,0 +1,25 @@
+div.unLoggedSection {
+  display: none;
+
+
+}
+
+div.loggedSection {
+
+
+}
+
+div.unlogged {
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url(initialPage.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  
+
+}
+
+div.logged {
+  display: none;
+}

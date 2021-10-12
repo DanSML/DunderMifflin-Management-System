@@ -10,9 +10,11 @@ import './styles.scss'
 import pointsEdtImg from '../../assets/editPoints.svg'
 import addBoxImg from '../../assets/addBox.svg'
 import packageImg from '../../assets/deposit.svg'
-
+// import deleteImg from '../../assets/delete.svg'
+// import editImg from '../../assets/edit.svg'
 
 import { PaperBoxProps } from '../../util/interfaces/BoxInterfaces';
+// import { useState } from 'react';
 
 interface DepositBoxesSectionProps {
   active: boolean
@@ -26,7 +28,6 @@ function DepositBoxesSection( {active}: DepositBoxesSectionProps) {
     handleEditingBox(props);
     handleOpenEditModal();
   }
-  
 
   return(
     <div className={active ? "tableDeposit" : "tableDepositHidden"}>
@@ -71,6 +72,17 @@ function DepositBoxesSection( {active}: DepositBoxesSectionProps) {
                   buttonFunction={() => handleDotButtonClick(box)}
                   props={box}
                 />
+                {/* <div className={toggleDot ? "listActive" : "listHidded"}>
+                  <button>
+                    <img src={deleteImg} alt="edit" />
+                    <span>Edit</span>
+                  </button>
+
+                  <button>
+                    <img src={editImg} alt="exclude" />
+                    <span>Exclude</span>
+                  </button>
+                </div> */}
               </td>
             </tr>
           ))}

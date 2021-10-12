@@ -25,12 +25,8 @@ const NewSaleContextProvider: React.FC = ({children}) => {
   }, []);
 
   async function handleAddSale(saleSettle: initialSaleProps){
+    
     try {
-
-      if (saleSettle.boxQuantity > Number(boxAfterSell.amount)){
-        return;
-      }
-
       const response = await api.post('/sales', {
         ...saleSettle,
         date: date.format(new Date())

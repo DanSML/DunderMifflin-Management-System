@@ -51,6 +51,47 @@
           margin-top: 2rem;
           padding: 1rem;
         }
+
+        td div.listActive {
+          position: absolute;
+          right: 4rem;
+          background: var(--blackgray-600-50);
+
+          button {
+            display: flex;
+            align-items: flex-start;
+
+            img {
+              margin-right: 1rem;
+            }
+
+            span {
+              font-size: 1.2rem;
+              color: var(--gray-600);
+            }
+          }
+        }
+
+        td div.listHidded {
+          display: none;
+          position: absolute;
+          right: 4rem;
+          background: var(--blackgray-600-50);
+
+          button {
+            display: flex;
+            align-items: flex-start;
+
+            img {
+              margin-right: 1rem;
+            }
+
+            span {
+              font-size: 1.2rem;
+              color: var(--gray-600);
+            }
+          }
+        }
   
         button {
           padding: .5rem;
@@ -121,6 +162,23 @@
           margin-top: 2rem;
           padding: 1rem;
 
+        }
+
+        td div.listActive {
+          position: absolute;
+          right: 4rem   ;
+          background: var(--blackgray-600-50);
+
+          ul {
+            padding: 1  rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 2rem;
+            li {
+              list-style-type: none;
+            }
+          } 
         }
   
         button {

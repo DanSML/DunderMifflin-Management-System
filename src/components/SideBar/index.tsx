@@ -8,7 +8,12 @@ import { Link } from 'react-router-dom'
 import './styles.scss'
 import { useButtons } from '../../hooks/useButtons'
 
-function SideBar() {
+interface SideBarProps {
+  handleUserState: () => void,
+}
+
+
+function SideBar( {handleUserState} : SideBarProps ) {
   const { buttonState } = useButtons();
   return (
     <div className={buttonState === 'normal' ? 'sideBarContainerHided' : 'sideBarContainer'}>
@@ -26,7 +31,7 @@ function SideBar() {
 
         <div className="profileButtons">
           <button className="editButton">Edit</button>
-          <button className="logOutButton">Log out</button>
+          <button className="logOutButton" onClick={handleUserState}>Log out</button>
         </div>  
       </div>
 

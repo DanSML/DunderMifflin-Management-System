@@ -13,8 +13,6 @@ import { initialSaleProps } from "../util/interfaces/SaleInterfaces";
 
 import { toast } from 'react-toastify';
 
-
-
 export const BoxesContext = createContext({} as PaperBoxProductProps);
 
 const BoxesContextProvider: React.FC = ({ children }) =>{
@@ -46,7 +44,7 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
       ]);
 
     } catch (err) {
-      console.log(err);
+      toast.error('Cant add box');
     }
   }
 
@@ -72,16 +70,12 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
       setBox(updatedBoxes);
     
     } catch (err) {
-      console.log(err);
+      toast.error('Cant update box');
     }
   }
 
   async function handleUpdateBoxAfterSell(saleSettle: initialSaleProps) {
     try {
-      if (Number(boxAfterSell.amount) < saleSettle.boxQuantity) {
-        return;
-      }
-      
       const newUpdateForBoxes = await api.put(
         `/paperBox/${boxAfterSell.id}`,
         {
@@ -99,7 +93,7 @@ const BoxesContextProvider: React.FC = ({ children }) =>{
       setBox(updateBoxesAfterSell);
 
     } catch (err) {
-      console.log(err);
+      toast.error('Cant update box');
     }
   }
 

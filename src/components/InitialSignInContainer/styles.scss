@@ -1,0 +1,48 @@
+div.signIn {
+  background: var(--blackgray-900);
+  height: 27.12rem;
+  width: 25rem;
+
+  border-radius: .4rem;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.75));
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    div.inputSignIn {
+      height: 15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    button {
+      margin-top: 3rem;
+      width: 8rem;
+      height: 3rem;
+      color: var(--gray-600);
+
+      border-radius: .2rem;
+      border: none;
+      background: var(--blackgray-600);
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+}
+
+div.signInHidded{
+  display: none;
+}
