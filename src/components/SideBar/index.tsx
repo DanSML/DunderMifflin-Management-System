@@ -7,14 +7,22 @@ import { Link } from 'react-router-dom'
 
 import './styles.scss'
 import { useButtons } from '../../hooks/useButtons'
+import { useUsers } from '../../hooks/useUsers'
 
 interface SideBarProps {
   handleUserState: () => void,
 }
 
-
 function SideBar( {handleUserState} : SideBarProps ) {
   const { buttonState } = useButtons();
+
+  const {userLogged, setUserLogged, blankUser} = useUsers();
+
+  function handleUserLog() {
+    handleUserState();
+    setUserLogged({...blankUser});
+  };
+
   return (
     <div className={buttonState === 'normal' ? 'sideBarContainerHided' : 'sideBarContainer'}>
 
@@ -23,15 +31,15 @@ function SideBar( {handleUserState} : SideBarProps ) {
           <img src={profileImg} alt="profile" />
 
           <div>
-            <span>Michael Scott <br /></span>
-            <span>Regional Manager</span>
+            <span>{userLogged.userName} <br /></span>
+            <span>{`${userLogged.userDepartment} Manager`}</span>
           </div>
 
         </div>
 
         <div className="profileButtons">
           <button className="editButton">Edit</button>
-          <button className="logOutButton" onClick={handleUserState}>Log out</button>
+          <button className="logOutButton" onClick={handleUserLog}>Log out</button>
         </div>  
       </div>
 

@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 import { InitialPage } from "./components/InitialPage";
+import { UserContextProvider } from "./contexts/UserContext";
 
 
 function App() {
@@ -35,23 +36,25 @@ function App() {
             <NewSaleContextProvider>
                <DepositModalContextProvider>
                  <ClientsContextProvider>
-                  <ToastContainer autoClose={3000} />
-                    <div className={userState ? "logged" : "unlogged"}>
-                      <InitialPage
-                        handleUserState={handleUserState}
-                      />
-                    </div>
-                    <div className={userState ? "loggedSection" : "unLoggedSection"}>
-                      <Header/>
-                      <div className={buttonState === 'normal' ? 'mainSectionNoSide' : 'mainSection'}>
-                        <SideBar
+                   <UserContextProvider>
+                    <ToastContainer autoClose={3000} />
+                      <div className={userState ? "logged" : "unlogged"}>
+                        <InitialPage
                           handleUserState={handleUserState}
                         />
-                        <div className="on">
-                          <Routes/>
+                      </div>
+                      <div className={userState ? "loggedSection" : "unLoggedSection"}>
+                        <Header/>
+                        <div className={buttonState === 'normal' ? 'mainSectionNoSide' : 'mainSection'}>
+                          <SideBar
+                            handleUserState={handleUserState}
+                          />
+                          <div className="on">
+                            <Routes/>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </UserContextProvider>
                   </ClientsContextProvider>
                 </DepositModalContextProvider>
               </NewSaleContextProvider>

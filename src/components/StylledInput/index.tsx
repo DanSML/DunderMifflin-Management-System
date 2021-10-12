@@ -1,19 +1,21 @@
 
+import { InputHTMLAttributes } from 'react';
 import './styles.scss'
 
-interface StylledInputProps {
-  type: string,
+interface StylledInputProps extends InputHTMLAttributes<HTMLInputElement> {
   img: string,
-  placeholder: string,
 }
 
-function StylledInput ({type, img, placeholder} : StylledInputProps) {
+function StylledInput ({img, ...props}: StylledInputProps){
   return (
     <div className="stylledInput">
       <label>
         <img src={img} alt="" />
       </label>
-      <input type={type} placeholder={placeholder} required/>
+      <input
+        {...props}
+        required
+      />
     </div>
   );
 };

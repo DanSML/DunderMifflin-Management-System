@@ -1,37 +1,49 @@
 {
-  "paperBox": [
-    {
-      "name": "Brown no Lines",
-      "type": "500 folhas",
-      "amount": 50,
-      "buyPrice": "12.00",
-      "lastUpdate": "10/10/2021",
-      "calculatedTotal": "$600.00",
-      "id": 1
-    },
-    {
-      "name": "Brightness with lines",
-      "type": "250 folhas",
-      "amount": 70,
-      "buyPrice": "9.60",
-      "lastUpdate": "10/10/2021",
-      "calculatedTotal": "$672.00",
-      "id": 2
-    }
-  ],
-  "boxSettings": [
-    {
-      "title": "500 folhas",
-      "percent": 0,
-      "id": 1
-    },
-    {
-      "title": "250 folhas",
-      "percent": 0,
-      "id": 2
-    }
-  ],
+  "paperBox": [],
+  "boxSettings": [],
   "sales": [],
   "clients": [],
-  "dunderFounds": []
+  "dunderFounds": [],
+  "users": [
+    {
+      "userName": "Teste",
+      "userPassword": "teste123",
+      "userEmail": "teste@teste.com",
+      "userDepartment": "teste",
+      "userCreatedAt": "12/10/2021",
+      "id": 1
+    },
+    {
+      "userName": "carlin",
+      "userPassword": "123",
+      "userEmail": "carlin@123",
+      "userDepartment": "come",
+      "userCreatedAt": "12/10/2021",
+      "id": 2
+    },
+    {
+      "userName": "dais",
+      "userPassword": "diahs",
+      "userEmail": "Asdh@dahusd",
+      "userDepartment": "deposit",
+      "userCreatedAt": "12/10/2021",
+      "id": 3
+    },
+    {
+      "userName": "das",
+      "userPassword": "asd",
+      "userEmail": "dasd@dasd",
+      "userDepartment": "dasdasd",
+      "userCreatedAt": "12/10/2021",
+      "id": 4
+    },
+    {
+      "userName": "Teste1",
+      "userPassword": "teste123",
+      "userEmail": "email@teste1.com",
+      "userDepartment": "Deposit",
+      "userCreatedAt": "12/10/2021",
+      "id": 5
+    }
+  ]
 }
