@@ -69,9 +69,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+
+      div.buttonHidded {
+        display: none;
+      }
       
       a {
+        margin-top: 1rem;
         background: var(--blackgray-600);
         color: var(--gray-600);
         font-size: 1rem;
@@ -172,6 +176,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+
+
+      div.depositButton {
+        display: none;
+      }
       
       a {
         background: var(--blackgray-600);
@@ -279,6 +288,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+
+      
+      div.buttonHidded {
+        display: none;
+      }
       
       a {
         background: var(--blackgray-600);
@@ -383,6 +397,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+
+      div.depositButton {
+        display: none;
+      }
       
       a {
         background: var(--blackgray-600);

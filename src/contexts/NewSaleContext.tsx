@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { createContext } from "react";
-import { useBoxes } from "../hooks/useBoxes";
 import api from "../services/api";
 import { date } from "../util/date";
 import { initialSaleProps, SaleProps, SalesProviderProps } from "../util/interfaces/SaleInterfaces";
@@ -13,8 +12,6 @@ export const NewSaleContext = createContext({} as SalesProviderProps);
 
 const NewSaleContextProvider: React.FC = ({children}) => {
   const [sales, setSales] = useState<SaleProps[]>([]);
-
-  const { boxAfterSell } = useBoxes();
 
   useEffect(() => {
     async function getSales() {

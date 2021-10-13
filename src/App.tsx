@@ -6,7 +6,7 @@ import './styles/loggedSection.scss'
 import './styles/styles.scss'
 import './styles/global.scss'
 import { SideBar } from "./components/SideBar";
-import { Routes } from "./routes";
+import { Routes, Routeri } from "./routes";
 import { useButtons } from "./hooks/useButtons";
 import { BoxesContextProvider } from "./contexts/BoxesContext";
 import { BoxesTypesContextProvider } from "./contexts/BoxesTypesContext";
@@ -18,7 +18,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 import { InitialPage } from "./components/InitialPage";
 import { UserContextProvider } from "./contexts/UserContext";
-
 
 function App() {
   const {buttonState} = useButtons();
@@ -51,6 +50,7 @@ function App() {
                           />
                           <div className="on">
                             <Routes/>
+                            <Routeri/>
                           </div>
                         </div>
                       </div>

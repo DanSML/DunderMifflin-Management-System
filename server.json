@@ -1,49 +1,78 @@
 {
-  "paperBox": [],
-  "boxSettings": [],
-  "sales": [],
-  "clients": [],
-  "dunderFounds": [],
-  "users": [
+  "paperBox": [
     {
-      "userName": "Teste",
-      "userPassword": "teste123",
-      "userEmail": "teste@teste.com",
-      "userDepartment": "teste",
-      "userCreatedAt": "12/10/2021",
+      "name": "Brown handed",
+      "type": "500 sheets",
+      "amount": 5,
+      "buyPrice": "10.00",
+      "lastUpdate": "12/10/2021",
+      "calculatedTotal": "$50.00",
+      "id": 1
+    }
+  ],
+  "boxSettings": [
+    {
+      "title": "500 sheets",
+      "percent": 0,
+      "id": 1
+    }
+  ],
+  "sales": [
+    {
+      "boxQuantity": 5,
+      "client": "Isior",
+      "boxSelled": "Brown handed",
+      "date": "12/10/2021",
+      "id": 1
+    }
+  ],
+  "clients": [
+    {
+      "name": "A",
+      "clientSince": "12/10/2021",
+      "importance": "D",
       "id": 1
     },
     {
-      "userName": "carlin",
-      "userPassword": "123",
-      "userEmail": "carlin@123",
-      "userDepartment": "come",
-      "userCreatedAt": "12/10/2021",
+      "name": "asd",
+      "clientSince": "13/10/2021",
+      "importance": "D",
       "id": 2
-    },
+    }
+  ],
+  "dunderFounds": [],
+  "users": [
     {
-      "userName": "dais",
-      "userPassword": "diahs",
-      "userEmail": "Asdh@dahusd",
-      "userDepartment": "deposit",
-      "userCreatedAt": "12/10/2021",
-      "id": 3
-    },
-    {
-      "userName": "das",
-      "userPassword": "asd",
-      "userEmail": "dasd@dasd",
-      "userDepartment": "dasdasd",
-      "userCreatedAt": "12/10/2021",
-      "id": 4
-    },
-    {
-      "userName": "Teste1",
+      "userName": "TesteMana",
       "userPassword": "teste123",
-      "userEmail": "email@teste1.com",
-      "userDepartment": "Deposit",
+      "userEmail": "TesteMana@mail.com",
+      "userDepartment": "Management",
       "userCreatedAt": "12/10/2021",
-      "id": 5
+      "id": 6
+    },
+    {
+      "userName": "TesteSales",
+      "userPassword": "123",
+      "userEmail": "sa@das",
+      "userDepartment": "Sales",
+      "userCreatedAt": "12/10/2021",
+      "id": 7
+    },
+    {
+      "userName": "TesteDep",
+      "userPassword": "123",
+      "userEmail": "duahs@dasuh",
+      "userDepartment": "Deposit",
+      "userCreatedAt": "13/10/2021",
+      "id": 8
+    },
+    {
+      "userName": "tested",
+      "userPassword": "123",
+      "userEmail": "das@das",
+      "userDepartment": "Deposit",
+      "userCreatedAt": "13/10/2021",
+      "id": 9
     }
   ]
 }

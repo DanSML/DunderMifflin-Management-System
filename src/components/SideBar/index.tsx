@@ -39,23 +39,33 @@ function SideBar( {handleUserState} : SideBarProps ) {
 
         <div className="profileButtons">
           <button className="editButton">Edit</button>
-          <button className="logOutButton" onClick={handleUserLog}>Log out</button>
+          <button className="logOutButton" onClick={handleUserLog}>
+            <Link to="/">
+              Log out
+            </Link>
+          </button>
         </div>  
       </div>
 
       <div className="departmentButtons">
-        <Link to="/deposit">
-          <img src={depositImg} alt="deposit" />
-          <span> Deposit </span>
-        </Link>     
-        <Link to="/sales">
-          <img src={salestImg} alt="sales" />
-          <span> Sales </span>
-        </Link>
-        <Link to="/management">
-          <img src={reporttImg} alt="report" />
-          <span> Management </span>
-        </Link>
+        <div className={userLogged.userDepartment === 'Deposit' || userLogged.userDepartment === 'Management' ? '' : 'buttonHidded'}>
+          <Link to="/deposit">
+            <img src={depositImg} alt="deposit" />
+            <span> Deposit </span>
+          </Link>    
+        </div>
+        <div className={userLogged.userDepartment === 'Sales' || userLogged.userDepartment === 'Management' ? '' : 'buttonHidded'}>
+          <Link to="/sales">
+            <img src={salestImg} alt="sales" />
+            <span> Sales </span>
+          </Link>
+        </div>
+        <div className={userLogged.userDepartment === 'Management' ? '' : 'buttonHidded'}>
+          <Link to="/management">
+            <img src={reporttImg} alt="report" />
+            <span> Management </span>
+          </Link>
+        </div>
       </div>
     </div>
   );

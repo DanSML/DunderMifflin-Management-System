@@ -21,7 +21,7 @@ function InitialSignInContainer( {isActive, setSignInState}: InitialSignInContai
   const [userEmail, setUserEmail] = useState('');
   const [userDepartment, setUserDepartment] = useState('');
   
-  const { users, handleAddUser } = useUsers();
+  const {  handleAddUser } = useUsers();
 
   async function handleUserAdd(event: FormEvent) {
     event.preventDefault();

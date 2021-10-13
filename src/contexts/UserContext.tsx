@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import api from "../services/api";
 import { date } from "../util/date";
 
-interface UserProps {
+export interface UserProps {
   userId: number,
   userName: string,
   userPassword: string,
@@ -21,6 +21,9 @@ interface UserContextProps {
   users: UserProps[],
   userLogged: UserProps,
   blankUser: UserProps,
+  depositAuthResponse: boolean,
+  salesAuthResponse: boolean,
+  managementAuthResponse:boolean,
 
   setUserLogged: (props: UserProps) => void
   handleAddUser: (props: InitialUserProps) => void,
@@ -31,8 +34,11 @@ export const UserContext = createContext({} as UserContextProps);
 
 const UserContextProvider: React.FC = ( {children} )=> {
   const [users, setUsers] = useState<UserProps[]>([]);
-  const [blankUser, setBlankUser]= useState<UserProps>({} as UserProps);
+  const [blankUser ]= useState<UserProps>({} as UserProps);
   const [userLogged, setUserLogged] = useState<UserProps>({} as UserProps);
+  const [depositAuthResponse, setDepositAuthResponse] = useState(false);
+  const [salesAuthResponse, setSalesAuthResponse] = useState(false);
+  const [managementAuthResponse, setManagementAuthResponse] = useState(false);
 
   useEffect(() => {
     async function getUsers() {
@@ -41,6 +47,31 @@ const UserContextProvider: React.FC = ( {children} )=> {
     }
     getUsers();
   }, []);
+
+
+  function handleUserDepositAuth(validation: string) {
+    if (validation === 'Deposit' || validation === 'Management') {
+      setDepositAuthResponse(true);
+    } else {
+      setDepositAuthResponse(false);
+    }
+  }
+
+  function handleUserSalesAuth(validation: string) {
+    if (validation === 'Sales' || validation === 'Management') {
+      setSalesAuthResponse(true);
+    } else {
+      setSalesAuthResponse(false);
+    }
+  }
+
+  function handleUserManagementAuth(validation: string) {
+    if (validation === 'Management') {
+      setManagementAuthResponse(true);
+    } else {
+      setManagementAuthResponse(false);
+    }
+  }
 
   async function handleAddUser(newUser: InitialUserProps) {
     try {
@@ -66,6 +97,9 @@ const UserContextProvider: React.FC = ( {children} )=> {
           if (user.userPassword === userEntry.userPassword){
             toast.success(`Welcome ${userEntry.userName}`);
             setUserLogged(user);
+            handleUserDepositAuth(user.userDepartment);
+            handleUserSalesAuth(user.userDepartment);
+            handleUserManagementAuth(user.userDepartment);
           }
         }
       });
@@ -83,6 +117,9 @@ const UserContextProvider: React.FC = ( {children} )=> {
         users,
         userLogged,
         blankUser,
+        depositAuthResponse,
+        salesAuthResponse,
+        managementAuthResponse,
 
         setUserLogged,
         handleAddUser,
