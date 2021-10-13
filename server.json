@@ -3,11 +3,20 @@
     {
       "name": "Brown handed",
       "type": "500 sheets",
-      "amount": 5,
+      "amount": 12,
       "buyPrice": "10.00",
-      "lastUpdate": "12/10/2021",
-      "calculatedTotal": "$50.00",
+      "lastUpdate": "13/10/2021",
+      "calculatedTotal": "$120.00",
       "id": 1
+    },
+    {
+      "name": "Nova",
+      "type": "500 sheets",
+      "amount": 0,
+      "buyPrice": "25.00",
+      "lastUpdate": "13/10/2021",
+      "calculatedTotal": "$0.00",
+      "id": 2
     }
   ],
   "boxSettings": [
@@ -24,6 +33,13 @@
       "boxSelled": "Brown handed",
       "date": "12/10/2021",
       "id": 1
+    },
+    {
+      "boxQuantity": 15,
+      "client": "VInce",
+      "boxSelled": "Nova",
+      "date": "13/10/2021",
+      "id": 2
     }
   ],
   "clients": [

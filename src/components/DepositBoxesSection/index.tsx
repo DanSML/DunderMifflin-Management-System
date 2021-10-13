@@ -62,10 +62,7 @@ function DepositBoxesSection( {active}: DepositBoxesSectionProps) {
               <td>{box.amount}</td>
               <td>{box.name}</td>
               <td>{box.type}</td>
-              <td>{date.format(
-                new Date(box.lastUpdate)
-              )
-              }</td>
+              <td>{box.lastUpdate}</td>
               <td>
                 <DotsEditButton
                   logo={pointsEdtImg}
